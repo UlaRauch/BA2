@@ -1,0 +1,52 @@
+# Backend For Frontend Authentication vs. ??? Pattern for securing microservices
+
+Beide Patterns werden häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf
+Vor- und Nachteile
+Beide als Prototyp implementiert mit Teapot
+Vergleich mit Loadtesting (JMeter), Security (Literatur, Tests soweit einfach machbar), Einfachheit der Implementierung
+
+## Introduction
+	### What are Microservices
+	### Microservices Security Challenges
+	### Authentication and Authorization
+	### Authentication Patterns
+		-> Diagramme
+
+## Technologies
+
+### Spring Boot and Spring Security
+	- inkl. Spring Cloud Gateway?
+### Oauth2 and OpenID Connect
+### Keycloak
+### Docker and Docker Compose
+...
+schau in den anderen arbeiten nach!
+
+
+## Evaluation
+
+### Performance
+	LoadTesting with JMeter
+
+### Implementation
+	Metrics:
+		- Programming Effort
+		- Lines of Code
+		- Cyclomatic Complexity Metric (CCM) (gesehen bei Alkhodary - schwierig?)
+
+
+### Security
+	STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
+	Problem: Aufwand unklar
+	Postman Screenshots, Tabelle(n)
+	
+## Literatur
+- Alkhodary (Master's Thesis)
+- 
+
+
+
+Wo rein?
+- Eureka Discovery Service
+- MongoDB
+- React Frontend
