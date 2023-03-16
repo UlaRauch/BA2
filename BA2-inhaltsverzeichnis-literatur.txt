@@ -1,26 +1,58 @@
-# Backend For Frontend Authentication vs. ??? Pattern for securing microservices
+# Arbeitstitel: Comparing Microservices Edge-Level Authentication Patterns Backend For Frontend (Gateway als Client) Authentication and Edge-Level API Gateway (Frontend als OIDC-Client, Gateway als Resource Server) Pattern for Securing Microservices
 
-Beide Patterns werden häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf
-Vor- und Nachteile
-Beide als Prototyp implementiert mit Teapot
-Vergleich mit Loadtesting (JMeter), Security (Literatur, Tests soweit einfach machbar), Einfachheit der Implementierung
+Beide Patterns werden anscheinend häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf (oft ist auch nicht klar, was gemeint ist, weil Beispiele stark vereinfacht sind und Frontend ignoriert wird)
+Was sind Vor- und Nachteile der beiden Patterns?
+
+Prototyp in beiden Varianten implementieren mit Teapot-Projekt
+Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests soweit einfach machbar) und Einfachheit/Komplexität der Implementierung
+
+
 
 ## Introduction
-	### What are Microservices
+
+	### Microservice-based vs. Monolithic Architecture
+
 	### Microservices Security Challenges
+
 	### Authentication and Authorization
+
 	### Authentication Patterns
 		-> Diagramme
 
-## Technologies
+
+
+## Technologies and Frameworks
+	
+	Beschreibung von Technologien, die in meinem Projekt eingesetzt werden. Alternativ in jeweilige Abschnitte unter Introduction integrieren?
 
 ### Spring Boot and Spring Security
-	- inkl. Spring Cloud Gateway?
+
+	inkl. Spring Cloud Gateway?
+
+### Eureka Discovery Service
+
 ### Oauth2 and OpenID Connect
+
 ### Keycloak
+
 ### Docker and Docker Compose
-...
-schau in den anderen arbeiten nach!
+
+### Weitere?
+
+
+
+## Methodology
+
+## Implementation
+
+### Protype
+
+	Teapot-Projekt Beschreibung mit Diagrammen
+
+### Frontend as Client
+		
+### Backend for Frontend
+
 
 
 ## Evaluation
@@ -29,24 +61,39 @@ schau in den anderen arbeiten nach!
 	LoadTesting with JMeter
 
 ### Implementation
+
 	Metrics:
-		- Programming Effort
+	
+	(gesehen bei Alkhodary - lieber nur einen Teil davon, wenn zu aufwändig)
+
+		- Coupling (between services)
 		- Lines of Code
-		- Cyclomatic Complexity Metric (CCM) (gesehen bei Alkhodary - schwierig?)
+		- Cyclomatic Complexity Metric (CCM)
+		- Halstead Complexity Metric (HCM)
 
 
 ### Security
+
 	STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
+	
 	Problem: Aufwand unklar
+	
 	Postman Screenshots, Tabelle(n)
 	
+	Microusity?
+
+
+
+## Results
+	
+## Conclusion
+
+	
 ## Literatur
-- Alkhodary (Master's Thesis)
-- 
-
-
-
-Wo rein?
-- Eureka Discovery Service
-- MongoDB
-- React Frontend
+- Alkhodary, Samer: The Evaluation of Using Backend-For-Frontend in a Microservices Environment (Master's Thesis). 2023 https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=9086847&fileOId=9086853
+- Barabanov, Alexander, and Denis Makrushin: Authentication and authorization in microservice-based systems: survey of architecture patterns. 2020. https://arxiv.org/abs/2009.02114
+- Rattanukul, Pattarakrit et al.: Microusity: A testing tool for Backends for Frontends (BFF) Microservice Systems. 2023 http://arxiv.org/abs/2302.11150
+- Zdun, Uwe, et al.: Microservice Security Metrics for Secure Communication, Identity Management, and Observability. 2023 https://dl.acm.org/doi/full/10.1145/3532183#d1e3643
+- Waseem, Muhammad, et al.: Design, monitoring, and testing of microservices systems: The practitioners’ perspective. 2021  https://www.sciencedirect.com/science/article/pii/S0164121221001588?casa_token=45GWMMRmxTEAAAAA:e_tiEkmLB0umqDJ53MILNNG483O4-HGD0zHKwYSrHVFrt7tV3MeNmG48anw9yI-rIdA-cT7TsYs
+- Siriwardena, Prabath, and Nuwan Dias: Microservices Security in Action. Manning, 2020.
+- weitere Literatur aus BA1
