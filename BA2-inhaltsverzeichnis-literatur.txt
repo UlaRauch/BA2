@@ -1,10 +1,13 @@
-# Arbeitstitel: Comparing Microservices Edge-Level Authentication Patterns Backend For Frontend (Gateway als Client) Authentication and Edge-Level API Gateway (Frontend als OIDC-Client, Gateway als Resource Server) Pattern for Securing Microservices
+# Arbeitstitel: Comparing Microservices Edge-Level Authentication Patterns Backend For Frontend (Gateway als Client) Authentication
+	and Edge-Level API Gateway (Frontend als OIDC-Client, Gateway als Resource Server) Pattern for Securing Microservices
 
-Beide Patterns werden anscheinend häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf (oft ist auch nicht klar, was gemeint ist, weil Beispiele stark vereinfacht sind und Frontend ignoriert wird)
+Beide Patterns werden anscheinend häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf
+(oft ist auch nicht klar, was gemeint ist, weil Beispiele stark vereinfacht sind und Frontend ignoriert wird)
 Was sind Vor- und Nachteile der beiden Patterns?
 
 Prototyp in beiden Varianten implementieren mit Teapot-Projekt
-Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests soweit einfach machbar) und Einfachheit/Komplexität der Implementierung
+Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests soweit einfach machbar)
+und Einfachheit/Komplexität der Implementierung
 
 
 
