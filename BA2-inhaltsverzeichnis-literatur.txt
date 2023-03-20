@@ -8,7 +8,7 @@ Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests s
 
 
 
-## Introduction
+## 1. Introduction
 
 	### Microservice-based vs. Monolithic Architecture
 
@@ -21,46 +21,43 @@ Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests s
 
 
 
-## Technologies and Frameworks
+## 2. Technologies and Frameworks
 	
 	Beschreibung von Technologien, die in meinem Projekt eingesetzt werden. Alternativ in jeweilige Abschnitte unter Introduction integrieren?
 
-### Spring Boot and Spring Security
+	### Spring Boot and Spring Security
 
-	inkl. Spring Cloud Gateway?
+		inkl. Spring Cloud Gateway?
 
-### Eureka Discovery Service
+	### Eureka Discovery Service
 
-### Oauth2 and OpenID Connect
+	### Oauth2 and OpenID Connect
 
-### Keycloak
+	### Keycloak
 
-### Docker and Docker Compose
+	### Docker and Docker Compose
 
-### Weitere?
+	### Weitere?
 
+## 3. Methodology
 
+## 4. Implementation
 
-## Methodology
+	### Protype
 
-## Implementation
+		Teapot-Projekt Beschreibung mit Diagrammen
 
-### Protype
-
-	Teapot-Projekt Beschreibung mit Diagrammen
-
-### Frontend as Client
+	### Frontend as Client
 		
-### Backend for Frontend
+	### Backend for Frontend
 
 
+## 4. Evaluation
 
-## Evaluation
+	### Performance
+		LoadTesting with JMeter
 
-### Performance
-	LoadTesting with JMeter
-
-### Implementation
+	### Implementation
 
 	Metrics:
 	
@@ -72,21 +69,21 @@ Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests s
 		- Halstead Complexity Metric (HCM)
 
 
-### Security
+	### Security
 
-	STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
-	
-	Problem: Aufwand unklar
-	
-	Postman Screenshots, Tabelle(n)
-	
-	Microusity?
+		STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
+
+		Problem: Aufwand unklar
+
+		Postman Screenshots, Tabelle(n)
+
+		Microusity?
 
 
 
-## Results
+## 5. Results
 	
-## Conclusion
+## 6. Conclusion
 
 	
 ## Literatur
