@@ -1,4 +1,4 @@
-# Arbeitstitel: Comparing Microservices Edge-Level Authentication Patterns Backend For Frontend (Gateway als Client) Authentication
+# Arbeitstitel: Comparing Microservices (Edge-Level) Authentication Patterns: Backend For Frontend (Gateway als Client) Authentication
 	and Edge-Level API Gateway (Frontend als OIDC-Client, Gateway als Resource Server) Pattern for Securing Microservices
 
 Beide Patterns werden anscheinend häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf
