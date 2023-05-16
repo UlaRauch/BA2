@@ -9,6 +9,9 @@ Prototyp in beiden Varianten implementieren mit Teapot-Projekt
 Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests soweit einfach machbar)
 und Einfachheit/Komplexität der Implementierung
 
+## Abbreviations
+
+MTLS
 
 
 ## 1. Introduction
@@ -21,7 +24,9 @@ und Einfachheit/Komplexität der Implementierung
 
 	### Authentication Patterns
 		-> Diagramme
-
+		Wireshark capture screenshots zum auth code grant mit session zwischen browser und gateway als client
+		
+-- related work
 
 
 ## 2. Technologies and Frameworks
@@ -30,23 +35,47 @@ und Einfachheit/Komplexität der Implementierung
 
 	### Spring Boot and Spring Security
 
-		inkl. Spring Cloud Gateway?
+		inkl. Spring Cloud Gateway? Yes!
 
-	### Eureka Discovery Service
+	### Eureka Discovery Service - WEG
+	
+	### MongoDB? - relevant?
 
 	### Oauth2 and OpenID Connect
 
 	### Keycloak
 
 	### Docker and Docker Compose
+	
+	### JMeter
+	
+	### (Wireshark)
 
 	### Weitere?
 
 ## 3. Methodology
 
-## 4. Implementation
+Prototype Setup:
+	With the basic implementation of the prototype system (see section 4 Impl (reihenfolge tauschen?), 4 different versions were created: one with the Gateway as the OAuth2 client and with the Tea Service as a Resource Server, one where the Gateway and the Tea Service are both Resource Servers and one where only the Gateway is a Resource Server and the Tea Service remains unprotected. The initial intention was to implement MTLS between the Gateway and the Resource Server as recommended in [Siriwardena - Microservices Security in Action - Seite???]. This last version was later abandoned in favour of the focus on the difference of the client position in the system. Testing a difference between OAuth2 and MTLS lies outside the scope of this thesis.
+		
+The the remaining three versions of Gateway and Teaservice were then deployed in docker containers and different port numbers were then assigned to all services and gateways, so that they could run simultanously in the same network. Additionally, a Keycloak Server and a MongoDB Database were deployed in containers, serving all versions, where needed.
+
+	- Diagramm der drei Systemvarianten als containter mit keycloak & mongo hier -
+
+Performance tests with JMeter:
+	- Setup beschreiben
+
+
+## 4. Implementation (switch mit Methodology?)
 
 	### Protype
+	
+	The basic idea for the prototype is a virtual tea kitchen, where different types of tea are stored in the backend, which can be requested by the frontend after the users have successfully authenticated themselves. Then they are displayed to the user with the option to "make tea", by clicking a button. This prototype was developed as a project in the 5th semester with a slightly different focus, therefore it contains features and technological properties which are not strictly necessary for the present research. --- Eureka dabei oder nicht??? ---
+	
+	What remained, was a stripped-down minimal representation of a MSA, consisting of the Tea Service itself with the MongoDB database, and a Gateway. Eureka??? The two different frontend versions, one with the frontend application as Oauth2 client, one where the frontend application doesn't know anything about OAuth2, where the Gateway acts as OAuth2 client, were not used in this research. Instead, they were simulated by JMeter scipts [vgl. ... ?]
+	
+	
+	consisting of a Spring Boot Tea Service with a Database where Tea Entities are stored. The Tea Service offers different Endpoints  
 
 		Teapot-Projekt Beschreibung mit Diagrammen
 
