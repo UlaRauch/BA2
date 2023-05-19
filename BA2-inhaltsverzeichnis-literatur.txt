@@ -9,6 +9,14 @@ Prototyp in beiden Varianten implementieren mit Teapot-Projekt
 Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests soweit einfach machbar)
 und Einfachheit/Komplexität der Implementierung
 
+Leon:
+Intro passt
+Technologies and Frameworks vorerst überspringen
+Methodology kurz - evt. in Intro integrieren
+Projektbeschreibung + jmeter-setup unter Implementation
+statische codeanalyse: Sonarqube
+
+
 ## Abbreviations
 
 MTLS
@@ -29,7 +37,7 @@ MTLS
 -- related work
 
 
-## 2. Technologies and Frameworks
+## 2. Technologies and Frameworks - 
 	
 	Beschreibung von Technologien, die in meinem Projekt eingesetzt werden. Alternativ in jeweilige Abschnitte unter Introduction integrieren?
 
