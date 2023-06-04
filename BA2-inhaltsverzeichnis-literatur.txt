@@ -16,6 +16,9 @@ Methodology kurz - evt. in Intro integrieren
 Projektbeschreibung + jmeter-setup unter Implementation
 statische codeanalyse: Sonarqube
 
+Achtung: was noch fehlt:
+Wohin kommt der ganze OAuth2/OIDC teil? Introduction wird sehr fett dadurch und Implementation finde ich ein bissl spät dafür
+
 
 ## Abbreviations
 
@@ -39,9 +42,8 @@ MTLS
 
 ## 4. Implementation (switch mit Methodology?)
 	spring boot
-	oauth2
-	oidc
 	keycloak
+	Docker
 
 	Prototype:
 		high-level design:
