@@ -1,0 +1,82 @@
+Fragen:
+
+- wie implementiert man MSA AuthN/AuthZ mit Spring Boot und Keycloak?
+daher als erstes eine proof of concept implementation mit einem vereinfachten MSA system
+führt zur frage, ob
+-> client am gateway oder im frontend?
+es gibt beide möglichkeiten, tutorials zeigen beides, gateway als client findet man auch in BFF wieder, umgeht das problem der SPAs
+--> führt zu weiteren fragen
+--> Vor- und Nachteile der beiden Varianten?
+---> performance? JMeter
+---> Complexity? (da frontend selbst nicht im scope liegt, wird diese frage nur zum teil beantwortet)
+---> Security Considerations? SPA probleme, browser-session -> andere client-arten?
+
+Auth code grant flow beschreiben mit wireshark an welcher stelle? Implementation?
+
+
+Intro
+technologies
+
+gateway: diagramm mit mehr services als ich verwendet hab ist auch ok, braucht mehr platz und ist anschaulicher
+diagramm für jmeter-scenario
+load testing -> andere arbeiten, die auch mit jmeter testen, zitieren als argument, dass jmeter sinnvoll ist. floren schreibt einen ganzen absatz zu research für load testing
+	- bonus: zusätzliche plots und linear regression mit python scripts
+security tests floren schreibt, dass es inspired by nehme et al war. -> focus auf invalid requests, postman screenshots
+	- bonus: wireshark
+Hardware! Dabei erwähnen, dass der Computer eingegangen ist
+
+auch irgendwo schreiben, z.b. conclusion, dass u.a. docker sehr mühsam war, weil unzuverlässig auf neuem computer
+
+---
+Load tests:
+auth:
+- direkt an teas_rs mit + ohne db
+- gateway-rs an teas_rs mit + ohne db (doppelt untermauert hoffentlich die zahlen)
+- gateway_cl an teas_rs mit + ohne db
+- direkt an gateway_rs
+- direkt an gateway_cl
+
+ohne auth:
+- gateway_cl (hellogateway)
+- gateway_rs (hellogateway)
+- teas_rs (teas/hello/noauth)
+
+- gateway_0 -> /hellogateway
+- gateway_0 -> /helloauth (Anmerken, dass der name hier irreführend ist)
+- gateway_0 an teas_0 /hello/noauth
+usw...
+
+muss nicht alles sein, mit kleinerem set starten!
+
+ramp up time?
+no of threads?
+
+
+---
+
+gateway client:
+
+session cookie
+
+jmeter spielt browser, der mit gateway (client) redet -> user authentication + grant passiert vorher manuell, jmeter kriegt dann session cookie
+
+vs gateway_rs: jmeter spielt client, z.B. SPA
+
+---
+
+Minimalversion:
+Zahlen in Tabellen!
+D.h. Summary.
+
+graphen:
+
+zu einzelnen requests beispielhaft bar charts?
+
+zu jedem request und jeder thread-anzahl die median load time aufzeichnen
+median kann ich selber ausrechnen mit python!
+
+
+load tests nochamal:
+300:
+gw-cl-hellotea
+evt. auch die anderen danach...

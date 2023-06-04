@@ -1,0 +1,51 @@
+Plantuml diagramme für BA2
+
+
+teapot sequence diagram for /hellotea/tea
+@startuml
+actor User
+participant Gateway
+participant KeycloakServer
+participant TeaService
+
+User -> Gateway: GET localhost:8181/hellotea/tea
+Gateway -> KeycloakServer: requestAuthorizationCode
+KeycloakServer -> User: sendAuthorizationRequest
+User -> KeycloakServer: grantAuthorization
+User -> Gateway: sendAuthorizationCode(code)
+Gateway -> KeycloakServer: requestAccessToken(code)
+KeycloakServer -> Gateway: returnAccessToken
+Gateway -> TeaService: GET localhost:8184/teas/hello/tea (accessToken)
+TeaService -> Gateway: 200 OK, "Hello tea"
+Gateway -> User: 200 OK, "Hello tea"
+@enduml
+
+
+Complete Teapot high-level architecture
+@startuml
+skinparam packageStyle rect
+
+  [User]
+
+package " " {
+  [Frontend]
+  [Keycloak Server]
+
+	package "Teapot System" {
+		[API Gateway]
+		[Eureka Discovery Service]
+		[Tea Service]
+		[MongoDB]
+		[Milk Service]
+	}
+}
+
+[User] -- [Frontend]
+[Frontend] -- [API Gateway]
+[API Gateway] -- [Keycloak Server]
+[Tea Service] -- [Keycloak Server]
+[API Gateway] -- [Eureka Discovery Service]
+[Eureka Discovery Service] -- [Tea Service]
+[Eureka Discovery Service] -- [Milk Service]
+[Tea Service] -- [MongoDB]
+@enduml

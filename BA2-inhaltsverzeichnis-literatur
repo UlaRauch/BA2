@@ -1,0 +1,124 @@
+# Arbeitstitel: Comparing Microservices Edge-Level Authentication Patterns Backend For Frontend (Gateway als Client) Authentication and Edge-Level API Gateway (Frontend als OIDC-Client, Gateway als Resource Server) Pattern for Securing Microservices
+
+Beide Patterns werden anscheinend häufig eingesetzt und tauchen in vielen Beispielen und Tutorials auf (oft ist auch nicht klar, was gemeint ist, weil Beispiele stark vereinfacht sind und Frontend ignoriert wird)
+Was sind Vor- und Nachteile der beiden Patterns?
+
+Prototyp in beiden Varianten implementieren mit Teapot-Projekt
+Vergleich von Performance (Loadtesting mit JMeter), Security (Literatur, Tests soweit einfach machbar) und Einfachheit/Komplexität der Implementierung
+
+
+
+## Introduction
+
+	### Microservice-based vs. Monolithic Architecture
+
+	### Microservices Security Challenges
+
+	### Authentication and Authorization
+
+	### Authentication Patterns
+		-> Diagramme
+
+
+
+## Technologies and Frameworks
+	
+	Beschreibung von Technologien, die in meinem Projekt eingesetzt werden. Alternativ in jeweilige Abschnitte unter Introduction integrieren?
+
+### Spring Boot and Spring Security
+
+	inkl. Spring Cloud Gateway?
+
+### Eureka Discovery Service
+
+### Oauth2 and OpenID Connect
+
+### Keycloak
+
+### Docker and Docker Compose
+
+### Weitere?
+
+
+
+## Methodology
+
+## Implementation
+
+### Protype
+
+	Teapot-Projekt Beschreibung mit Diagrammen
+
+### Frontend as Client
+		
+### Backend for Frontend
+
+
+
+## Evaluation
+
+### Performance
+	LoadTesting with JMeter
+
+### Implementation
+
+	Metrics:
+	
+	(gesehen bei Alkhodary - lieber nur einen Teil davon, wenn zu aufwändig)
+
+		- Coupling (between services)
+		- Lines of Code
+		- Cyclomatic Complexity Metric (CCM)
+		- Halstead Complexity Metric (HCM)
+
+
+### Security
+
+	STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
+	
+	Problem: Aufwand unklar
+	
+	Postman Screenshots, Tabelle(n)
+	
+	Microusity?
+
+
+
+## Results
+	
+## Conclusion
+
+	
+## Literatur
+- Alkhodary, Samer: The Evaluation of Using Backend-For-Frontend in a Microservices Environment (Master's Thesis). 2023 https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=9086847&fileOId=9086853
+- Barabanov, Alexander, and Denis Makrushin: Authentication and authorization in microservice-based systems: survey of architecture patterns. 2020. https://arxiv.org/abs/2009.02114
+- Rattanukul, Pattarakrit et al.: Microusity: A testing tool for Backends for Frontends (BFF) Microservice Systems. 2023 http://arxiv.org/abs/2302.11150
+- Zdun, Uwe, et al.: Microservice Security Metrics for Secure Communication, Identity Management, and Observability. 2023 https://dl.acm.org/doi/full/10.1145/3532183#d1e3643
+- Waseem, Muhammad, et al.: Design, monitoring, and testing of microservices systems: The practitioners’ perspective. 2021  https://www.sciencedirect.com/science/article/pii/S0164121221001588?casa_token=45GWMMRmxTEAAAAA:e_tiEkmLB0umqDJ53MILNNG483O4-HGD0zHKwYSrHVFrt7tV3MeNmG48anw9yI-rIdA-cT7TsYs
+- weitere Literatur aus BA1
+- Siriwardena, Prabath, and Nuwan Dias: Microservices Security in Action. Manning, 2020.
+---
+
+minimalversionen zu allen kapiteln schnell schreiben. notfalls erweitern, wenn dem leon was fehlt.
+
+erweiterungsoption z.b:
+was wurde nicht gemacht (oauth rollen)
+
+---------------
+gegenüberstellung BFF vs direkter zugriff auf einzelne microservices wirklich realistisch?
+kann man zwischen api-gateway und bff unterscheiden? ja, laut hier
+https://mobilelive.medium.com/backend-for-frontend-vs-api-gateway-which-one-should-you-choose-7e31b84259f9
+
+bff ist auch nur ein spezifiziertes api-gateway laut hier
+https://medium.com/javarevisited/api-gateway-vs-backend-for-frontend-bff-everything-you-need-to-know-90154a1e693f
+
+vom gateway zum service dahinter ist eigentlich service-to-service?
+https://developer.okta.com/blog/2019/03/07/spring-microservices-https-oauth2
+
+aber nicht vergessen, dass meine vorstellung mit dem api-gateway als client aus diversen tutorial kommt. nocheinmal checken zur bestätigung.
+
+das führt wieder dazu, dass ich das cors-ding lösen muss.
+
+
+leon fragen, ob notfalls auch keycloak vs. github o.ä. eine option ist. wenn die nicht die volle funktionalität bieten, cognito, wenn auch ungern. ohne frontend.
+vielleicht find ich noch einen anderen open source provider.
