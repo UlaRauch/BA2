@@ -24,6 +24,8 @@ MTLS
 
 ## 1. Introduction
 
+	### related work
+	
 	### Microservice-based vs. Monolithic Architecture
 
 	### Microservices Security Challenges
@@ -32,11 +34,77 @@ MTLS
 
 	### Authentication Patterns
 		-> Diagramme
-		Wireshark capture screenshots zum auth code grant mit session zwischen browser und gateway als client
-		
--- related work
+	
+	### Methodology
+
+## 4. Implementation (switch mit Methodology?)
+	spring boot
+	oauth2
+	oidc
+	keycloak
+
+	Prototype:
+		high-level design:
+	- Diagramme aller versionen
+
+	Setup (code):
+		IntelliJ -> Spring Boot -> Maven Dependencies
+		properties.yml/application.properties
+		SecurityConfig
+
+	Performance tests with JMeter:
+		- Testplans
+		- Powershell Script
+		Problems
+	Wireshark Captures
+
+## 4. Results (vorher Evaluation)
+
+	### Performance
+		LoadTesting with JMeter
+		Response Times
+		Graphen hier
+		Response Times per number of active Threads -bemerkung dazu?
+
+	Wireshark
+		captures hier + Erklärung
+
+	### Metrics:
+	Abspecken!
+	(gesehen bei Alkhodary - lieber nur einen Teil davon, wenn zu aufwändig)
+
+		- Coupling (between services)
+		- Lines of Code
+		- Cyclomatic Complexity Metric (CCM)
+		- Halstead Complexity Metric (HCM)
 
 
+	### Security
+
+		Abspecken!
+		STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
+
+		Problem: Aufwand unklar
+
+		Postman Screenshots, Tabelle(n)
+
+
+
+## 5. Discussion (vorher Results -> in Results integrieren?
+
+## 6. Conclusion
+	Future work etc.
+	
+## Literatur
+- Alkhodary, Samer: The Evaluation of Using Backend-For-Frontend in a Microservices Environment (Master's Thesis). 2023 https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=9086847&fileOId=9086853
+- Barabanov, Alexander, and Denis Makrushin: Authentication and authorization in microservice-based systems: survey of architecture patterns. 2020. https://arxiv.org/abs/2009.02114
+- Rattanukul, Pattarakrit et al.: Microusity: A testing tool for Backends for Frontends (BFF) Microservice Systems. 2023 http://arxiv.org/abs/2302.11150
+- Zdun, Uwe, et al.: Microservice Security Metrics for Secure Communication, Identity Management, and Observability. 2023 https://dl.acm.org/doi/full/10.1145/3532183#d1e3643
+- Waseem, Muhammad, et al.: Design, monitoring, and testing of microservices systems: The practitioners’ perspective. 2021  https://www.sciencedirect.com/science/article/pii/S0164121221001588?casa_token=45GWMMRmxTEAAAAA:e_tiEkmLB0umqDJ53MILNNG483O4-HGD0zHKwYSrHVFrt7tV3MeNmG48anw9yI-rIdA-cT7TsYs
+- Siriwardena, Prabath, and Nuwan Dias: Microservices Security in Action. Manning, 2020.
+- weitere Literatur aus BA1
+
+Alt:
 ## 2. Technologies and Frameworks - 
 	
 	Beschreibung von Technologien, die in meinem Projekt eingesetzt werden. Alternativ in jeweilige Abschnitte unter Introduction integrieren?
@@ -61,76 +129,3 @@ MTLS
 
 	### Weitere?
 
-## 3. Methodology
-
-Prototype Setup:
-	With the basic implementation of the prototype system (see section 4 Impl (reihenfolge tauschen?), 4 different versions were created: one with the Gateway as the OAuth2 client and with the Tea Service as a Resource Server, one where the Gateway and the Tea Service are both Resource Servers and one where only the Gateway is a Resource Server and the Tea Service remains unprotected. The initial intention was to implement MTLS between the Gateway and the Resource Server as recommended in [Siriwardena - Microservices Security in Action - Seite???]. This last version was later abandoned in favour of the focus on the difference of the client position in the system. Testing a difference between OAuth2 and MTLS lies outside the scope of this thesis.
-		
-The the remaining three versions of Gateway and Teaservice were then deployed in docker containers and different port numbers were then assigned to all services and gateways, so that they could run simultanously in the same network. Additionally, a Keycloak Server and a MongoDB Database were deployed in containers, serving all versions, where needed.
-
-	- Diagramm der drei Systemvarianten als containter mit keycloak & mongo hier -
-
-Performance tests with JMeter:
-	- Setup beschreiben
-
-
-## 4. Implementation (switch mit Methodology?)
-
-	### Protype
-	
-	The basic idea for the prototype is a virtual tea kitchen, where different types of tea are stored in the backend, which can be requested by the frontend after the users have successfully authenticated themselves. Then they are displayed to the user with the option to "make tea", by clicking a button. This prototype was developed as a project in the 5th semester with a slightly different focus, therefore it contains features and technological properties which are not strictly necessary for the present research. --- Eureka dabei oder nicht??? ---
-	
-	What remained, was a stripped-down minimal representation of a MSA, consisting of the Tea Service itself with the MongoDB database, and a Gateway. Eureka??? The two different frontend versions, one with the frontend application as Oauth2 client, one where the frontend application doesn't know anything about OAuth2, where the Gateway acts as OAuth2 client, were not used in this research. Instead, they were simulated by JMeter scipts [vgl. ... ?]
-	
-	
-	consisting of a Spring Boot Tea Service with a Database where Tea Entities are stored. The Tea Service offers different Endpoints  
-
-		Teapot-Projekt Beschreibung mit Diagrammen
-
-	### Frontend as Client
-		
-	### Backend for Frontend
-
-
-## 4. Evaluation
-
-	### Performance
-		LoadTesting with JMeter
-
-	### Implementation
-
-	Metrics:
-	
-	(gesehen bei Alkhodary - lieber nur einen Teil davon, wenn zu aufwändig)
-
-		- Coupling (between services)
-		- Lines of Code
-		- Cyclomatic Complexity Metric (CCM)
-		- Halstead Complexity Metric (HCM)
-
-
-	### Security
-
-		STRIDE Table, aber nicht alles abarbeiten, z.B. nur identitätsbezogene
-
-		Problem: Aufwand unklar
-
-		Postman Screenshots, Tabelle(n)
-
-		Microusity?
-
-
-
-## 5. Results
-	
-## 6. Conclusion
-
-	
-## Literatur
-- Alkhodary, Samer: The Evaluation of Using Backend-For-Frontend in a Microservices Environment (Master's Thesis). 2023 https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=9086847&fileOId=9086853
-- Barabanov, Alexander, and Denis Makrushin: Authentication and authorization in microservice-based systems: survey of architecture patterns. 2020. https://arxiv.org/abs/2009.02114
-- Rattanukul, Pattarakrit et al.: Microusity: A testing tool for Backends for Frontends (BFF) Microservice Systems. 2023 http://arxiv.org/abs/2302.11150
-- Zdun, Uwe, et al.: Microservice Security Metrics for Secure Communication, Identity Management, and Observability. 2023 https://dl.acm.org/doi/full/10.1145/3532183#d1e3643
-- Waseem, Muhammad, et al.: Design, monitoring, and testing of microservices systems: The practitioners’ perspective. 2021  https://www.sciencedirect.com/science/article/pii/S0164121221001588?casa_token=45GWMMRmxTEAAAAA:e_tiEkmLB0umqDJ53MILNNG483O4-HGD0zHKwYSrHVFrt7tV3MeNmG48anw9yI-rIdA-cT7TsYs
-- Siriwardena, Prabath, and Nuwan Dias: Microservices Security in Action. Manning, 2020.
-- weitere Literatur aus BA1
