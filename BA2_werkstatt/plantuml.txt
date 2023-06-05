@@ -1,7 +1,7 @@
 Plantuml diagramme für BA2
 
 
-teapot sequence diagram for /hellotea/tea
+# teapot sequence diagram for /hellotea/tea
 @startuml
 actor User
 participant Gateway
@@ -21,7 +21,7 @@ Gateway -> User: 200 OK, "Hello tea"
 @enduml
 
 
-Complete Teapot high-level architecture
+# Complete Teapot high-level architecture
 @startuml
 skinparam packageStyle rect
 
@@ -48,4 +48,26 @@ package " " {
 [Eureka Discovery Service] -- [Tea Service]
 [Eureka Discovery Service] -- [Milk Service]
 [Tea Service] -- [MongoDB]
+@enduml
+
+
+# Use case diagram
+@startuml
+left to right direction
+
+actor User
+
+rectangle System {
+  usecase "Login"
+  usecase "View teas"
+  usecase "Make tea"
+  usecase "Order milk"
+  usecase "Logout"
+}
+
+User --> "Login"
+User --> "View teas"
+User --> "Make tea"
+User --> "Order milk"
+User --> "Logout"
 @enduml

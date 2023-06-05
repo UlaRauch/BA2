@@ -633,19 +633,59 @@ The third version is again a copy of the other two but the Keycloak Server is no
 \section{Setup with Spring Boot and Keycloak}
 \label{sec:setup-spring-boot}
 
-All Services were build with Spring Boot\footnote{https://spring.io/projects/spring-boot} Version 3.0, an open source application framework for Java. It is an extension of Spring, which provides dependency injection and different modules, like Spring Security, Spring Test or Spring ORM (object-relational mapping).
+\subsection{Spring and Spring Boot}
 
-Spring Boot was created on top of Spring in order to simplify the development of Spring-based applications. It provides default configurations and reduces the need for boilerplate code. One big advantage when using Spring boot is therefore the quick project setup.
+All Services in this project were developed using Spring Boot\footnote{https://spring.io/projects/spring-boot} Version 3.0. Spring Boot is created on top of Spring, a widely used open source application framework for Java. Spring provides dependency injection and different modules, like Spring Security, Spring Test or Spring ORM (object-relational mapping). Spring Boot was created on top of Spring in order to simplify the development of Spring-based applications. It provides opinionated default dependencies and what Spring calls sensible default configurations. These help to reduce the need for the developer to write boilerplate code or configurations manually. This means that one big advantage when using Spring boot is the quick project setup and the fact that it brings many features production-ready out of the box, like logging, monitoring, security, and error handling. The widely used \texttt{spring-boot-starter-web} module also has TomCat webserver automatically embedded (for reactive web applications there is the \texttt{spring-boot-starter-webflux} module which comes with Netty as default). However, all configurations can be overridden when needed, often in different ways, e.g. by writing classes with the \texttt{@Configuration} annotation or simply by adding configurations to the applications.properties file.
 
-Spring Boot projects can be created with the Spring Boot Initializr [!!!link...] which is also available when creating a new Project in IntelliJ. All Maven Dependencies that are needed for a project can be chosen in the beginning, or they can be added later to the \texttt{pom.xml} file.
+Spring Boot projects can be created with the Spring Boot Initializr [!!!link...] which is also available when creating a new Project in IntelliJ. All Maven dependencies or starter modules that are needed for a project can be chosen during project creation with Spring Initializr, or they can be added later to the \texttt{pom.xml} file.
+
+Dependencies that were used
 
 Hier das vorgehen und die Struktur grundsätzlich beschreiben, minimal version maven dependencies + spring security dependencies, welche gibts -> 
 
 Screenshots und Code!
 
-Unterschiede zwischen den Versionen
+Unterschiede zwischen den projekt-Versionen
 
 \subsection{Spring Cloud Gateway}
+
+The Gateway for the Teapot project was implemented using the \texttt{spring-cloud-starter-gateway} module. Maven dependencies are injected in the \texttt{pom.xml} file in the following way:
+
+\begin{verbatim}
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+\end{verbatim}
+
+The Spring Cloud Gateway Handler Mapping checks incoming requests for matches with configured routes and if so, forwards them to the Gateway Web Handler. The request then goes through a route-specific filterchain where route specific pre- and post logic is applied\cite{spring-cloud-gatway}.
+
+Routes can be configured in the \texttt{application.properties} file or in the \texttt{properties.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{properties.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and injected via the docker compose.yml file (!!! see docker). With the discovery service, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the Eureka discovery service. In this way, the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. Note that \texttt{Ula} is an example value for the \texttt{{name}} variable.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/gateway-route-config}
+	\caption{Example route configuration from the Gateway's properties.yml file in the reduced Teapot project}
+	\label{fig:gateway-route-config}
+\end{figure}
+
+In order to configure the Gateway as a OAuth2 client, we also need to include the \texttt{spring-boot-starter-oauth2-client} starter module in the \texttt{pom.xml} file:
+\begin{verbatim}
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+\end{verbatim}
+
+Here it is important to chose the correct starter module and not get confused by the different oauth2-client modules available. This module is intended for the use with spring boot. Security configuration can now be added in the way that is shown in figure \ref{fig:gateway-sec-config}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/gatewaysecurityconfiguration}
+	\caption{Security configuration for the Teapot project's Gateway as OAuth2 client}
+	\label{fig:gateway-sec-config}
+\end{figure}
+
 unterschiede zwischen den verschiedenen client-versionen
 mit trial + error rausgefunden oder gibts einen link dazu?
 
@@ -687,7 +727,7 @@ LoC
 
 \newpage
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliography{bibtextest}
+\bibliography{BA2}
 
 \newpage
 
