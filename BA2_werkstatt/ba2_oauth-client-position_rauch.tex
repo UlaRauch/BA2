@@ -325,6 +325,8 @@ To make everything worse, not only access by external end-users has to be manage
 \section{OAuth2}
 \label{sec:oauth2}
 
+Neu: redirect-uri! Wird beim gateway erwähnt!
+
 % fehlt: OAuth2 beliebt in microservices according to literature, academic + grey! (billawa et al., pereira-vale...)
 % genauer drauf eingehen, warum oauth2 für microservices???
 % artikel von eran hammer (oauth 2.0 and the road to hell) dazu, um zu illustrieren, wie mühsam es ist + aaron parecki, der sich für das labyrinth entschuldigt (how to hack oauth) -> und trotzdem isses so beliebt.
@@ -639,20 +641,20 @@ All Services in this project were developed using Spring Boot\footnote{https://s
 
 Spring Boot projects can be created with the Spring Boot Initializr [!!!link...] which is also available when creating a new Project in IntelliJ. All Maven dependencies or starter modules that are needed for a project can be chosen during project creation with Spring Initializr, or they can be added later to the \texttt{pom.xml} file.
 
-Dependencies that were used
+%Dependencies that were used
 
-Hier das vorgehen und die Struktur grundsätzlich beschreiben, minimal version maven dependencies + spring security dependencies, welche gibts -> 
+%Hier das vorgehen und die Struktur grundsätzlich beschreiben, minimal version maven dependencies + spring security dependencies, welche gibts -> 
 
-Screenshots und Code!
+%Screenshots und Code!
 
-Unterschiede zwischen den projekt-Versionen
+%Unterschiede zwischen den projekt-Versionen
 
 \subsection{Spring Cloud Gateway}
 
-The Gateway for the Teapot project was implemented using the \texttt{spring-cloud-starter-gateway} module. Maven dependencies are injected in the \texttt{pom.xml} file in the following way:
+The Gateway for the Teapot project was implemented using the \linebreak\texttt{spring-cloud-starter-gateway} module. Maven dependencies are injected in the \linebreak\texttt{pom.xml} file in the following way:
 
 \begin{verbatim}
-        <dependency>
+        	<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
@@ -660,16 +662,16 @@ The Gateway for the Teapot project was implemented using the \texttt{spring-clou
 
 The Spring Cloud Gateway Handler Mapping checks incoming requests for matches with configured routes and if so, forwards them to the Gateway Web Handler. The request then goes through a route-specific filterchain where route specific pre- and post logic is applied\cite{spring-cloud-gatway}.
 
-Routes can be configured in the \texttt{application.properties} file or in the \texttt{properties.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{properties.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and injected via the docker compose.yml file (!!! see docker). With the discovery service, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the Eureka discovery service. In this way, the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. Note that \texttt{Ula} is an example value for the \texttt{{name}} variable.
+Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{application.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and injected via the docker compose.yml file (!!! see docker). With the discovery service, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the Eureka discovery service. In this way, the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. Note that \texttt{Ula} is an example value for the \texttt{{name}} variable.
 
 \begin{figure}[htbp]
 	\centering
 		\includegraphics{images/gateway-route-config}
-	\caption{Example route configuration from the Gateway's properties.yml file in the reduced Teapot project}
+	\caption{Example route configuration from the Gateway's application.yml file in the reduced Teapot project}
 	\label{fig:gateway-route-config}
 \end{figure}
 
-In order to configure the Gateway as a OAuth2 client, we also need to include the \texttt{spring-boot-starter-oauth2-client} starter module in the \texttt{pom.xml} file:
+In order to configure the Gateway as a OAuth2 client, we also need to include the \linebreak\texttt{spring-boot-starter-oauth2-client} starter module in the \texttt{pom.xml} file:
 \begin{verbatim}
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -677,14 +679,34 @@ In order to configure the Gateway as a OAuth2 client, we also need to include th
         </dependency>
 \end{verbatim}
 
-Here it is important to chose the correct starter module and not get confused by the different oauth2-client modules available. This module is intended for the use with spring boot. Security configuration can now be added in the way that is shown in figure \ref{fig:gateway-sec-config}.
+Here it is important to choose the correct starter module and to not get confused by the different oauth2-client dependencies available. This module is intended for the use with spring boot. Then, after having created the client in Keycloak (see section \ref{sub:keycloak}), the application needs to be configured to use these client properties and connect to the authorization server. For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{ClientRegistration} class. In this project the client's id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included as scope. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the  \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
+%weiter mit provider...
 
-\begin{figure}[htbp]
-	\centering
-		\includegraphics{images/gatewaysecurityconfiguration}
-	\caption{Security configuration for the Teapot project's Gateway as OAuth2 client}
-	\label{fig:gateway-sec-config}
-\end{figure}
+ Security configuration can now be added in the way that is shown in the following code example, taken from the reduced Teapot Gateway2:
+ 
+\begin{verbatim}
+@Configuration
+@EnableWebFluxSecurity
+public class Gateway2SecurityConfiguration {
+    @Bean
+    public SecurityWebFilterChain springSecurityWebFilterChain(ServerHttpSecurity http, ServerLogoutSuccessHandler handler) {
+                .authorizeExchange()
+                .pathMatchers("/hellogateway", "/hellotea/noauth")
+                .permitAll()
+            .and()
+                .authorizeExchange()
+                .anyExchange()
+                .authenticated()
+            .and()
+                .oauth2Login()
+            .and()
+                .logout()
+                .logoutSuccessHandler(handler);
+        return http.build();
+    }
+\end{verbatim}
+
+
 
 unterschiede zwischen den verschiedenen client-versionen
 mit trial + error rausgefunden oder gibts einen link dazu?
