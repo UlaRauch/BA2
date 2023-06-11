@@ -657,7 +657,7 @@ The Gateway's job in a MSA is to route requests to services beyond. There is a s
 
 With the Spring Cloud Gateway implemented, a Handler Mapping checks incoming requests for matches with configured routes and if so, forwards them to the Gateway Web Handler. The request then goes through a filterchain where route-specific pre- and post-logic is applied\cite{SpringCloudGatewaya}.
 
-Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{application.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and will be injected via the docker compose.yml file (!!! see docker). With the Eureka discovery service, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the discovery service. In this way, the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. \texttt{Ula} is an example value for the \texttt{{name}} variable.
+Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{application.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and will be injected via the docker compose.yml file (!!! see docker). With the Eureka discovery service in the first Teapot, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the discovery service. In this way, the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. \texttt{Ula} is an example value for the \texttt{{name}} variable.
 
 \begin{figure}[htbp]
 	\centering
@@ -666,7 +666,7 @@ Routes can be configured in the \texttt{application.properties} file or in the \
 	\label{fig:gateway-route-config}
 \end{figure}
 
-In order to configure the Gateway as a OAuth2 client, we also need to include the \linebreak\texttt{spring-boot-starter-oauth2-client} starter module in the \texttt{pom.xml} file:
+In order to configure the Gateway as a OAuth2 client, we also need to include the \linebreak\texttt{spring-boot-starter-oauth2-client} dependency in the \texttt{pom.xml} file:
 \begin{verbatim}
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -674,8 +674,8 @@ In order to configure the Gateway as a OAuth2 client, we also need to include th
         </dependency>
 \end{verbatim}
 
-Here it is important to choose the correct starter module and to not get confused by the different oauth2-client dependencies available. The \linebreak\texttt{spring-boot-starter-oauth2-client} module is intended to be used with Spring Boot \cite{GettingStartedSpring}. Then, after having created the client in Keycloak (see section \ref{sub:keycloak}), the application needs to be configured so it can connect to the authorization server and register with the client's credentials. All this is done in the \texttt{application.properties} or \texttt{application.yml} file. For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included as scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the  \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
-%weiter mit provider...!!!
+Here it is important to choose the correct starter dependency and to not get confused by the different oauth2-client dependencies available, as there are many with similar names. The \linebreak\texttt{spring-boot-starter-oauth2-client} dependency is intended to be used with Spring Boot \cite{GettingStartedSpring}. Then, after having created the client in Keycloak (see section \ref{sub:keycloak}), the application needs to be configured so it can connect to the authorization server and register with the client's credentials. All this is done in the \texttt{application.properties} or \texttt{application.yml} file. For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included as scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
+The provider section contains the \texttt{issuer-uri}, which must be set correctly, otherwise the application won't be able to start successfully . This also happens when the OIDC provider is not reachable. The reason is, that the issuer-uri is used by the application to retrieve vital configuration metadata from the OIDC provider. As a default, a \texttt{OpenID provider Configuration Request} is made to \texttt{"[specified issuer-uri]/.well-known/openid-configuration"}. This endpoint offers all the necessary configuration metadata, like \texttt{token_endpoint}, \texttt{jwks_uri}, \texttt{end_session_endpoint}, supported grant types and response types, supported signing and encryption algorithms etc \cite{OpenIDConnectDiscovery}.%in intro verschieben?
 
 Security configuration can now be added in the way that is shown in the following code example, taken from the reduced Teapot Gateway2:
  
@@ -705,7 +705,7 @@ public class Gateway2SecurityConfiguration {
 
 !!! Erklären!
 
-The Gateway must also be able to attach access tokens to any authorized request that will be routed to a resource server. Spring Security offers a \texttt{TokenRelayGatewayFilterFactory} which fetches the access token from the authenticated user and attaches an \texttt{Authorization} header to the request with the value \texttt{"Bearer" + token} \cite{TokenRelayGatewayFilterFactory}. The fastest way to enable the token relay  is certainly to add a \texttt{default-filter} to the route configuration in the \texttt{application.yml} file as shown in listing \ref{lst:tokenrelay}.
+The Gateway must also be able to attach access tokens to any authorized request that will be routed to a downstream resource server. Spring Security offers a \texttt{TokenRelayGatewayFilterFactory} which fetches the access token from the authenticated user and attaches an \texttt{Authorization} header to the request with the value \texttt{"Bearer" + token}. The fastest way to add the \texttt{TokenRelayGatewayFilterFactory} is certainly to add a \texttt{default-filter} to the route configuration in the \texttt{application.yml} file as shown in listing \ref{lst:tokenrelay}. This filter will then be applied to all configured routes. Alternatively, the filter can be configured for specific routes by adding \texttt{- TokenRelay=} to \texttt{filters} \cite{TokenRelayGatewayFilterFactory}.
 
 \begin{lstlisting}[frame=lines, caption=Route configuration with token relay default filter in the Gateway's application.yml file, captionpos=b, label = lst:tokenrelay, language=Java, showstringspaces=false]
 spring:
@@ -728,9 +728,12 @@ spring:
         - TokenRelay=
 \end{lstlisting}
 
-With Spring Boot, an \texttt{GatewayApplication.java} class that contains the \texttt{main} method is created automatially. With this setup the Gateway application is already fully functional and able to route requests to a resource server together with an access token after the user has authenticated successfully.
 
-An additional feature in the Gateway is the \texttt{/hellogateway} endpoint which returns a string with a greeting to the user after reading the user's name from the authentication principal. For the ability to 
+
+With Spring Boot, a \texttt{GatewayApplication.java} class is created automatically, that contains the \texttt{main} method. With this setup the Gateway application is already fully functional and able to route requests to a resource server together with an access token after the user has authenticated successfully.
+
+An additional feature in the Teapot Gateway is the \texttt{/hellogateway} endpoint which returns a string with a greeting to the user after reading the user's name from the authentication principal. This is possible without adding an additional dependency because \texttt{Spring Cloud Gateway} already contains the \texttt{spring-boot-starter-webflux} dependency.
+
 
 % \texttt{spring-boot-starter-web} starter dependency also has an automatically embedded TomCat webserver (for reactive web applications there is also the \texttt{spring-boot-starter-webflux} module which comes with Netty as default).
 
@@ -746,6 +749,9 @@ clients
 users
 wie hab ich ihn configuriert?
 Docker compose -> config importiert
+
+\subsection{Load testing with JMeter}
+\label{sub:loadtesting-jmeter}
 
 \chapter{Results and Discussion}
 \label{chap:results}
