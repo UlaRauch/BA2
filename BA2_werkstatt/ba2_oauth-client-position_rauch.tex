@@ -455,7 +455,6 @@ The kind of access that is requested can be specified within the \texttt{scope} 
 
 The access token is issued in response to a request by the client, as in Listing \ref{lst:jwtreq}. The token corresponding to the example request in listing \ref{lst:jwtreq} can be seen in listing \ref{lst:jwtaccess}.
 
-
 \begin{lstlisting}[frame=lines, caption=Example request for an access token according to \cite{bertocci_json_oauth_2021}, captionpos=b, label = lst:jwtreq, language=C, showstringspaces=false]
 
    GET /as/authorization.oauth2?response_type=code
@@ -638,13 +637,12 @@ The third version is again a copy of the other two but the Keycloak Server is no
 \subsection{Spring and Spring Boot}
 
 All Services in this project were developed using Spring Boot\footnote{https://spring.io/projects/spring-boot} Version 3.0. 
-Spring Boot is created on top of the Spring framework, a widely used open source application framework for Java. Spring provides dependency injection and different modules, like Spring Security, Spring Test or Spring ORM (object-relational mapping), among others \cite{IntroductionSpringFramework}. Spring Boot was created in order to simplify the development of Spring-based applications by offering autoconfiguration and starter dependencies that bundle selections of libraries in one Maven or Gradle dependency \cite[pp.~4f]{wallsSpringBootAction2016}. This helps to reduce the need for the developer to write boilerplate code manually, which means that one big advantage when using Spring boot is the quick project setup. However, these configurations can be overridden or customized when needed, like it is the case for security configurations \cite[p.~50]{wallsSpringBootAction2016}, either programmatilally with Java or in many cases by adding configurations to the \texttt{applications.properties} or the \texttt{applications.yml} file \cite{CoreFeatures}.
-
-For the Teapot project the \texttt{yml} variant was used whenever possible because this way configurations are easier to write and read, and therefore they are less error-prone.
+Spring Boot is created on top of the Spring framework, a widely used open source application framework for Java. Spring provides dependency injection and different modules, like Spring Security, Spring Test or Spring ORM (object-relational mapping), among others \cite{IntroductionSpringFramework}. Spring Boot was created in order to simplify the development of Spring-based applications by offering autoconfiguration and starter dependencies that bundle selections of libraries in one Maven or Gradle dependency \cite[pp.~4f]{wallsSpringBootAction2016}. This helps to reduce the need for the developer to write boilerplate code manually, which means that one big advantage when using Spring boot is the quick project setup. However, these configurations can be overridden or customized when needed, like it is the case for security configurations \cite[p.~50]{wallsSpringBootAction2016}, either programmatilally with Java or in many cases by adding configurations to the \texttt{applications.properties} or the \texttt{applications.yml} file \cite{CoreFeatures}. For the Teapot project the \texttt{yml} variant was used whenever possible because this way configurations are easier to write and read, and therefore they are less error-prone.
 
 Spring Boot projects can be initialized and downloaded with the Spring Initializr\footnote{https://start.spring.io/} which is also available when creating a new Project in IntelliJ. All Maven dependencies that are needed for a project can be chosen during project creation with Spring Initializr, or they can be added later to the \texttt{pom.xml} file.
 
-\subsection{Spring Cloud Gateway}
+\subsection{Spring Cloud Gateway as OIDC Client}
+\label{sub:gateway-cl}
 %Umbenennen in The Gateway?
 The Gateway's job in a MSA is to route requests to services beyond. There is a special Spring Boot starter dependency, \linebreak\texttt{spring-cloud-starter-gateway}, that was used for the implementation of the Teapot project. Maven dependencies are injected in the \linebreak\texttt{pom.xml} file in the following way:
 
@@ -657,7 +655,7 @@ The Gateway's job in a MSA is to route requests to services beyond. There is a s
 
 With the Spring Cloud Gateway implemented, a Handler Mapping checks incoming requests for matches with configured routes and if so, forwards them to the Gateway Web Handler. The request then goes through a filterchain where route-specific pre- and post-logic is applied\cite{SpringCloudGatewaya}.
 
-Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{application.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and will be injected via the docker compose.yml file (!!! see docker). With the Eureka discovery service in the first Teapot, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the discovery service. In this way, the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. \texttt{Ula} is an example value for the \texttt{{name}} variable.
+Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{application.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and will be injected via the docker compose.yml file (!!! see docker). With the Eureka discovery service in the first Teapot, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the discovery service. This way the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. \texttt{Ula} is an example value for the \texttt{{name}} variable.
 
 \begin{figure}[htbp]
 	\centering
@@ -666,7 +664,7 @@ Routes can be configured in the \texttt{application.properties} file or in the \
 	\label{fig:gateway-route-config}
 \end{figure}
 
-In order to configure the Gateway as a OAuth2 client, we also need to include the \linebreak\texttt{spring-boot-starter-oauth2-client} dependency in the \texttt{pom.xml} file:
+In order to configure the Gateway as OAuth2 client, we also need to include the \linebreak\texttt{spring-boot-starter-oauth2-client} dependency in the \texttt{pom.xml} file:
 \begin{verbatim}
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -674,36 +672,27 @@ In order to configure the Gateway as a OAuth2 client, we also need to include th
         </dependency>
 \end{verbatim}
 
-Here it is important to choose the correct starter dependency and to not get confused by the different oauth2-client dependencies available, as there are many with similar names. The \linebreak\texttt{spring-boot-starter-oauth2-client} dependency is intended to be used with Spring Boot \cite{GettingStartedSpring}. Then, after having created the client in Keycloak (see section \ref{sub:keycloak}), the application needs to be configured so it can connect to the authorization server and register with the client's credentials. All this is done in the \texttt{application.properties} or \texttt{application.yml} file. For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included as scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
-The provider section contains the \texttt{issuer-uri}, which must be set correctly, otherwise the application won't be able to start successfully . This also happens when the OIDC provider is not reachable. The reason is, that the issuer-uri is used by the application to retrieve vital configuration metadata from the OIDC provider. As a default, a \texttt{OpenID provider Configuration Request} is made to \texttt{"[specified issuer-uri]/.well-known/openid-configuration"}. This endpoint offers all the necessary configuration metadata, like \texttt{token_endpoint}, \texttt{jwks_uri}, \texttt{end_session_endpoint}, supported grant types and response types, supported signing and encryption algorithms etc \cite{OpenIDConnectDiscovery}.%in intro verschieben?
-
-Security configuration can now be added in the way that is shown in the following code example, taken from the reduced Teapot Gateway2:
- 
-\begin{verbatim}
-@Configuration
-@EnableWebFluxSecurity
-public class Gateway2SecurityConfiguration {
-    @Bean
-    public SecurityWebFilterChain springSecurityWebFilterChain(
-    			ServerHttpSecurity http,
-    			ServerLogoutSuccessHandler handler) {
-                .authorizeExchange()
-                .pathMatchers("/hellogateway", "/hellotea/noauth")
-                .permitAll()
-            .and()
-                .authorizeExchange()
-                .anyExchange()
-                .authenticated()
-            .and()
-                .oauth2Login()
-            .and()
-                .logout()
-                .logoutSuccessHandler(handler);
-        return http.build();
-    }
-\end{verbatim}
-
-!!! Erklären!
+Here it is important to choose the correct starter dependency and to not get confused by the different oauth2-client dependencies available, as there are many with similar names. The \linebreak\texttt{spring-boot-starter-oauth2-client} dependency is intended to be used with Spring Boot \cite{GettingStartedSpring}. Then, after having created the client in Keycloak (see section \ref{sub:keycloak}), the application needs to be configured so it can connect to the authorization server and register with the client's credentials. All this is done in the \texttt{application.yml} file (see listing \ref{lst:clientconfig}.
+\begin{lstlisting}[frame=lines, caption=OAuth2 client configuration in the Gateway's application.yml file, captionpos=b, label=lst:clientconfig, language=Java, showstringspaces=false]
+spring:
+[...]
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak-provider:
+            issuer-uri: ${keycloak.server-url}/realms/teapot
+        registration:
+          keycloak-gateway-client:
+            provider: keycloak-provider
+            scope: openid
+            client-id: teapot-gateway
+            client-secret: ${client-secret}
+            authorization-grant-type: authorization_code
+            redirect-uri: 'http://localhost:8080/login/oauth2/code/{registrationId}'
+\end{lstlisting}
+For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included in the scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
+The provider section contains the provider name, in this case \texttt{keycloak-provider}. This is the name which the \texttt{registration} section refers to. The \texttt{issuer-uri} must be set correctly, otherwise the application won't be able to start successfully. This also happens when the OIDC provider is not reachable. The reason is, that the issuer-uri is used by the application to retrieve vital configuration metadata from the OIDC provider which is needed for the creation of automatic configuration. As a default, a \texttt{OpenID provider Configuration Request} is made to \texttt{"[specified issuer-uri]/.well-known/openid-configuration"}. This endpoint offers all the necessary configuration metadata, like \texttt{token\_endpoint}, \texttt{jwks\_uri}, \texttt{end\_session\_endpoint}, supported grant types and response types, supported signing and encryption algorithms etc \cite{OpenIDConnectDiscovery}.%in intro verschieben??? dann hier nur verweis
 
 The Gateway must also be able to attach access tokens to any authorized request that will be routed to a downstream resource server. Spring Security offers a \texttt{TokenRelayGatewayFilterFactory} which fetches the access token from the authenticated user and attaches an \texttt{Authorization} header to the request with the value \texttt{"Bearer" + token}. The fastest way to add the \texttt{TokenRelayGatewayFilterFactory} is certainly to add a \texttt{default-filter} to the route configuration in the \texttt{application.yml} file as shown in listing \ref{lst:tokenrelay}. This filter will then be applied to all configured routes. Alternatively, the filter can be configured for specific routes by adding \texttt{- TokenRelay=} to \texttt{filters} \cite{TokenRelayGatewayFilterFactory}.
 
@@ -728,17 +717,153 @@ spring:
         - TokenRelay=
 \end{lstlisting}
 
+Security configuration for the gateway's endpoints can now be added in the way that is shown in the code example in listing \ref{lst:securitywebfilterchain}, taken from the reduced Teapot Gateway2. Because \texttt{/hellogateway} and \texttt{/hellotea/noauth} should remain open for testing purposes, this is taken care for with \texttt{permitAll()} before configuring all remaining endpoints as open for authenticated users only with \texttt{.authorizedExchange().anyExchange().authenticated()}. With \texttt{oauth2login()} the user will be authenticated so they can have access to the protected endpoints \cite{rozaWebClientOAuth2Support2019}. 
+ 
+\begin{lstlisting}[frame=lines, caption=SecurityWebFilterChain for configuration of the OAuth2 client's behaviour. Code example from the reduced Teapot Gateway2, captionpos=b, label = lst:securitywebfilterchain, language=Java, showstringspaces=false]
+@Configuration
+@EnableWebFluxSecurity
+public class Gateway2SecurityConfiguration {
+    @Bean
+    public SecurityWebFilterChain springSecurityWebFilterChain(
+    			ServerHttpSecurity http,
+    			ServerLogoutSuccessHandler handler) {
+                .authorizeExchange()
+                .pathMatchers("/hellogateway", "/hellotea/noauth")
+                .permitAll()
+            .and()
+                .authorizeExchange()
+                .anyExchange()
+                .authenticated()
+            .and()
+                .oauth2Login()
+            .and()
+                .logout()
+                .logoutSuccessHandler(handler);
+        return http.build();
+    }
+\end{lstlisting}
 
+One particular aspect here is the \texttt{logoutSuccessHandler} call that gets a \texttt{ServerLogoutSuccessHandler} Object as an argument. A separate bean had to be written on order to make this work properly, see listing \ref{lst:logoutSuccessHandler}. The \texttt{OidcClientInitiatedServerLogoutSuccessHandler}, which implements the ServerLogoutSuccessHandler interface, takes care of the logout process and calls the Keycloak Server's \texttt{endSessionEndpoint} for this user \cite{HowFixKeycloak2022}, \cite{rozaSpringSecurityOpenID2017}. The \texttt{postLogoutRedirectUri} is the uri that the user will be redirected to after having logged out successfully. User logout is initiated by a \texttt{GET} or \texttt{POST} request to \texttt{{base-url}/logout} as default. The \texttt{/logout} endpoint does not need to be permitted explicitly in the filter chain \cite{rozaSpringSecurityOpenID2017}. 
+
+%listing: , according to \cite{HowFixKeycloak2022} fehlt!!! einfügen hat probleme gemacht. why?
+\begin{lstlisting}[frame=lines, caption=Logout success handler. Code example from the Teapot Gateway according to \cite{rozaSpringSecurityOpenID2017}, captionpos=b, label = lst:securitywebfilterchain, language=Java, showstringspaces=false]
+    @Bean
+    public ServerLogoutSuccessHandler keycloakLogoutSuccessHandler(ReactiveClientRegistrationRepository repository) {
+        OidcClientInitiatedServerLogoutSuccessHandler oidcClientInitiatedServerLogoutSuccessHandler = new OidcClientInitiatedServerLogoutSuccessHandler(repository);
+        oidcClientInitiatedServerLogoutSuccessHandler.setPostLogoutRedirectUri("https://orf.at");
+        return oidcClientInitiatedServerLogoutSuccessHandler;
+    }
+\end{lstlisting} 
 
 With Spring Boot, a \texttt{GatewayApplication.java} class is created automatically, that contains the \texttt{main} method. With this setup the Gateway application is already fully functional and able to route requests to a resource server together with an access token after the user has authenticated successfully.
 
-An additional feature in the Teapot Gateway is the \texttt{/hellogateway} endpoint which returns a string with a greeting to the user after reading the user's name from the authentication principal. This is possible without adding an additional dependency because \texttt{Spring Cloud Gateway} already contains the \texttt{spring-boot-starter-webflux} dependency.
+An additional feature in the Teapot Gateway is the \texttt{/hellogateway} endpoint which returns a string with a greeting to the user after reading the user's name from the authentication principal . This is possible without adding an additional dependency because \texttt{Spring Cloud Gateway} already contains the \texttt{spring-boot-starter-webflux} dependency.
+
+\begin{lstlisting}[frame=lines, caption=Reading the user's name from the authentication principal. Code Example from the Teapot Gateway., captionpos=b, label = lst:tokenrelay, language=Java, showstringspaces=false]
+@RestController
+public class GatewayController {
+    @GetMapping("/hellogateway")
+    public String greet(@AuthenticationPrincipal OAuth2User principal) {
+        return "Hello, " + principal.getName() + ", from Gateway";
+    }
+}
+\end{lstlisting}
+
+% \texttt{spring-boot-starter-web} starter dependency also has an automatically embedded TomCat webserver (for reactive web applications there is also the \texttt{spring-boot-starter-webflux} module which comes with Netty as default). - der satz passt hier so nicht, weil gateway ja webflux hat
+
+\subsection{The Resource Server}
+\label{sub:gateway-rs}
+The OAuth2 Resource Server recieves and validates the access token and, if the token is valid, grants access to the requested resource (see section \ref{sec:oauth2}). The steps to configurate a resource server with Spring Boot are not very different from the configuration of the OAuth2 client: implementation of the necessary dependencies in the \texttt{pom.xml} file, configuration of the \texttt{issure-uri}, or optionally the \texttt{jwk-set-uri} in \texttt{application.properties} or \texttt{application.properties} and overriding the default \texttt{SecurityFilterChain} with a customized one \cite{wagdeOAuthResourceServer2020}.
+
+The minimal dependencies needed are \texttt{spring-security-oauth2-resource-server}, which contains the resource server support, and \texttt{spring-security-oauth2-jose}, which allows the resource server to decode JWTs, and is therefore crucial for the application's ability to validate JWT access tokens \cite{OAuthResourceServer}. Both are included in the \texttt{spring-boot-starter-oauth2-resource-server} starter dependency. OAuth2 bearer token authentication is possible with JWTs or with opaque tokens (see section \ref{???}). The Teapot project works with JWT.
+
+%entfernt, weil es hier zuviel um authentication geht. passiert das wirklich in meinem resource server?
+The authorization process when a request for a protected resource comes in, goes like this:
+\begin{itemize}
+\item A unauthenticated request comes in from the User
+\item The \texttt{AuthorizationFilter} throws a \texttt{AccessDeniedException}
+\item The \texttt{ExceptionTranslationFilter} initiates \textit{Start Authentication} and activates the
+\texttt{BearerTokenAuthenticationEntryPoint} to send a \texttt{WWW-Authenticate: Bearer} header (see figure \ref{fig:www-authenticate}
+\item The client now can retry the request with the bearer token.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/bearertokenauthenticationenttrypoint}
+	\caption{The BearerTokenAuthenticationEntryPoint sends a \texttt{WWW-Authenticate : Bearer} back to the requesting client \cite{BearerTokenAuthenticationEntryPointJava2023}}
+	\label{fig:www-authenticate}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/www-authenticate}
+	\caption{\texttt{WWW-Authenticate} header in the response to an unauthorized request to the resource server}
+	\label{fig:www-authenticate}
+\end{figure}
+
+When the request comes with a bearer token, the \texttt{BearerTokenAuthenticationFilter} extracts the token from the \texttt{HttpServletRequest} and creates a \texttt{BearerTokenAuthenticationToken}, which implements the \texttt{Authentication} interface and represents the authenticated user and contains a \texttt{pricipal}, \texttt{credentials} (can be cleared after authentication to avoid leaking)!!! das passt da nicht wirklich her, ist aber aus der spring doku... and \texttt{authorities}. These are instances of \texttt{GrantedAuthority} and usually represent coarse-grained permission, for example \texttt{role} or \texttt{scope} \cite{ServletAuthenticationArchitecture}. \texttt{authority} claims are not part of the OAuth2 tokens issued by Keyloak (or other common AS), so a authorities converter needs to be written in order to distinguish roles in authorization. 
+%keycloak issues tokens with realm roles and client roles ...
+
+%!!! which is then passed to the \texttt{AuthenticationManager}. The \texttt{AuthenticationManager} is selected by the \texttt{AuthenticationManagerResolver} based on the \texttt{HttpServletRequest}, either for JWT or for opaque tokens. The \texttt{AuthenticationManager} authenticates the \texttt{BearerTokenAuthenticationToken}. Depending on wheather authentication fails or is successfull, the \texttt{SecurityContextHolder} is cleared out or set with the Authentication object. In the case of authentication failure, the \texttt{AuthenticationEntryPoint} will send the \texttt{WWW-Authenticate} header again, in the case of success, the \texttt{FilterChain} continues 
+
+Like with the OAuth2 client, the resource server needs the \texttt{issuer-uri} to be configured correctly. At startup the resource server application has to deduce the authorization server's configuration endpoint. With only the \texttt{issuer-uri} given, it is important that one of a set of specific configuration endpoints is supported. With the Keycloak server, the configuration endpoint is \texttt{http://localhost:10001/realms/teapot/.well-known/openid-configuration}. This endpoint can now be queried for the \texttt{jwks-url} property and for supported algorithms. With this information, the application can configure the validation strategy which will in the next step query the \texttt{jwks-url} for the public key set of these algorithms. Lastly, the validation strategy will be configured to check the \texttt{iss} claim of recieved JWT access tokens against the given \texttt{issuer-uri}. For this reason the authorization server must be up and reachable, otherwise the resource server application will fail at startup \cite{OAuthResourceServer}.
+
+In order to allow the application to start independently when the authorization server is not yet reachable, the \texttt{jkw-set-uri} can be configured explicitly, because it doesn't need to call the issuer-uri in order to find out the end point to retrieve the JWKS \cite{wagdeOAuthResourceServer2020}. In the Teapot project's \texttt{application.properties} file, this looks like in listing \ref{lst:rs-yml}. Still, with the \texttt{issuer-uri} provided, the \texttt{iss} claim in incoming JWTs will be validated against the given issuer \cite{OAuthResourceServer}.
+
+When a request is sent to a protected endpoint at the resource server, it uses the public key from the authorization server to validate the signature and match it with the token. Then the \texttt{exp} and \texttt{iss} claims in the token are checked \cite{OAuthResourceServer}. For more fine-grained authorization it is possible to define scope and roles in Keycloak. In order to use them, custom claims have to be created at the resource server. %!!! QUELLE? und was passiert dann damit? Erklärung, warum die authorities nicht automatisch im jwt sind, gibts hier https://www.youtube.com/watch?v=j7SOIM_HL5g
+
+\begin{lstlisting}[frame=lines, caption=\texttt{issuer-uri} and \texttt{jwk-set-uri} in the Tea service's application.properties file, captionpos=b, label = lst:rs-yml, language=Java, showstringspaces=false]
+spring.security.oauth2.resourceserver.jwt.issuer-uri=${KEYCLOAK}/realms/teapot
+spring.security.oauth2.resourceserver.jwt.jwk-set-uri=${KEYCLOAK}/realms/teapot/protocol/openid-connect/certs
+\end{lstlisting}
+%!!! für mehr platz und konsistenz: umschreiben auf yaml!
+
+[...]
+
+A minimal configuration of the \texttt{SecurityFilterChain} can look like in listing \ref{lst:rs-secfilterchain}. the two endpoints \texttt{/teas/hello/noauth} and \texttt{/teas/create} are open for convenience during experimental development, while all other endpoints are protected and can only be accessed with a valid access token. \texttt{oauth2ResourceServer}  takes a \texttt{Customizer} parameter of type \texttt{OAuth2ResourceServerConfigurer}. With this customizer it is possible to specify that JWT bearer tokens should be supported. This will populate the \texttt{BearerTokenAuthenticationFilter}  \cite{OAuth2ResourceServerConfigurerSpringsecuritydocsAPI}.
+
+\begin{lstlisting}[frame=lines, caption=\texttt{SecurityFilterChain} configuration in the Tea service (resource server), captionpos=b, label = lst:rs-secfilterchain, language=Java, showstringspaces=false]
+@Configuration
+public class TeaSecurityConfiguration {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests().requestMatchers("/teas/hello/noauth", "/teas/create").permitAll()
+                .anyRequest().authenticated();
+        http.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+        [...]
+        return http.build();
+    }
+}
+\end{lstlisting}
+
+For the definition of authorities that are not provided in the original access token, the customized conversion from the JWT to an \texttt{Authentication} object can be supplied at this point as \texttt{ OAuth2ResourceServerConfigurer.JwtConfigurer.jwtAuthenticationConverter(Converter)} instead of \texttt{OAuth2ResourceServerConfigurer::jwt} \cite{OAuth2ResourceServerConfigurerSpringsecuritydocsAPI}.
+
+Spring Security has CSRF protection enabled by default \cite{SpringBootReferencea}. Because the resource server relies on bearer token authentication, some authors in grey literature recommend making the session stateless  \cite{sandeepaUsingKeycloakSpring2023} and as a consequence to disable CSRF protection \cite{SpringaddonsSamplesTutorials}. This is only possible for resource servers, while clients that are consumed by browsers must always enable CSRF protection because they rely on session cookies \cite{lodderstedtOAuthSecurityBest2023}. This can be configured in the \texttt{SecurityFilterChain} bean as shown in listing \ref{lst:rs-stateless-csrf}.
+
+\begin{lstlisting}[frame=lines, caption=Stateless session and disabled CSRF protection configured in the\texttt{SecurityFilterChain} bean in the Tea service (resource server), captionpos=b, label = lst:rs-stateless-csrf, language=Java, showstringspaces=false]
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        [...]
+        http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf().disable();
+        return http.build();
+    }
+\end{lstlisting}
 
 
-% \texttt{spring-boot-starter-web} starter dependency also has an automatically embedded TomCat webserver (for reactive web applications there is also the \texttt{spring-boot-starter-webflux} module which comes with Netty as default).
+!!! Hier weiter!
+was spring security damit macht:
+https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html
 
-unterschiede zwischen den verschiedenen client-versionen
-mit trial + error rausgefunden oder gibts einen link dazu?
+web - starter, nicht webflux (wegen gateway?) d.h. ein servlet und eine reactive?
+Ganz kurz zu DB
+
+
+
+%Zuerst Teaservice als RS und dann nur anmerken, dass es auch das Gateway als RS gibt?
+
+
 
 \subsection{Keycloak Server}
 \label{sub:keycloak}
@@ -749,6 +874,9 @@ clients
 users
 wie hab ich ihn configuriert?
 Docker compose -> config importiert
+
+\subsection{Role mapping with Keycloak and Spring Boot Resource Server}
+\label{sub:role-mapping}
 
 \subsection{Load testing with JMeter}
 \label{sub:loadtesting-jmeter}
@@ -767,7 +895,9 @@ LoC
 \chapter{Conclusion and Future Work}
 \label{chap:conclusion}
 
+%Keycloak adapter deprecated in 2022 https://github.com/keycloak/keycloak/discussions/10187
 
+% additional security measurements according to https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-access-token-leakage-at-the
 \newpage
 % --- Bibliography ------------------------------------------------------
 
