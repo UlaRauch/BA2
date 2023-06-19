@@ -743,7 +743,7 @@ public class Gateway2SecurityConfiguration {
     }
 \end{lstlisting}
 
-One particular aspect here is the \texttt{logoutSuccessHandler} call that gets a \texttt{ServerLogoutSuccessHandler} Object as an argument. A separate bean had to be written on order to make this work properly, see listing \ref{lst:logoutSuccessHandler}. The \texttt{OidcClientInitiatedServerLogoutSuccessHandler}, which implements the ServerLogoutSuccessHandler interface, takes care of the logout process and calls the Keycloak Server's \texttt{endSessionEndpoint} for this user \cite{HowFixKeycloak2022}, \cite{rozaSpringSecurityOpenID2017}. The \texttt{postLogoutRedirectUri} is the uri that the user will be redirected to after having logged out successfully. User logout is initiated by a \texttt{GET} or \texttt{POST} request to \texttt{{base-url}/logout} as default. The \texttt{/logout} endpoint does not need to be permitted explicitly in the filter chain \cite{rozaSpringSecurityOpenID2017}. 
+One particular aspect here is the \texttt{logoutSuccessHandler} call that gets a \texttt{ServerLogoutSuccessHandler} Object as an argument. A separate bean, as shown in listing \ref{lst:logoutSuccessHandler}, has to be written in order to make this work properly. The \texttt{OidcClientInitiatedServerLogoutSuccessHandler}, which implements the ServerLogoutSuccessHandler interface, takes care of the logout process and calls the Keycloak Server's \texttt{end\_session\_endpoint} for this user \cite{AdvancedConfigurationSpring}, \cite{HowFixKeycloak2022}, \cite{rozaSpringSecurityOpenID2017}. This process is defined in OpenID Connect Session Management 1.0 as the \textit{RP-Initiated Logout}, where RP stands for relying party \cite{jonesOpenIDConnectRPInitiated2022}. Because Keycloak provides Session Management and  Discovery, the \texttt{end\_session\_endpoint} URL can be configured automatically with Spring Boot. The \texttt{postLogoutRedirectUri} is the URI that the user will be redirected to after having logged out successfully. User logout can be initiated by a \texttt{GET} or \texttt{POST} request to \texttt{{base-url}/logout} as default. The \texttt{/logout} endpoint does not need to be permitted explicitly in the filter chain \cite{rozaSpringSecurityOpenID2017}. Figures \ref{fig:logout_requests} and \ref{fig:logout_endsessionurl} show the process in the Firefox networks analytics tool. First, a POST request is sent to the Teapot Gateway's \texttt{logout} endpoint, then a redirect follows to \texttt{http://host.docker.internal:10001/realms/teapot/protocol/openid-connect/logout}, which is the \texttt{end\_session\_endpoint} at the Keycloak, together with the \texttt{id\_token\_hint} and the \texttt{post\_logout\_redirect\_uri} as query parameters. The \texttt{id\_token\_hint} is used to let Keycloak know for which user the session should be cancelled.
 
 %listing: , according to \cite{HowFixKeycloak2022} fehlt!!! einfügen hat probleme gemacht. why?
 \begin{lstlisting}[frame=lines, caption=Logout success handler. Code example from the Teapot Gateway according to \cite{rozaSpringSecurityOpenID2017}, captionpos=b, label = lst:securitywebfilterchain, language=Java, showstringspaces=false]
@@ -754,6 +754,21 @@ One particular aspect here is the \texttt{logoutSuccessHandler} call that gets a
         return oidcClientInitiatedServerLogoutSuccessHandler;
     }
 \end{lstlisting} 
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/logout_requests}
+	\caption{POST request to the \texttt{\\logout} endoint of the Teapot Gateway and redirection to Keycloak's \texttt{end\_session\_endpoint}}
+	\label{fig:logout_requests}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/logout_endsessionurl}
+	\caption{The \texttt{end\_session\_endpoint} with query parameters}
+	\label{fig:logout_endsessionurl}
+\end{figure}
+
 
 With Spring Boot, a \texttt{GatewayApplication.java} class is created automatically, that contains the \texttt{main} method. With this setup the Gateway application is already fully functional and able to route requests to a resource server together with an access token after the user has authenticated successfully.
 
