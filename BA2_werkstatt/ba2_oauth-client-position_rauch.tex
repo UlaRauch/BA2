@@ -100,6 +100,35 @@
 \usepackage{lscape}
 %-------------------------------------------------------------------- 
 
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=mystyle}
+%----------------------------
+
 %Start of your document beginning with title page
 \begin{document}
 
@@ -195,7 +224,6 @@ This thesis investigates different implementations of Authorization and Authenti
 % --- German Abstract ----------------------------------------------------
 \cleardoublepage
 \chapter*{Kurzfassung}
-ALTER ABSTRACT! STEHT NOCH HIER ALS HINT FÜR DEN LINEBREAK
 Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (OIDC) bzw. OAuth 2.0 (OAuth2) im Kontext von \linebreak Microservice-Architekturen (MSA) ...
 
 % --- Abbrevations ----------------------------------------------------
@@ -691,6 +719,7 @@ spring:
             authorization-grant-type: authorization_code
             redirect-uri: 'http://localhost:8080/login/oauth2/code/{registrationId}'
 \end{lstlisting}
+
 For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included in the scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
 The provider section contains the provider name, in this case \texttt{keycloak-provider}. This is the name which the \texttt{registration} section refers to. The \texttt{issuer-uri} must be set correctly, otherwise the application won't be able to start successfully. This also happens when the OIDC provider is not reachable. The reason is, that the issuer-uri is used by the application to retrieve vital configuration metadata from the OIDC provider which is needed for the creation of automatic configuration. As a default, a \texttt{OpenID provider Configuration Request} is made to \texttt{"[specified issuer-uri]/.well-known/openid-configuration"}. This endpoint offers all the necessary configuration metadata, like \texttt{token\_endpoint}, \texttt{jwks\_uri}, \texttt{end\_session\_endpoint}, supported grant types and response types, supported signing and encryption algorithms etc \cite{OpenIDConnectDiscovery}.%in intro verschieben??? dann hier nur verweis
 
@@ -743,7 +772,8 @@ public class Gateway2SecurityConfiguration {
     }
 \end{lstlisting}
 
-One particular aspect here is the \texttt{logoutSuccessHandler} call that gets a \texttt{ServerLogoutSuccessHandler} Object as an argument. A separate bean, as shown in listing \ref{lst:logoutSuccessHandler}, has to be written in order to make this work properly. The \texttt{OidcClientInitiatedServerLogoutSuccessHandler}, which implements the ServerLogoutSuccessHandler interface, takes care of the logout process and calls the Keycloak Server's \texttt{end\_session\_endpoint} for this user \cite{AdvancedConfigurationSpring}, \cite{HowFixKeycloak2022}, \cite{rozaSpringSecurityOpenID2017}. This process is defined in OpenID Connect Session Management 1.0 as the \textit{RP-Initiated Logout}, where RP stands for relying party \cite{jonesOpenIDConnectRPInitiated2022}. Because Keycloak provides Session Management and  Discovery, the \texttt{end\_session\_endpoint} URL can be configured automatically with Spring Boot. The \texttt{postLogoutRedirectUri} is the URI that the user will be redirected to after having logged out successfully. User logout can be initiated by a \texttt{GET} or \texttt{POST} request to \texttt{{base-url}/logout} as default. The \texttt{/logout} endpoint does not need to be permitted explicitly in the filter chain \cite{rozaSpringSecurityOpenID2017}. Figures \ref{fig:logout_requests} and \ref{fig:logout_endsessionurl} show the process in the Firefox networks analytics tool. First, a POST request is sent to the Teapot Gateway's \texttt{logout} endpoint, then a redirect follows to \texttt{http://host.docker.internal:10001/realms/teapot/protocol/openid-connect/logout}, which is the \texttt{end\_session\_endpoint} at the Keycloak, together with the \texttt{id\_token\_hint} and the \texttt{post\_logout\_redirect\_uri} as query parameters. The \texttt{id\_token\_hint} is used to let Keycloak know for which user the session should be cancelled.
+%folgender absatz: ServerlogoutSuccessHander für reactive, LogoutSuccessHandler für servlet... Gateway as Client ist reactive -> ServerLogoutSuccessHandler. teas rs ist servlet, gateway as rs ist auch reactive. lohnt sich teas umschreiben auf reactive noch?
+One particular aspect here is the \texttt{logoutSuccessHandler} call that gets an \texttt{ServerLogoutSuccessHandler} object as an argument. A separate bean, as shown in listing \ref{lst:logoutSuccessHandler}, has to be written in order to make this work properly. The \texttt{OidcClientInitiatedServerLogoutSuccessHandler}, which implements the ServerLogoutSuccessHandler interface, takes care of the logout process and calls the Keycloak Server's \texttt{end\_session\_endpoint} for this user \cite{AdvancedConfigurationSpring}, \cite{HowFixKeycloak2022}, \cite{rozaSpringSecurityOpenID2017}. This process is defined in OpenID Connect Session Management 1.0 as the \textit{RP-Initiated Logout}, where RP stands for relying party \cite{jonesOpenIDConnectRPInitiated2022}. Because Keycloak provides Session Management and  Discovery, the \texttt{end\_session\_endpoint} URL can be configured automatically with Spring Boot. The \texttt{postLogoutRedirectUri} is the URI that the user will be redirected to after having logged out successfully. User logout can be initiated by a \texttt{GET} or \texttt{POST} request to \texttt{{base-url}/logout} as default. The \texttt{/logout} endpoint does not need to be permitted explicitly in the filter chain \cite{rozaSpringSecurityOpenID2017}. Figures \ref{fig:logout_requests} and \ref{fig:logout_endsessionurl} show the process in the Firefox networks analytics tool. First, a POST request is sent to the Teapot Gateway's \texttt{logout} endpoint, then a redirect follows to \texttt{http://host.docker.internal:10001/realms/teapot/protocol/openid-connect/logout}, which is the \texttt{end\_session\_endpoint} at the Keycloak, together with the \texttt{id\_token\_hint} and the \texttt{post\_logout\_redirect\_uri} as query parameters. The \texttt{id\_token\_hint} is used to let Keycloak know for which user the session should be cancelled. The \texttt{post\_logout\_redirect\_uri} is open to anonymous users and doesn't require authorization.
 
 %listing: , according to \cite{HowFixKeycloak2022} fehlt!!! einfügen hat probleme gemacht. why?
 \begin{lstlisting}[frame=lines, caption=Logout success handler. Code example from the Teapot Gateway according to \cite{rozaSpringSecurityOpenID2017}, captionpos=b, label = lst:securitywebfilterchain, language=Java, showstringspaces=false]
@@ -792,11 +822,11 @@ The OAuth2 Resource Server recieves and validates the access token and, if the t
 
 The minimal dependencies needed are \texttt{spring-security-oauth2-resource-server}, which contains the resource server support, and \texttt{spring-security-oauth2-jose}, which allows the resource server to decode JWTs, and is therefore crucial for the application's ability to validate JWT access tokens \cite{OAuthResourceServer}. Both are included in the \texttt{spring-boot-starter-oauth2-resource-server} starter dependency. OAuth2 bearer token authentication is possible with JWTs or with opaque tokens (see section \ref{???}). The Teapot project works with JWT.
 
-%entfernt, weil es hier zuviel um authentication geht. passiert das wirklich in meinem resource server?
-The authorization process when a request for a protected resource comes in, goes like this:
+%komisch, weil es hier für einen RS viel um authentication geht. passiert das wirklich in meinem resource server? anscheinend...
+The authorization process when a request for a protected resource comes in without an access token, goes like this:
 \begin{itemize}
-\item A unauthenticated request comes in from the User
-\item The \texttt{AuthorizationFilter} throws a \texttt{AccessDeniedException}
+\item An unauthenticated request comes in from the User
+\item The \texttt{AuthorizationFilter} throws an \texttt{AccessDeniedException}
 \item The \texttt{ExceptionTranslationFilter} initiates \textit{Start Authentication} and activates the
 \texttt{BearerTokenAuthenticationEntryPoint} to send a \texttt{WWW-Authenticate: Bearer} header (see figure \ref{fig:www-authenticate}
 \item The client now can retry the request with the bearer token.
@@ -806,7 +836,7 @@ The authorization process when a request for a protected resource comes in, goes
 	\centering
 		\includegraphics{images/bearertokenauthenticationenttrypoint}
 	\caption{The BearerTokenAuthenticationEntryPoint sends a \texttt{WWW-Authenticate : Bearer} back to the requesting client \cite{BearerTokenAuthenticationEntryPointJava2023}}
-	\label{fig:www-authenticate}
+	\label{fig:bearertokenauthenticationenttrypoint}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -816,8 +846,8 @@ The authorization process when a request for a protected resource comes in, goes
 	\label{fig:www-authenticate}
 \end{figure}
 
-When the request comes with a bearer token, the \texttt{BearerTokenAuthenticationFilter} extracts the token from the \texttt{HttpServletRequest} and creates a \texttt{BearerTokenAuthenticationToken}, which implements the \texttt{Authentication} interface and represents the authenticated user and contains a \texttt{pricipal}, \texttt{credentials} (can be cleared after authentication to avoid leaking)!!! das passt da nicht wirklich her, ist aber aus der spring doku... and \texttt{authorities}. These are instances of \texttt{GrantedAuthority} and usually represent coarse-grained permission, for example \texttt{role} or \texttt{scope} \cite{ServletAuthenticationArchitecture}. \texttt{authority} claims are not part of the OAuth2 tokens issued by Keyloak (or other common AS), so a authorities converter needs to be written in order to distinguish roles in authorization. 
-%keycloak issues tokens with realm roles and client roles ...
+When the request comes with a bearer token, the \texttt{BearerTokenAuthenticationFilter} extracts the token from the \texttt{HttpServletRequest} and creates a \texttt{BearerTokenAuthenticationToken}, which implements the \texttt{Authentication} interface, represents the authenticated user and contains a \texttt{pricipal} and \texttt{authority}. An \texttt{authority} is an instance of \texttt{GrantedAuthority} and usually represents coarse-grained permission, for example \texttt{role} or \texttt{scope} \cite{ServletAuthenticationArchitecture} (see section \ref{sub:rbac}.
+
 
 %!!! which is then passed to the \texttt{AuthenticationManager}. The \texttt{AuthenticationManager} is selected by the \texttt{AuthenticationManagerResolver} based on the \texttt{HttpServletRequest}, either for JWT or for opaque tokens. The \texttt{AuthenticationManager} authenticates the \texttt{BearerTokenAuthenticationToken}. Depending on wheather authentication fails or is successfull, the \texttt{SecurityContextHolder} is cleared out or set with the Authentication object. In the case of authentication failure, the \texttt{AuthenticationEntryPoint} will send the \texttt{WWW-Authenticate} header again, in the case of success, the \texttt{FilterChain} continues 
 
@@ -890,8 +920,109 @@ users
 wie hab ich ihn configuriert?
 Docker compose -> config importiert
 
-\subsection{Role mapping with Keycloak and Spring Boot Resource Server}
-\label{sub:role-mapping}
+
+
+
+\subsection{Role-based Access Control (RBAC) with Keycloak and Spring Boot Resource Server}
+\label{sub:rbac}
+%Was ist RBAC kurz allgemein mit quelle (evt. das aus BA1)
+
+With Keycloak there is the option to define realm roles and/or client roles, which can be associated to each other to composite roles. % Quelle!!!
+Figure \ref{fig:keycloak-client-roles} shows the defined client roles for the Teapot Gateway, while figure \ref{fig:keycloak-realm-roles-admin} shows one of the composite realm roles, \texttt{tea\_admin} and it's associated client role, \texttt{admin}, which belongs to the \texttt{teapot-gateway} client.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/keycloak-client-roles}
+	\caption{Example of client roles defined in the Keycloak admin console}
+	\label{fig:keycloak-client-roles}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/keycloak-realm-roles-admin}
+	\caption{Example of a composite realm role and it's associated client role in the Keycloak admin console}
+	\label{fig:keycloak-client-roles}
+\end{figure}
+
+Keycloak includes these roles in a \texttt{realm\_access} or \texttt{resource\_access} claim respectively. The access token for a user with the \texttt{tea\_admin} realm role and the \texttt{admin} client role is shown in figure \ref{fig:keycloak-access-token}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/keycloak-access-token}
+	\caption{Example of an access token with claims for realm and client roles, issued by the Keycloak server}
+	\label{fig:keycloak-access-token}
+\end{figure}
+
+As we can see, the access token does not contain \texttt{authority} claims. The \texttt{realm\_access} or \texttt{resource\_access} access claims are specific to Keycloak (!!! Quelle) \texttt{authority}. Spring Security allows to check for \texttt{authority} objects inside the \texttt{authentication}, but it provides no means by default to check specifically for the access claims inside a Keycloak access token. This means that these roles have no effect unless an authorities converter is added, that can translate specific claims in the access token to an \texttt{authority} in order to distinguish roles in authorization. Listing \ref{fig:rbac-authorities-converter} shows how the roles can be extracted from the specific claims in the access token. They are returned as a list of authorities and can be checked in the \texttt{SecurityFilterChain} by calling the \texttt{hasAuthority()} method. Spring Security also offers the \texttt{hasRole()} method, which checks for roles specifically. Roles are defined by the \texttt{ROLE\_} prefix. This prefix has to be added in the conversion process as well, as shown in listing \ref{fig:rbac-authorities-converter}, line 20.
+
+\begin{lstlisting}[frame=lines, caption=Extraction of client roles and realm roles from Keycloak access token and conversion to authorities, according to \cite{ch4mpAnswerUseKeycloak2022}, simplified, with addition of the \texttt{ROLE\_} prefix., captionpos=b, label=lst:rbac-authorities-converter, language=Java]
+@RequiredArgsConstructor
+class JwtGrantedAuthoritiesConverter implements Converter<Jwt, Collection<? extends GrantedAuthority>> {
+
+    @Override
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public Collection<? extends GrantedAuthority> convert(Jwt jwt) {
+        return Stream.of("$.realm_access.roles", "$.resource_access.*.roles").flatMap(claimPaths -> {
+                    Object claim;
+                    try {
+                        claim = JsonPath.read(jwt.getClaims(), claimPaths);
+                    } catch (PathNotFoundException e) {
+                        return Stream.empty();
+                    }
+                    final var firstItem = ((Collection) claim).iterator().next();
+                    if (Collection.class.isAssignableFrom(firstItem.getClass())) {
+                        return (Stream<String>) ((Collection) claim).stream().flatMap(item -> ((Collection) item).stream()).map(String.class::cast);
+                    }
+                    return Stream.empty();
+                })
+                .map(authority -> new SimpleGrantedAuthority("ROLE_" + authority))
+                .map(GrantedAuthority.class::cast).toList();
+    }
+}\end{lstlisting}
+
+\begin{lstlisting}[frame=lines, caption=, captionpos=b, label= lst:rbac-converter, language=Java, showstringspaces=false]
+@Component
+@RequiredArgsConstructor
+class SpringAddonsJwtAuthenticationConverter implements Converter<Jwt, JwtAuthenticationToken> {
+
+    @Override
+    public JwtAuthenticationToken convert(Jwt jwt) {
+        final var authorities = new JwtGrantedAuthoritiesConverter().convert(jwt);
+        final String username = JsonPath.read(jwt.getClaims(), "preferred_username");
+        return new JwtAuthenticationToken(jwt, authorities, username);
+    }
+}
+\end{lstlisting}
+
+!!!referenz!
+\begin{lstlisting}[frame=lines, caption=, captionpos=b, label = lst:rbac-secfilterchain, language=Java, showstringspaces=false]
+@Configuration
+@EnableWebSecurity
+public class TeaSecurityConfiguration {
+    public static final String ADMIN = "tea_admin";
+    public static final String USER = "user";
+    public static final String PRIVILEGED_USER = "puser";
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http, Converter<Jwt, ? extends AbstractAuthenticationToken> jwtAuthenticationConverter) throws Exception {
+        http
+                .authorizeHttpRequests().requestMatchers("/teas/hello/noauth")
+                .permitAll()
+                .requestMatchers("/teas/admin", "/teas/create", "/teas/delete/**")
+                .hasAuthority(ADMIN)
+                .requestMatchers("/teas/maketea/special")
+                .hasAnyAuthority(PRIVILEGED_USER, ADMIN)
+                .requestMatchers("/teas/getall", "/teas/maketea/*", "/teas/hello/user")
+                .hasAnyAuthority(USER, ADMIN, PRIVILEGED_USER)
+            .anyRequest().authenticated();
+        http.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)));
+        http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf().disable();
+        return http.build();
+    }
+}
+\end{lstlisting}
+
 
 \subsection{Load testing with JMeter}
 \label{sub:loadtesting-jmeter}
