@@ -103,17 +103,17 @@
 \usepackage{xcolor}
 
 %New colors defined below
+\definecolor{codeorange}{rgb}{1.00,0.45,0.00}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
 
-%Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
   backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
-  keywordstyle=\color{magenta},
+  keywordstyle=\color{codeorange},
   numberstyle=\tiny\color{codegray},
-  stringstyle=\color{codepurple},
+  stringstyle=\color{codegreen},
   basicstyle=\ttfamily\footnotesize,
   breakatwhitespace=false,
   breaklines=true,
@@ -250,6 +250,7 @@ Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (O
 			OIDC & OpenID Connect \\
 			RFC & Request for Comments \\
 			POC & Proof of Concept \\
+			PoLP & Principle of least privilege \\
 			RSA & Rivest-Shamir-Adelman \\
 			%SAML & Secturity Asertion Markup Language \\
 			SHA & Secure Hash Algorithm \\
@@ -913,7 +914,8 @@ Ganz kurz zu DB
 \subsection{Keycloak Server}
 \label{sub:keycloak}
 Was ist das
-docker admin console
+docker
+admin console
 realms
 clients
 users
@@ -921,41 +923,49 @@ wie hab ich ihn configuriert?
 Docker compose -> config importiert
 
 
-
-
-\subsection{Role-based Access Control (RBAC) with Keycloak and Spring Boot Resource Server}
+\subsection{Role mapping with Keycloak and Spring Boot Resource Server}
 \label{sub:rbac}
-%Was ist RBAC kurz allgemein mit quelle (evt. das aus BA1)
+In the event that an intruder manages to steal an access token, or if a member of the organization tries to perform operations that they are not entitled to, the possibile damage can be significantly reduced by defining roles with different privileges. In the example of the Teapot this means that someone with a basic user role is not authorized to perform any operation that is not safe, like creating or deleting tea in the database. With a user token, only safe GET requests will be authorized by the resource server. Although this does not mean that no harm can be done by accessing information without altering it, the potential damage is limited compared to a misused access token for Teapot admins, who have privileges that enable them to erase the entire content of the Tea database. Of course this example is highly simplified and in real applications, even a basic user of the system might need to perform operations on the resource that would alter it, or have access to information not intended for anyone else, but the principle remains the same.
+%RBAC ist anscheinend ein eigener standard, keine zeit, mich da einzuarbeiten. entweder nur ganz stark vereinfacht, oder so lassen.
 
-With Keycloak there is the option to define realm roles and/or client roles, which can be associated to each other to composite roles. % Quelle!!!
-Figure \ref{fig:keycloak-client-roles} shows the defined client roles for the Teapot Gateway, while figure \ref{fig:keycloak-realm-roles-admin} shows one of the composite realm roles, \texttt{tea\_admin} and it's associated client role, \texttt{admin}, which belongs to the \texttt{teapot-gateway} client.
+Role mapping therefore allows to apply the principle of least privilege (PoLP), which means that users only have the privileges necessary to perform what is inherent to their role, but nothing else (!!! Quelle). Figure \ref{fig:keycloak-client-roles} depicts the roles for the Teapot Gateway client, with their privileges described as defined in the Tea resource server (see listing \ref{lst:roles-secfilterchain}.
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics{images/keycloak-client-roles}
+		\includegraphics[width=\linewidth]{images/keycloak-realm-roles}
+	\caption{Roles in the Teapot realm with the custom \texttt{tea\_admin} and \texttt{tea\_user} roles.}
+	\label{fig:keycloak-realm-roles}
+\end{figure}
+
+%Keycloak supports different kinds of access control (ACAB, RBAC, etc.)... https://www.keycloak.org/docs/latest/authorization_services/
+With Keycloak there is the option to define realm roles and/or client roles. Realm roles can be composite by being associated to other realm roles or client roles \cite{ServerAdministrationGuide}. Figure \ref{fig:keycloak-client-roles} shows the defined client roles for the Teapot Gateway, while figure \ref{fig:keycloak-realm-admin-associated-roles} shows one of the composite realm roles, \texttt{tea\_admin} and it's associated client roles, \texttt{admin}, \\texttt{user} and \texttt{privileged\_user} which belong to the \texttt{teapot-gateway} client. %realm user ist auch noch dabei
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=\linewidth]{images/keycloak-client-roles}
 	\caption{Example of client roles defined in the Keycloak admin console}
 	\label{fig:keycloak-client-roles}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics{images/keycloak-realm-roles-admin}
+		\includegraphics[width=\linewidth]{images/keycloak-realm-admin-associated-roles}
 	\caption{Example of a composite realm role and it's associated client role in the Keycloak admin console}
-	\label{fig:keycloak-client-roles}
+	\label{fig:keycloak-realm-admin-associated-roles}
 \end{figure}
 
-Keycloak includes these roles in a \texttt{realm\_access} or \texttt{resource\_access} claim respectively. The access token for a user with the \texttt{tea\_admin} realm role and the \texttt{admin} client role is shown in figure \ref{fig:keycloak-access-token}.
+Keycloak includes these roles in the access token in a \texttt{realm\_access} or \texttt{resource\_access} claim respectively. The access token for a user with the \texttt{tea\_admin} realm role and the \texttt{admin} client role is shown in figure \ref{fig:keycloak-access-token}. The \texttt{realm\_access} contains only the \texttt{tea\_admin} role (the realm role) and \texttt{resource\_access} contains all associated roles for the \texttt{teapot-client}.
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics{images/keycloak-access-token}
+		\includegraphics[width=\linewidth]{images/keycloak-access-token}
 	\caption{Example of an access token with claims for realm and client roles, issued by the Keycloak server}
 	\label{fig:keycloak-access-token}
 \end{figure}
 
-As we can see, the access token does not contain \texttt{authority} claims. The \texttt{realm\_access} or \texttt{resource\_access} access claims are specific to Keycloak (!!! Quelle) \texttt{authority}. Spring Security allows to check for \texttt{authority} objects inside the \texttt{authentication}, but it provides no means by default to check specifically for the access claims inside a Keycloak access token. This means that these roles have no effect unless an authorities converter is added, that can translate specific claims in the access token to an \texttt{authority} in order to distinguish roles in authorization. Listing \ref{fig:rbac-authorities-converter} shows how the roles can be extracted from the specific claims in the access token. They are returned as a list of authorities and can be checked in the \texttt{SecurityFilterChain} by calling the \texttt{hasAuthority()} method. Spring Security also offers the \texttt{hasRole()} method, which checks for roles specifically. Roles are defined by the \texttt{ROLE\_} prefix. This prefix has to be added in the conversion process as well, as shown in listing \ref{fig:rbac-authorities-converter}, line 20.
+As we can see, the access token does not contain \texttt{authority} claims. The \texttt{realm\_access} or \texttt{resource\_access} access claims are specific to Keycloak (!!! Quelle). Spring Security allows to check for authorities inside the \texttt{authentication} object, but it provides no means by default to check specifically for the access claims provided by a Keycloak access token. This means that these roles have no effect on the authorization process, unless an authority converter is added. A converter translates specific claims in the access token to an \texttt{authority} in order to distinguish roles in authorization. Listing \ref{fig:roles-authorities-converter} shows how the roles can be extracted from the specific claims in the access token. They are returned as a list of authorities and can be checked in the \texttt{SecurityFilterChain} by calling the \texttt{hasAuthority()} method. Spring Security also offers the \texttt{hasRole()} method, which checks for roles specifically. Roles are defined in Spring Security by the \texttt{ROLE\_} prefix !!! Quelle!. This prefix has to be added in the conversion process as well, as shown in listing \ref{fig:roles-authorities-converter}, line 20. Spring Security provides a default \texttt{JwtAuthenticationConverter} for creating a \texttt{Authentication} from a \texttt{JWT}. This converter can be replaced by any class implementing \texttt{Converter<Jwt, AbstractAuthenticationToken>} \cite{OAuthResourceServer}. Listing \ref{lst:roles-converter} shows the custom converter by \cite{ch4mpAnswerUseKeycloak2022} that is used in the Tea resource server. It returns a \texttt{JwtAuthenticationToken} which inherits from \texttt{AbstractOAuth2TokenAuthenticationToken} and contains the extracted realm roles and client roles from the access token as authorities.
 
-\begin{lstlisting}[frame=lines, caption=Extraction of client roles and realm roles from Keycloak access token and conversion to authorities, according to \cite{ch4mpAnswerUseKeycloak2022}, simplified, with addition of the \texttt{ROLE\_} prefix., captionpos=b, label=lst:rbac-authorities-converter, language=Java]
+\begin{lstlisting}[frame=lines, caption=Extraction of client roles and realm roles from Keycloak access token and conversion to granted authorities according to \cite{ch4mpAnswerUseKeycloak2022}. Simplified and with addition of the \texttt{ROLE\_} prefix., captionpos=b, label=lst:roles-authorities-converter, language=Java]
 @RequiredArgsConstructor
 class JwtGrantedAuthoritiesConverter implements Converter<Jwt, Collection<? extends GrantedAuthority>> {
 
@@ -970,6 +980,9 @@ class JwtGrantedAuthoritiesConverter implements Converter<Jwt, Collection<? exte
                         return Stream.empty();
                     }
                     final var firstItem = ((Collection) claim).iterator().next();
+                    if (firstItem instanceof String) {
+                        return (Stream<String>) ((Collection) claim).stream();
+                    }
                     if (Collection.class.isAssignableFrom(firstItem.getClass())) {
                         return (Stream<String>) ((Collection) claim).stream().flatMap(item -> ((Collection) item).stream()).map(String.class::cast);
                     }
@@ -978,9 +991,10 @@ class JwtGrantedAuthoritiesConverter implements Converter<Jwt, Collection<? exte
                 .map(authority -> new SimpleGrantedAuthority("ROLE_" + authority))
                 .map(GrantedAuthority.class::cast).toList();
     }
+}
 }\end{lstlisting}
 
-\begin{lstlisting}[frame=lines, caption=, captionpos=b, label= lst:rbac-converter, language=Java, showstringspaces=false]
+\begin{lstlisting}[frame=lines, caption=Custom converter to set the extracted granted authorities from the access token in the new \texttt{Authentication} \cite{ch4mpAnswerUseKeycloak2022}, captionpos=b, label= lst:roles-converter, language=Java, showstringspaces=false]
 @Component
 @RequiredArgsConstructor
 class SpringAddonsJwtAuthenticationConverter implements Converter<Jwt, JwtAuthenticationToken> {
@@ -994,26 +1008,34 @@ class SpringAddonsJwtAuthenticationConverter implements Converter<Jwt, JwtAuthen
 }
 \end{lstlisting}
 
-!!!referenz!
-\begin{lstlisting}[frame=lines, caption=, captionpos=b, label = lst:rbac-secfilterchain, language=Java, showstringspaces=false]
+The \texttt{SecurityFilterChain} can now be overridden in a way that access to different endpoints of the service is granted or not, depending on the role found in the access token of the user that requests a resource. In listing \ref{lst:roles-secfilterchain}, the \texttt{/teas/admin} endpoint is open for realm admins, while the \texttt{/teas/create} and \texttt{teas/delete/*} endpoints are open for client admins specifically. A user with the realm role \texttt{tea\_admin} has therefore access to all protected endpoints because \texttt{tea\_admin} is a composite role that also contains the three client roles. A user with only the client \texttt{admin} role assigned would not have access to the \texttt{/teas/admin}, but can still access other endpoints. Because the client admin is not a composite role, the corresondent authority must be allowed explicitly where client admins should have access, in addition to the respective user roles (see line 25 in figure \ref{lst:roles-secfilterchain}.%nicht best practice -> hinweis auf acab etc.?
+
+\begin{lstlisting}[frame=lines, caption=, captionpos=b, label=lst:roles-secfilterchain, language=Java, showstringspaces=false]
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
 public class TeaSecurityConfiguration {
-    public static final String ADMIN = "tea_admin";
-    public static final String USER = "user";
-    public static final String PRIVILEGED_USER = "puser";
+    public static final String REALM_ADMIN = "tea_admin";
+    public static final String CLIENT_ADMIN = "admin";
+    public static final String REALM_USER = "tea_user";
+    public static final String CLIENT_USER = "user";
+    public static final String CLIENT_PRIVILEGED_USER = "privileged_user";
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, Converter<Jwt, ? extends AbstractAuthenticationToken> jwtAuthenticationConverter) throws Exception {
         http
                 .authorizeHttpRequests().requestMatchers("/teas/hello/noauth")
                 .permitAll()
-                .requestMatchers("/teas/admin", "/teas/create", "/teas/delete/**")
-                .hasAuthority(ADMIN)
+                .requestMatchers("/teas/admin")
+                .hasRole(REALM_ADMIN)
+                .requestMatchers("/teas/create", "/teas/delete/*")
+                .hasRole(CLIENT_ADMIN)
                 .requestMatchers("/teas/maketea/special")
-                .hasAnyAuthority(PRIVILEGED_USER, ADMIN)
-                .requestMatchers("/teas/getall", "/teas/maketea/*", "/teas/hello/user")
-                .hasAnyAuthority(USER, ADMIN, PRIVILEGED_USER)
+                .hasAnyRole(CLIENT_PRIVILEGED_USER, CLIENT_ADMIN)
+                .requestMatchers("/teas/maketea/*", "/teas/hello/user")
+                .hasAnyRole(CLIENT_USER, CLIENT_PRIVILEGED_USER, CLIENT_ADMIN)
+                .requestMatchers("/teas/getall")
+                .hasAnyRole(REALM_USER, REALM_ADMIN, CLIENT_ADMIN)
             .anyRequest().authenticated();
         http.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)));
         http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -1022,7 +1044,6 @@ public class TeaSecurityConfiguration {
     }
 }
 \end{lstlisting}
-
 
 \subsection{Load testing with JMeter}
 \label{sub:loadtesting-jmeter}
