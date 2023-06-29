@@ -246,20 +246,21 @@ Date: 15.01.2023 \hspace{6cm} Signature:\\
 
 % --- English Abstract ----------------------------------------------------
 \cleardoublepage
-\chapter*{Abstract}
+\chapter*{Abstract - FEHLT}
 This thesis investigates different implementations of Authorization and Authentication with OpenID Connect (OIDC) and OAuth 2.0 (OAuth2) in a microservice architecture (MSA) environment...
 % --- German Abstract ----------------------------------------------------
 \cleardoublepage
-\chapter*{Kurzfassung}
+\chapter*{Kurzfassung - FEHLT}
 Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (OIDC) bzw. OAuth 2.0 (OAuth2) im Kontext von \linebreak Microservice-Architekturen (MSA) ...
 
 % --- Abbrevations ----------------------------------------------------
-\chapter*{List of Abbreviations}
+\chapter*{List of Abbreviations - CHECKEN}
 \vspace{0.65cm}
 
 \begin{table*}[htbp]
 		\begin{tabular}{ll}
-			!!!ALT! NICHT gebrauchte raushaun!
+			!!!ALT! NICHT gebrauchte raushaun und manche noch konsequenter benutzen, z.b. AS und MA
+			AS & Authorization Server \\
 			BCP & Best Current Practice \\
 			CRUD & Create Read Update Delete \\
 			ECDSA & Elliptic Curve Digital Signature Algorithm \\
@@ -273,6 +274,7 @@ Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (O
 			JWE & JSON Web Encryption \\			
 			JWS & JSON Web Signature \\
 			JWT & JSON Web Token \\
+			!!! MA & Monolithic Architecture \\			
 			MSA & Microservice Architecture \\
 			mTLS & mutual Transport Layer Security \\
 			OIDC & OpenID Connect \\
@@ -317,7 +319,7 @@ wenn doch, an welcher stelle genau?
 
 % --- Begin of Thesis ----------------------------------------------------
 \mainmatter
- \chapter{Introduction}
+ \chapter{Introduction - FORSCHUNGSFRAGE ETC. FEHLT}
 \label{chap:intro}
 
 !!! Einleitung allgemein, Forschungsfragen:
@@ -333,27 +335,36 @@ Achtung, neue Forschungsfrage!
 %Wie lassen sich beide Patterns mit Spring Boot implementieren? Welche Unterschiede gibt es
 %zwischen den Varianten, z.B. in den Bereichen Performance, Sicherheit, Komplexität?
 
+relevanz: hier erklären, dass die section authn+authz die relevanz deutlich macht.
+keycloak ist open source, spring boot ist sehr populär und vereinfacht development, daher eine naheliegende wahl. 
 
-
-\section{Related Work}
+\section{Related Work - FEHLT}
 \label{sec:relwork}
 
 % Chatterjee & Prince \cite{chatterjeeApplyingSpringSecurity2022} implementieren Spring Security mit Keycloak aber sie vergleichen nix, konkreter anwendungsfall.
 
 
 % nguyen & baker 2019 novel approach -> spring security
+
+Die geben keine details drüber inwieweit das ergebnis den specifications entspricht
+
+% Floren
+% BFF vergelich
  \section{Microservice-based vs Monolithic Architecture}
 \label{sec:msa-mon}
 
-Was ist MSA
+The principle of microservices is usually explained by comparing it with the concept of a monolithic architecture. While a monolith is made in one piece of software which combines all necessary functionality, microservices are loosely coupled, separate applications that communicate between each other usually via REST APIs \cite{lewisMicroservices2014}. Figure \ref{fig:msa} illustrates this difference between MSA and monolithic architecture. 
 
-%!!! sicherheitshalber aus der BA1 zitieren!
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=\textwidth]{images/microservices-monolith.png}
-	\caption{A very abstract illustration of a monolith and micoservices according to \cite{lewis_microservices_2014}}
+	\caption{Monolithic architecture vs. microservice-based architecture according to \cite{lewis_microservices_2014}, \cite{rauchAuthxmicroservicesurauchPdf2023}.}
 	\label{fig:msa}
 \end{figure}
+
+The advantages of MSA, that made it more and more popular over the last years are, according to \cite{dragoniMicroservicesYesterdayToday2017}: independent testing, debugging and redeployment of a single service with a small code base, leading to shorter down-time than with MA, flexible scaling of single services without unneccessary reduplication of the whole system and flexibility in the choice of languages and frameworks between the single services, limited only by the communicative needs between them. MSA is also very suitable for containerization and the upcoming of technologies like Docker and Kubernetes has further contributed to the deployment flexibility of microservices \cite{pahlContainerizationPaaSCloud2015}.
+
+On the other hand, MSA poses security challenges that will be addressed in the next section.
 
 \section{Authentication and Authorization}
 \label{sec:authx}
@@ -638,7 +649,7 @@ The ID token itself is a signed JWT which contains the \texttt{iss, sub, aud, ex
 %trennung zwischen access token und id token essentiell -> inhalt vom access token geht den client wenig an, dafür kann mit infos aus id token eine session gemacht werden \cite{ideskog_oauth_nodate} (bis eine bessere quelle kommt, spec lesen!)
 
 
-\section{The positioning of the OAuth2 client in a MSA system}
+\section{The positioning of the OAuth2 client in a MSA system - CHECKEN}
 \label{sec:msa-oauth}
 !!! nocheinmal anschaun. wo soll der abschnitt hin und was ist die intention? Titel?
 %API gateway wurde evt. schon in MSA einführung erklärt
@@ -651,7 +662,7 @@ Another version, which can sometimes be found in OAuth2/OIDC MSA tutorials, reli
 Naturally, both variants, with the API gateway or the frontend application as the OAuth2 client bring advantages and disadvantages in different aspects, like system performance, code complextiy and further security considerations. In chapter \ref{chap:implementation}, not only the implementation of a prototype is described, but also the setup for a performance test in order to compare response times of both variants. The results of these tests are presented and discussed in section \ref{chap:results} (!!! discussion separat oder getrennt?).
 (!!! code complexity und security?)
 
-\section{Methodology}
+\section{Methodology - VERVOLLSTÄNDIGEN}
 \label{sec:methodology}
 !!! Darf ich das so schreiben?
 The first research question, how OAuth2 authorization and authentication with OIDC are implemented in MSA using Spring Boot and the Spring Security Framework with a Keycloak server, was answered mainly by collecting and combining information from online tutorials and use them to implement a prototype as a proof of concept. The implementation is described in detail in chapter \ref{chap:implementation}. It should be noted that the aim was not to follow or develop a best practice model. For example in production TLS would be required on all connections, but was left out because the focus lies on authentication and authorization of users with OAuth2 and OIDC. Also mTLS was considered to be beyond the scope of this thesis and therefore left out. Correct authentication and authorization of end users was tested and examined using Postman\footnote{https://www.postman.com/} and Wireshark\footnote{https://www.wireshark.org/}.
@@ -665,9 +676,9 @@ In the first version, the API gateway was implemented as OAuth2 client. In order
 \chapter{Implementation}
 \label{chap:implementation}
 
-All implementations and testing were carried out on a Lenovo Thinkpad T490s with a Intel\textregistered Core\texttrademark i78665U CPU, 1.9 GHz Base Frequency, 4,8 GHz Max Turbo Frequency and 4 Cores. The operating system was Microsoft Windows 11 Pro.
-
-All Services including the Keycloak server were deployed with Docker Compose version 2.17.3 and the Docker version was 23.0.5.
+All implementations and testing were carried out on a Lenovo Thinkpad T490s with a Intel\textregistered Core\texttrademark  i78665U CPU, 1.9 GHz Base Frequency, 4,8 GHz Max Turbo Frequency and 4 Cores. The operating system was Microsoft Windows 11 Pro.
+The Teapot Services were developed with IntelliJ IDEA 2023.1.2 (Ultimate Edition). All Services including the Keycloak server were then deployed with Docker version 23.0.5 and Docker Compose version 2.17.3.
+!!! Spring, JMEter und Keycloak versionen auch hier?
 
 %!!! Was noch?
 
@@ -675,7 +686,7 @@ All Services including the Keycloak server were deployed with Docker Compose ver
 %!!! hier nur abgelegt:
 %	With the basic implementation of the prototype system (see section 4 Impl (reihenfolge tauschen?), 4 different versions were created: one with the Gateway as the OAuth2 client and with the Tea Service as a Resource Server, one where the Gateway and the Tea Service are both Resource Servers and one where only the Gateway is a Resource Server and the Tea Service remains unprotected. The initial intention was to implement MTLS between the Gateway and the Resource Server as recommended in [Siriwardena - Microservices Security in Action - Seite???]. This last version was later abandoned in favour of the focus on the difference of the client position in the system. Testing a difference between OAuth2 and MTLS lies outside the scope of this thesis.
 
-\section{The Teapot - High level design}
+\section{The Teapot - High level design -ÜBERARBEITEN!}
 \label{sec:high-level}
 !!!
 In order to become familiar with MSA, OAuth2 and OIDC, the first project that was built is a virtual tea kitchen, called "The Teapot". It then served as a starting point for the comparison of different Oauth2 client positions, with some simplifications and changes to serve the purpose.
@@ -1149,8 +1160,162 @@ LoC
 -> Dependencies?
 + Sonarqube Ergebnisse?
 
-\chapter{Discussion and Results} % evt. umbenennen in discussion
+\chapter{Results and Discussion} % evt. umbenennen in discussion
 \label{chap:results}
+\section{Compliance with OAuth2 and OIDC specifications}
+\label{sec:conformance}
+
+For the implementation presented in chapter \ref{chap:implementation}, functionality and compliance to OAuth2 and OIDC specifications was tested with Postman and Wireshark.
+
+When trying to access the protected resource (the list of available Teas) via the gateway in it's client function at \texttt{http:localhost:8181/listteas} and a Firefox browser as user agent, the following requests and responses could be captured:
+
+\begin{enumerate}
+\item
+\texttt{Source Port: 50965, Dest. Port: 8181
+\linebreak $\rightarrow$ GET http://localhost:8181/listteas}
+\linebreak Unauthenticated user wants to view a list of teas and sends request to dedicated endpoint at the gateway (client)
+\linebreak
+$\leftarrow$ \texttt{302 Found Location: /oauth2/authorization/keycloak-gateway-client}
+\linebreak Gateway refers the user to a different endpoint at the gateway
+
+\item
+\texttt{Source Port: 50965, Dest. Port: 8181
+\linebreak $\rightarrow$ GET /oauth2/authorization/keycloak-gateway-client}
+\linebreak User agent sends request to the new endpoint
+\linebreak
+$\leftarrow$ \texttt{302 Found  [truncated]Location: http://host.docker.internal:10001/realms/teapot/protocol/openid-connect/auth...}
+\linebreak \texttt{Request URI Query Parameter: response\_type=code}
+\linebreak \texttt{Request URI Query Parameter: client\_id=teapot-gateway}
+\linebreak \texttt{Request URI Query Parameter: scope=openid}
+\linebreak \texttt{Request URI Query Parameter: state=FczD4rvwKxMMyYRC0joaa-oAr-GMbaG2rbuW76gE72k\%3D}
+\linebreak \texttt[Request URI Query Parameter: truncated]{redirect\_uri=http://localhost...}
+\linebreak \texttt{nonce= omitted by truncation?}
+\linebreak Gateway refers user agent to Keycloak's authorization endpoint with the authorization request
+
+\item
+\texttt{Source Port: 50966, Dest. Port: 10001
+\linebreak $\rightarrow$ [truncated]GET /realms/teapot/protocol/openid-connect/auth...}
+\linebreak \texttt{Request URI Query Parameter: response\_type=code}
+\linebreak \texttt{Request URI Query Parameter: client\_id=teapot-gateway}
+\linebreak \texttt{Request URI Query Parameter: scope=openid}
+\linebreak \texttt{Request URI Query Parameter: state=FczD4rvwKxMMyYRC0joaa-oAr-GMbaG2rbuW76gE72k\%3D}
+\linebreak \texttt{Request URI Query Parameter: redirect\_uri=http://localhost:8181/login/oauth2/code/keycloak-gateway-client}
+\linebreak \texttt{Request URI Query Parameter: nonce=BVUZ0gzd1P-FjEqiFWv8gLspnEEdaOpvvqm3hgiAriI}
+\linebreak User agent sends the client's authorization request to Keycloak's authorization endpoint (query parameters omitted)
+\linebreak
+$\leftarrow$ \texttt{200 OK  (text/html)} (Keycloak Login Form Page)
+\linebreak Keycloak responds with the login page to authenticate the user
+\linebreak ---Additional requests to load login page omitted---
+
+\item
+\texttt{Source Port: 50971, Dest. Port: 10001
+\linebreak $\rightarrow$ [truncated]POST /realms/teapot/login-actions/authenticate...}
+\linebreak (request query parameters omitted)
+\linebreak \texttt{Form item: "username" = "ula"}
+\linebreak \texttt{Form item: "password" = "pass"}
+\linebreak \texttt{Form item: "credentialId" = ""}
+\linebreak User sends login data (username and password in payload)
+\linebreak
+$\leftarrow$ \texttt{302 Found  [truncated]Location: http://localhost:8181/login/oauth2/code/keycloak-gateway-client...}
+\linebreak \texttt{Set-Cookie: KEYCLOAK\_SESSION=teapot/9db57273-f45d-440f-910e-8dc764c3bcb0/4165bd59-749c-4ed3-a210-ecd4a6f928f5; Version=1; Expires=Fri, 16-Jun-2023 22:35:18 GMT; Max-Age=36000; Path=/realms/teapot/; SameSite=None; Secure}
+\linebreak (more cookies omitted)
+\linebreak
+Keycloak sends the user agent back to the gateway with the authorization code and state parameters (see below for full list of parameters)
+
+\item
+\texttt{Source Port: 50965, Dest. Port: 8181
+\linebreak $\rightarrow$ GET [truncated]/login/oauth2/code/keycloak-gateway-client...}
+\linebreak \texttt{Request URI Query Parameter: state=FczD4rvwKxMMyYRC0joaa-oAr-GMbaG2rbuW76gE72k\%3D}
+\linebreak \texttt{Request URI Query Parameter: session\_state=4165bd59-749c-4ed3-a210-ecd4a6f928f5}
+\linebreak \texttt{Request URI Query Parameter: code=c49d4ea6-01c0-4f30-8388-48f338bdbd20.4165bd59-749c-4ed3-a210-ecd4a6f928f5.672c0413-eba3-4481-abb5-27f75a71727e}
+\linebreak
+(User agent sends the code back to the gateway)
+
+\item
+\texttt{Source Port: 50976, Dest. Port 10001
+\linebreak $\rightarrow$	POST /realms/teapot/protocol/openid-connect/token (application/x-www-form-urlencoded)}
+\linebreak \texttt{Form item: "grant\_type" = "authorization\_code"}
+\linebreak \texttt{Form item: "code" = "c49d4ea6-01c0-4f30-8388-48f338bdbd20.4165bd59-749c-4ed3-a210-ecd4a6f928f5.672c0413-eba3-4481-abb5-27f75a71727e"}
+\linebreak \texttt{Form item: "redirect\_uri" = "http://localhost:8181/login/oauth2/code/keycloak-gateway-client"}
+\linebreak Gateway sends token request to Keykloaks token endpoint, with grant type, code and redirect-uri in the payload
+\linebreak
+$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
+\linebreak \texttt{"access\_token":} (value omitted)
+\linebreak \texttt{"expires\_in": "36000"}
+\linebreak \textbf{"refresh\_expires\_in": "1800"}
+\linebreak \texttt{"refresh\_token":} (value omitted)
+\linebreak \texttt{"token\_type": "Bearer"}
+\linebreak \texttt{"id\_token":} (value omitted)
+\linebreak \texttt{"not-before-policy": "0"}
+\linebreak \texttt{"session\_state": "4165bd59-749c-4ed3-a210-ecd4a6f928f5"}
+\linebreak \texttt{"scope": openid profile email}
+\linebreak Keycloak sends token response (in payload) to the gateway
+
+\item
+\texttt{Source Port: 50977, Dest. Port: 10001
+\linebreak $\rightarrow$	GET /realms/teapot/protocol/openid-connect/certs}
+\linebreak The gateway requests the JWKS from Keycloak
+\linebreak
+$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
+\linebreak Keycloak returns JWKS in payload (omitted)
+
+\item
+\texttt{Source Port: 50976, Dest. Port: 10001
+\linebreak $\rightarrow$ GET /realms/teapot/protocol/openid-connect/userinfo}
+\linebreak \texttt{ [truncated]Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHV...}
+\linebreak Gateway requests additional user information from Keykloak's userinfo endpoint with the freshly issued access token
+\linebreak
+$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
+\linebreak Keycloak returns user info (omitted)
+
+
+\item
+\texttt{Source Port: 8181, Dest. Port: 50965
+\linebreak $\leftarrow$ 302 Found Location: /listteas
+}
+\linebreak Gateway refers user to it's own \texttt{/listteas} endpoint a second time
+
+\item
+\texttt{Source Port: 50965, Dest. Port: 8181
+\linebreak $\rightarrow$ GET /listteas}
+\linebreak Browser sends new request to gateway's \texttt{/listteas} endpoint
+\linebreak
+$\leftarrow$ 
+
+\item
+\texttt{Source Port: 50978, Dest. Port: 8184
+\linebreak $\rightarrow$ GET /teas/getall}
+\linebreak \texttt{[truncated]Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVGZ5e...}
+\linebreak Gateway forwards request for list of teas to Tea service with the access token in the \texttt{Authorization} header 
+\linebreak
+$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
+\linebreak
+Tea service responds to gateway with list of teas in payload (omitted)
+
+\item
+\texttt{Source Port: 8181, Dest. Port: 50965 $\leftarrow$ 200 OK , JavaScript Object Notation (application/json)}
+\linebreak Gateway forwards the Tea service's response to the user agent.
+\end{enumerate}
+
+The protocol is HTTP 1.1 and host is localhost where not defined differently.
+
+We can see that the steps of the authorization code flow match with the specifications. The authorization code is passed through from the AZ to the client, authorization request, token request and token response are present and the access token is passed on from the client to the resource server as bearer token in the \texttt{Authentication} header.
+
+When taking a closer look at the parameters in the token request and response however, ...
+
+
+Postman:
+successful list of teas
+userinfo endpoint
+access token (claims!)
+id token
+
+ohne scope parameter -> default parameter muss konfiguriert werden, z.B. mit role gemappt
+scope validierung muss extra implementiert werden
+was passiert mit userinfo?
+
+
+session\_state ist teil vom KEYCLOAK\_SESSION cookie
 
 implementation: schwierig wegen deprecation (spring boot3, spring security, keycloak adapter) und nicht mehr aktuellen tutorials und documentations -> keycloak war am anfang noch am übergang und doc nicht up to date
 
@@ -1172,18 +1337,23 @@ ist ein bissl verwirrend und keine doku zu finden.
 scaling: api gateway has the potential to become a bottleneck \cite{matarApproachEvaluatingPotential2023}  -> bff can mitigate this to a certain degree by desing by having several gateways, but also a basic API gateway should be duplicated at some point.
 
 \section{Response times} % raufverschieben zu implementation
+\label{sec:response-times}
 JMeter Results
 
 !!! Wenn alles nach best practice implementiert ist, könnte es sein, dass die zeiten nicht mehr in der reihenfolge liegen
 scaling...
 welche art von authentication zwischen gateway als rs und tea rs, könnte auch mtls sein z.B.
 
-
+\section{Code complexity}
+\label{complexity}
 
 \chapter{Conclusion and Future Work}
 \label{chap:conclusion}
 
 %Keycloak adapter deprecated in 2022 https://github.com/keycloak/keycloak/discussions/10187
+
+implementation: schwierig wegen deprecation (spring boot3, spring security, keycloak adapter) und nicht mehr aktuellen tutorials und documentations -> keycloak war am anfang noch am übergang und doc nicht up to date
+
 
 future work:
 - best practice, not only poc, e.g. better client authentication (signed jwt...), mTLS, etc.
