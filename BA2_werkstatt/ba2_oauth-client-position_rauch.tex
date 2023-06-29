@@ -553,77 +553,79 @@ When validating the access token, the resource server checks the signature, life
 \subsection{OpenID Connect (OIDC)}
 \label{sub:oidc}
 
+When it comes to authentication of end-users, OIDC \cite{sakimuraOpenIDConnectCore2014} gives the answers that were left out bei OAuth2. The content of an OAuth2 access token is of no interest for the client. When the client needs information about a user's identity, it can request an additional \textit{ID token} by adding \texttt{openid} to the \texttt{scope} parameter in the authorization request, which thus becomes a authentication request. Also the \texttt{redirect\_uri} parameter is now required. Among other optional parameters there is the \texttt{nonce} parameter to mention. It is a string value, used to protect against replay attacks, that should be unguessable and it represents session state between the client session and the ID token. The ID token will then be issued by the authorization server which is now called OIDC provider (OP), together with the access token and delivered as a part of the token response \cite{sakimuraOpenIDConnectCore2014}.
+The ID token itself is a signed JWT which contains the \texttt{iss, sub, aud, exp} and \texttt{iat} claims as a requirement. When using the authorization code flow, also the \texttt{at\_hash} claim is required. It contians a the  base64 encoded left most half of the corresponding access token's hash. The \texttt{nonce} claim is reqired if it was present in the authentication request, with the same value, which will be verified by the client. Other optional claims are \texttt{amr} (authentication method references), \texttt{acr} (authentication context class reference) and \texttt{azp} (authorized party), containing the client id of the authorized client. The ID token itself does not contain personal user information. Instead there is a separate OAuth2 protected \texttt{/userinfo} endpoint where the client can request additional metadata about the user with the access token \cite{sakimuraOpenIDConnectCore2014}.
 
-!!! ALT
+!!! Verweise auf Listings oder Screenshots, die später eingefügt werden als beispiel
 
 %was brauchts von dem Teil noch?
-Today, when reading about OAuth2, the warning that OAuth2 should not be used for authentication is hard to overlook. Still, authentication is an important component in order to secure a system and OAuth2 can be used \textit{within} an authentication scheme \cite{richer_end_nodate}. With OAuth2, the resource owner will authenticate to the authorization server and also the client has to authenticate to the authorization server in many cases, but it is not the concern of OAuth2 \textit{how} the authentication is done \cite{richer_end_nodate}. In this context it is useful to understand that for the client the access token has no meaning and will just be passed on to the resource server for validation. The client does not learn anything about the user and the fact that an access token was issued should not be misunderstood as a proof that the end-user was correctly authenticated \cite{richer_end_nodate}. When information about the user is needed, OAuth2 is therefore not sufficient to cover authentication, even if this has not been and might still not be an unusual practice \cite{barbettini_oauth_2018}, \cite{jackson_microservice_2019}. The problems and pitfalls associated with the use of OAuth2 for authentication purposes are discussed more in detail in \cite{richer_end_nodate}. Instead, OpenID Connect (OIDC) is a layer on top of the OAuth2 specification and has been developed exactly for this purpose.
+%Today, when reading about OAuth2, the warning that OAuth2 should not be used for authentication is hard to overlook. Still, authentication is an important component in order to secure a system and OAuth2 can be used \textit{within} an authentication scheme \cite{richer_end_nodate}. With OAuth2, the resource owner will authenticate to the authorization server and also the client has to authenticate to the authorization server in many cases, but it is not the concern of OAuth2 \textit{how} the authentication is done \cite{richer_end_nodate}. In this context it is useful to understand that for the client the access token has no meaning and will just be passed on to the resource server for validation. The client does not learn anything about the user and the fact that an access token was issued should not be misunderstood as a proof that the end-user was correctly authenticated \cite{richer_end_nodate}. When information about the user is needed, OAuth2 is therefore not sufficient to cover authentication, even if this has not been and might still not be an unusual practice \cite{barbettini_oauth_2018}, \cite{jackson_microservice_2019}. The problems and pitfalls associated with the use of OAuth2 for authentication purposes are discussed more in detail in \cite{richer_end_nodate}. Instead, OpenID Connect (OIDC) is a layer on top of the OAuth2 specification and has been developed exactly for this purpose.
 
 %more security aspects: tls - ist MUST in specs, csrf state parameter, nonce (auch in oauth?)
 
 
 
-OpenID Connect 1.0 (OIDC) is an open protocol defined as a layer on top of OAuth2 by the OpenID Foundation \cite{sakimura_openid_2014} in 2014. Often there is a need for clients to be able to identify end-users, and OAuth2 does not fulfil this purpose, because it is not intended to be used for authentication. OIDC was developed to close this gap \cite{richer_end_nodate}.
+%OpenID Connect 1.0 (OIDC) is an open protocol defined as a layer on top of OAuth2 by the OpenID Foundation \cite{sakimura_openid_2014} in 2014. Often there is a need for clients to be able to identify end-users, and OAuth2 does not fulfil this purpose, because it is not intended to be used for authentication. OIDC was developed to close this gap \cite{richer_end_nodate}.
 
-An OIDC flow is very similar to the OAuth2 flow, with a small, but significant difference: in addition to the access token, the authorization server, which is also responsible for handling authentication of the end-user, thus now being an OIDC provider or authentication server, issues also an ID token \cite{sakimura_openid_2014}, \cite{richer_end_nodate}.
-The client can also send the access token to the UserInfo Endpoint (at the OIDC provider), which will return a defined set of additional standard claims about the user \cite{sakimura_openid_2014}.
+%An OIDC flow is very similar to the OAuth2 flow, with a small, but significant difference: in addition to the access token, the authorization server, which is also responsible for handling authentication of the end-user, thus now being an OIDC provider or authentication server, issues also an ID token \cite{sakimura_openid_2014}, \cite{richer_end_nodate}.
+%The client can also send the access token to the UserInfo Endpoint (at the OIDC provider), which will return a defined set of additional standard claims about the user \cite{sakimura_openid_2014}.
 %---Zeichnung für OIDC flow hier---\\
-The OIDC flow consists of the following steps \cite{sakimura_openid_2014}:
-\begin{enumerate}
-\item Authentication request from the client to the OIDC provider
-\item Authentication of the end-user at the OIDC provider + obtaining authorization
-\item ID token (and usually access token) issued by OIDC provider to client
-\item UserInfo request with access token from client to UserInfo endpoint
-\item UserInfo response from UserInfo endpoint to client
-\end{enumerate}
+%The OIDC flow consists of the following steps \cite{sakimura_openid_2014}:
+%\begin{enumerate}
+%\item Authentication request from the client to the OIDC provider
+%\item Authentication of the end-user at the OIDC provider + obtaining authorization
+%\item ID token (and usually access token) issued by OIDC provider to client
+%\item UserInfo request with access token from client to UserInfo endpoint
+%\item UserInfo response from UserInfo endpoint to client
+%\end{enumerate}
 
-The OIDC specification provides three specific authentication flows \cite{sakimura_openid_2014}:
-\begin{itemize}
-\item The \textit{authorization code flow}, similar to the process described for the authorization code grant in section \ref{sec:oauthgrants}, but an ID token is issued to the client together with the access token.
-\item The \textit{implicit flow}, again similar to the OAuth2 implicit grant. The OIDC provider redirects the end-user to the client, together with the ID token and the access token.
-\item The \textit{hybrid flow} combines characteristics from both other flows. Clients receive always an authorization code and additionally the access token or the ID token. The other token can be exchanged for the authorization code.
-\end{itemize}
+%The OIDC specification provides three specific authentication flows \cite{sakimura_openid_2014}:
+%\begin{itemize}
+%%\item The \textit{authorization code flow}, similar to the process described for the authorization code grant in section \ref{sec:oauthgrants}, but an ID token is issued to the client together with the access token.
+%%\item The \textit{implicit flow}, again similar to the OAuth2 implicit grant. The OIDC provider redirects the end-user to the client, together with the ID token and the access token.
+%%\item The \textit{hybrid flow} combines characteristics from both other flows. Clients receive always an authorization code and additionally the access token or the ID token. The other token can be exchanged for the authorization code.
+%\end{itemize}
 
-As per the OAuth2 specification, an access token is opaque to the client \cite{hardt_oauth_2012}. In order to maintain this requirement, the ID token carrying information for user authentication is a separate token, issued alongside the access token \cite{sakimura_openid_2014}. The ID token is a JWT, containing claims similar to the OAuth2 access token, such as \texttt{iss, aud, exp, iat} (see section \ref{sec:oauth}, but also the \texttt{sub} claim, to uniquely identify the subject (end-user) with the client, \texttt{nonce}, which is used to prevent replay attacks and to associate the ID token with a client session, and other optional claims (\texttt{acr, amr, azp}). Other claims are possible as well, however, claims must be understood or be ignored otherwise. An example for an ID token is given in listing \ref{lst:idtoken}, where also the \texttt{auth\_time} claim is used, denoting the time when the user has authenticated. An OIDC authentication request is an OAuth2 authorization request where the \texttt{scope} parameter must be present with \texttt{open\_id} as a value. Other values for \texttt{open\_id} can be present as well \cite{sakimura_openid_2014}.\\
+%As per the OAuth2 specification, an access token is opaque to the client \cite{hardt_oauth_2012}. In order to maintain this requirement, the ID token carrying information for user authentication is a separate token, issued alongside the access token \cite{sakimura_openid_2014}. The ID token is a JWT, containing claims similar to the OAuth2 access token, such as \texttt{iss, aud, exp, iat} (see section \ref{sec:oauth}, but also the \texttt{sub} claim, to uniquely identify the subject (end-user) with the client, \texttt{nonce}, which is used to prevent replay attacks and to associate the ID token with a client session, and other optional claims (\texttt{acr, amr, azp}). Other claims are possible as well, however, claims must be understood or be ignored otherwise. An example for an ID token is given in listing \ref{lst:idtoken}, where also the \texttt{auth\_time} claim is used, denoting the time when the user has authenticated. An OIDC authentication request is an OAuth2 authorization request where the \texttt{scope} parameter must be present with \texttt{open\_id} as a value. Other values for \texttt{open\_id} can be present as well \cite{sakimura_openid_2014}.\\
 
 %section 3.1.2.1.
-\begin{lstlisting}[frame=lines, caption=Example for an ID token according to \cite{sakimura_openid_2014}, captionpos=b, label = lst:idtoken, language=c, showstringspaces=false]
- {
-   "iss": "https://server.ularauch.net",
-   "sub": "24400320",
-   "aud": "s6BhdRkqt3",
-   "nonce": "n-0S6_WzA2Mj",
-   "exp": 1311281970,
-   "iat": 1311280970,
-   "auth_time": 1311280969,
-   "acr": "urn:mace:incommon:iap:silver"
-  }
-\end{lstlisting}
+%\begin{lstlisting}[frame=lines, caption=Example for an ID token according to \cite{sakimura_openid_2014}, captionpos=b, label = lst:idtoken, language=c, showstringspaces=false]
+% {
+%   "iss": "https://server.ularauch.net",
+%   "sub": "24400320",
+%   "aud": "s6BhdRkqt3",
+%   "nonce": "n-0S6_WzA2Mj",
+%   "exp": 1311281970,
+%   "iat": 1311280970,
+%   "auth_time": 1311280969,
+%   "acr": "urn:mace:incommon:iap:silver"
+%  }
+%\end{lstlisting}
 
 %section 5.3.2
-\begin{lstlisting}[frame=lines, caption=UserInfo Response example according to \cite{sakimura_openid_2014}, captionpos=b, label = lst:userinfo, language=c, showstringspaces=false]
-  HTTP/1.1 200 OK
-  Content-Type: application/json
+%\begin{lstlisting}[frame=lines, caption=UserInfo Response example according to \cite{sakimura_openid_2014}, captionpos=b, label = lst:userinfo, language=c, showstringspaces=false]
+%  HTTP/1.1 200 OK
+%  Content-Type: application/json
 
-  {
-   "sub": "248289761001",
-   "name": "Ula Rauch",
-   "given_name": "Ursula",
-   "family_name": "Rauch",
-   "preferred_username": "ulala",
-   "email": "ursula.rauch@stud.fh-campuswien.ac.at",
-   "picture": "http://ularauch.net/ulala/ula.jpg"
-  }
-\end{lstlisting}
+%  {
+%   "sub": "248289761001",
+%   "name": "Ula Rauch",
+%   "given_name": "Ursula",
+%   "family_name": "Rauch",
+%   "preferred_username": "ulala",
+%   "email": "ursula.rauch@stud.fh-campuswien.ac.at",
+%   "picture": "http://ularauch.net/ulala/ula.jpg"
+%  }
+%\end{lstlisting}
 
 
-Although the ID token appears to be very similar to an access token, there are some important differences to be pointed out \cite{parecki_oauth_nodate}:%https://oauth.net/id-tokens-vs-access-tokens/ - genaue seite angeben?
-\begin{itemize}
-\item The audience: ID tokens should only be sent to and read by the OAuth2 client. Consequently, ID tokens should never be sent to an API. Access tokens should be read only by the API (the resource server) it was meant for, but never by the client.
-\item The format: the format for access tokens is not specified, it can be a JWT, but it can also be an arbitrary string, while on the other hand an ID token is always a JWT.
-\end{itemize}
+%Although the ID token appears to be very similar to an access token, there are some important differences to be pointed out \cite{parecki_oauth_nodate}:%https://oauth.net/id-tokens-vs-access-tokens/ - genaue seite angeben?
+%\begin{itemize}
+%\item The audience: ID tokens should only be sent to and read by the OAuth2 client. Consequently, ID tokens should never be sent to an API. Access tokens should be read only by the API (the resource server) it was meant for, but never by the client.
+%\item The format: the format for access tokens is not specified, it can be a JWT, but it can also be an arbitrary string, while on the other hand an ID token is always a JWT.
+%\end{itemize}
 
-OIDC also defines a protected resource at the OIDC provider, the UserInfo endpoint, where the client can request a set of standard claims with meta-data about the user in question in exchange for the access token \cite{sakimura_openid_2014}. An example for these claims is shown in listing \ref{lst:userinfo}. Also, like in the initial authentication request, the \texttt{scope} parameter must be present with the value \texttt{open\_id} in the request for userInfo claims \cite{sakimura_openid_2014}.
+%OIDC also defines a protected resource at the OIDC provider, the UserInfo endpoint, where the client can request a set of standard claims with meta-data about the user in question in exchange for the access token \cite{sakimura_openid_2014}. An example for these claims is shown in listing \ref{lst:userinfo}. Also, like in the initial authentication request, the \texttt{scope} parameter must be present with the value \texttt{open\_id} in the request for userInfo claims \cite{sakimura_openid_2014}.
 
 %Ende: betonen, dass das nicht obligatorisch ist? steht bei richer, aber kommt aus der oidc spec nicht so raus.
 
@@ -1162,6 +1164,10 @@ aud claim is missing
 
 Token validation with Spring Security can be configured with the \texttt{OAuth2TokenValidator} API.
 
+userinfo endpoint returns only the sub claim. keycloak documentation refers to oidc specification.
+config möglich über client scopes -> scope anklicken -> mappers -> add to id token, add to access token, add to userinfo...
++ assign to role: client scopes -> scope anklicken -> scope -> assign to role
+ist ein bissl verwirrend und keine doku zu finden.
 
 scaling: api gateway has the potential to become a bottleneck \cite{matarApproachEvaluatingPotential2023}  -> bff can mitigate this to a certain degree by desing by having several gateways, but also a basic API gateway should be duplicated at some point.
 
