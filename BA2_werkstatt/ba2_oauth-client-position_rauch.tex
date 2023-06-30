@@ -462,7 +462,7 @@ A JWT is base64-encoded and is made of three parts, the header, payload and the 
 \item \texttt{jti}: JWT ID. Unique identifier for the JWT.
 \end{itemize}
 
-An example for a decoded access token is shown in figure \ref{fig:keycloak-access-token}, although it does not conform entirely to the specifications, as the  \texttt{typ} header parameter contains \texttt{JWT} instead of the required \texttt{at+jwt} value and the \texttt{aud} claim as well as the \texttt{client\_id} claim are missing. The client id is instead present with the \texttt{azp} claim.
+An example for a decoded access token is shown in figure \ref{fig:keycloak-access-token-aud-roles}, although it does not conform entirely to the specifications, as the  \texttt{typ} header parameter contains \texttt{JWT} instead of the required \texttt{at+jwt} value. The client id is instead present with the \texttt{azp} claim.
 
 When validating the access token, the resource server checks the signature, lifespan, scope and possibly other authorization parameters for the specific resource \cite{hardtOAuthAuthorizationFramework2023}.
 %gibts keine specification drüber, wie der rs an den key bzw jwks kommt?
@@ -1044,14 +1044,7 @@ With Keycloak there is the option to define realm roles and/or client roles. Rea
 	\label{fig:keycloak-realm-admin-associated-roles}
 \end{figure}
 
-Keycloak includes these roles in the access token in a \texttt{realm\_access} or \texttt{resource\_access} claim respectively. The access token for a user with the \texttt{tea\_admin} realm role and the \texttt{admin} client role is shown in figure \ref{fig:keycloak-access-token}. The \texttt{realm\_access} contains only the \texttt{tea\_admin} role (the realm role) and \texttt{resource\_access} contains all associated roles for the \texttt{teapot-client}.
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=\linewidth]{images/keycloak-access-token}
-	\caption{Example of an access token with claims for realm and client roles, issued by the Keycloak server}
-	\label{fig:keycloak-access-token}
-\end{figure}
+Keycloak includes these roles in the access token in a \texttt{realm\_access} or \texttt{resource\_access} claim respectively. The access token for a user with the \texttt{tea\_admin} realm role and the \texttt{admin} client role is shown in figure \ref{fig:keycloak-access-token-aud-roles}. The \texttt{realm\_access} contains only the \texttt{tea\_admin} role (the realm role) and \texttt{resource\_access} contains all associated roles for the \texttt{teapot-client}.
 
 As we can see, the access token does not contain \texttt{authority} claims. The \texttt{realm\_access} or \texttt{resource\_access} access claims are specific to Keycloak (!!! Quelle). Spring Security allows to check for authorities inside the \texttt{authentication} object, but it provides no means by default to check specifically for the access claims provided by a Keycloak access token. This means that these roles have no effect on the authorization process, unless an authority converter is added. A converter translates specific claims in the access token to an \texttt{authority} in order to distinguish roles in authorization. Listing \ref{fig:roles-authorities-converter} shows how the roles can be extracted from the specific claims in the access token. They are returned as a list of authorities and can be checked in the \texttt{SecurityFilterChain} by calling the \texttt{hasAuthority()} method. Spring Security also offers the \texttt{hasRole()} method, which checks for roles specifically. Roles are defined in Spring Security by the \texttt{ROLE\_} prefix !!! Quelle!. This prefix has to be added in the conversion process as well, as shown in listing \ref{fig:roles-authorities-converter}, line 20. Spring Security provides a default \texttt{JwtAuthenticationConverter} for creating a \texttt{Authentication} from a \texttt{JWT}. This converter can be replaced by any class implementing \texttt{Converter<Jwt, AbstractAuthenticationToken>} \cite{OAuthResourceServer}. Listing \ref{lst:roles-converter} shows the custom converter that is used in the Tea resource server. It returns a \texttt{JwtAuthenticationToken} which inherits from \texttt{AbstractOAuth2TokenAuthenticationToken} and contains the extracted realm roles and client roles from the access token as authorities. As it turned out, with the converter code proposed by \cite{ch4mpAnswerUseKeycloak2022} it is important that the profile scope is included in the access token, so that Keycloak will automatically also add further profile information, including the \texttt{preferred\_username} path to the token. As an alternative the try-catch block was added, so that the \texttt{Authentication} is created only with the value of the \texttt{sub} claim.
 
@@ -1148,16 +1141,14 @@ public class TeaSecurityConfiguration {
 }
 \end{lstlisting}
 
-\section{Load testing with JMeter}
+\section{Load testing with JMeter - FEHLT}
 \label{sec:loadtesting-jmeter}
 
-Schaun, wie floren und der andere mit bff das beschrieben haben
+Was und wie wurde getestet... Ergebnisse unter Results
 
-
-\section{Code Analysis}
+\section{Code Analysis - FEHLT}
 \label{code-analysis}
 LoC
--> Dependencies?
 + Sonarqube Ergebnisse?
 
 \chapter{Results and Discussion} % evt. umbenennen in discussion
@@ -1234,6 +1225,7 @@ Keycloak sends the user agent back to the gateway with the authorization code an
 \item
 \texttt{Source Port: 50976, Dest. Port 10001
 \linebreak $\rightarrow$	POST /realms/teapot/protocol/openid-connect/token (application/x-www-form-urlencoded)}
+\linebreak \texttt{Authorization: Basic dGVhcG90LWdhdGV3YXk6U2ZBN3RCZFM5V2RrVnozRFlHcG5NOTY3UkFZTUtFU2s}
 \linebreak \texttt{Form item: "grant\_type" = "authorization\_code"}
 \linebreak \texttt{Form item: "code" = "c49d4ea6-01c0-4f30-8388-48f338bdbd20.4165bd59-749c-4ed3-a210-ecd4a6f928f5.672c0413-eba3-4481-abb5-27f75a71727e"}
 \linebreak \texttt{Form item: "redirect\_uri" = "http://localhost:8181/login/oauth2/code/keycloak-gateway-client"}
@@ -1297,46 +1289,62 @@ Tea service responds to gateway with list of teas in payload (omitted)
 \linebreak Gateway forwards the Tea service's response to the user agent.
 \end{enumerate}
 
-The protocol is HTTP 1.1 and host is localhost where not defined differently.
+The protocol is HTTP 1.1 and host is localhost where not marked differently.
 
-We can see that the steps of the authorization code flow match with the specifications. The authorization code is passed through from the AZ to the client, authorization request, token request and token response are present and the access token is passed on from the client to the resource server as bearer token in the \texttt{Authentication} header.
+We can see that the steps of the authorization code flow match with the OAuth2 specification. The authorization code is passed through via the user agent to the client who then trades it for the access token with the AZ. Authorization request, token request and token response are present and the access token is passed on from the client to the resource server as bearer token in the \texttt{Authentication} header.
 
-When taking a closer look at the parameters in the token request and response however, ...
+The authorization/authentication request also contains the required parameters \texttt{response\_type}, \texttt{client\_id}, \texttt{redirect\_uri} and \texttt{scope} with \texttt{openid} as the value, where the last two parameters are required by OIDC. The \texttt{code\_challenge} parameter is missing. It is not required when the optional \texttt{nonce} parameter is used, which is the case here, but still recommended by the OAuth2 specification. Also the recommended \texttt{state} parameter is present.
+
+The token request is sent to Keycloak's token endpoint and contains again the \texttt{client\_id} and \texttt{grant\_type} as required. The client authenticates during the token request with basic authentication. This is possibly by definition of OAuth2 and it was a choice during the implementation. However, Spring Security and Keycloak both support other methods of client authentication, for example with a signed JWT \cite{AuthorizationServicesGuide}, \cite{ClientAuthenticationSupport}. The value in the authorization header is the base64-encoding of \texttt{client\_id:client\_secret}.
+
+The token response also contains all required parameters, including the id token, since it is an OIDC token response. The \texttt{scope} parameter contains more scope strings than the requested \texttt{oidc} scope and is therefore required as well \cite{hardtOAuthAuthorizationFramework2023}. Other parameters are specific to Keycloak and are not covered in the specifications. The access token lifetime was intentionally configured to be longer than recommended for testing convenience.
+
+The access token itself turned out to show some flaws. In the wireshark capture shown above it is truncated and can not be anaylzed, however when examining other access tokens issued by Keycloak, some faults become apparent: the media type in the \texttt{typ} header parameter is not \texttt{at+jwt} or \texttt{application/at+jwt} as required for OAuth2 JWT tokens. This special value is important for the distinction between access tokens and id tokens, to avoid that id tokens are accepted as access tokens \cite{bertocciJSONWebToken2021}. In fact, the attempt to request Tea from the Tea service with the id token instead of an access token was successful with this implementation (without role mapping). No configuration option could be found for Keycloak to change the token header, neither in the documentation nor by browsing through Keycloaks admin console. This does not mean that it is not possible, but it can be criticized that it is not as straightforward as it should be and the question remains why the required media type is not the default. As long as the access token's media type can not be changed, implementing it's validation on the resource server would not make sense. A related problem is the missing \texttt{aud} claim in the access token, which must be validated by the resource server, who must reject the request if it can not identify itself with the value \cite{bertocciJSONWebToken2021}. The \texttt{aud} claim can be set and configured in the Keycloak admin console by adding a scope mapper of the type \textit{Audience} type \cite{•}. Token validation with Spring Security can be configured with the \texttt{OAuth2TokenValidator} API \cite{OAuthResourceServer}. At the Tea service, this would look like shown in listing \ref{lst:aud-validation}. An example access token which now includes the required \texttt{aud} claim is shown in figure \ref{fig:keycloak-access-token-aud-roles}. Another required parameter not included by Keycloak by default is \texttt{client\_id}. Adding it to the token with a scope mapper can be done in a similar way as for the \texttt{aud} claim, although Keycloak doesn't seem to offer a preconfigured mapper for this purpose. However, the \texttt{azp} claim does indeed contain the client id by default and seems to fulfil a similar purpose.
+
+\begin{lstlisting}[frame=lines, caption=Validator for the \texttt{aud} claim for the Tea resource server according to \cite{OAuthResourceServer}., captionpos=b, label = lst:aud-validation, language=Java, showstringspaces=false]
+OAuth2TokenValidator<Jwt> audienceValidator() {
+    return new JwtClaimValidator<List<String>>(AUD, aud -> aud.contains("tea"));
+}
+\end{lstlisting}
+
+%scope strings must have meaning for resource in the aud claim -> not implemented
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=\linewidth]{images/keycloak-access-token-aud-roles}
+	\caption{Example of an access token issued by the Keycloak server.}
+	\label{fig:keycloak-access-token-aud-roles}
+\end{figure}
+
+The id token issued by Keycloak is inconspicuous in comparison. An example id token with additional user information is shown in figure \ref{fig:keycloak-id-token}. Including user profile information in the id token is optional and can be configured in the Keycloak admin console. The same is true for the information returned by the userInfo endpoint.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=\linewidth]{images/keycloak-id-token}
+	\caption{Example of an id token issued by the Keycloak server.}
+	\label{fig:keycloak-id-token}
+\end{figure}
 
 
-Postman:
-successful list of teas
-userinfo endpoint
-access token (claims!)
-id token
+Keycloak (in der 20er version) und Spring Security unterstützen immer noch deprecated grant types! 
 
-ohne scope parameter -> default parameter muss konfiguriert werden, z.B. mit role gemappt
-scope validierung muss extra implementiert werden
-was passiert mit userinfo?
+%refresh token auslassen weil komplett optional und nicht weiter genutzt.
+
+% error responses weglassen!
+
+%!!! besser nicht 100% vollständig! es kann auch einfach erwähnt werden, was getestet wurde und ob error responses entsprechen
 
 
-session\_state ist teil vom KEYCLOAK\_SESSION cookie
+
+session\_state ist teil vom KEYCLOAK\_SESSION  cookie
 
 implementation: schwierig wegen deprecation (spring boot3, spring security, keycloak adapter) und nicht mehr aktuellen tutorials und documentations -> keycloak war am anfang noch am übergang und doc nicht up to date
 
 
-access token issued by keycloak does not conform to the specifications for jwt access tokens in rfc 9068 by default. can be changed? not easy to find...
-
-\texttt{typ} header parameter has \texttt{JWT} as value instead of \texttt{at+jwt} or \texttt{application/at+jwt} as required in RFC 9068 \cite{bertocciJSONWebToken2021}. The RFC specifies further that resource servers must reject tokens containing any other value. This is not the case with the default Spring Security Configuration.
-
-aud claim is missing
-"If the request does not include a "resource" parameter, the authorization server use a default resource indicator in the "aud" claim" bertocciJSONWebToken2021
-
-Token validation with Spring Security can be configured with the \texttt{OAuth2TokenValidator} API.
-
-userinfo endpoint returns only the sub claim. keycloak documentation refers to oidc specification.
-config möglich über client scopes -> scope anklicken -> mappers -> add to id token, add to access token, add to userinfo...
-+ assign to role: client scopes -> scope anklicken -> scope -> assign to role
-ist ein bissl verwirrend und keine doku zu finden.
 
 scaling: api gateway has the potential to become a bottleneck \cite{matarApproachEvaluatingPotential2023}  -> bff can mitigate this to a certain degree by desing by having several gateways, but also a basic API gateway should be duplicated at some point.
 
-\section{Response times} % raufverschieben zu implementation
+\section{Response times - FEHLT} % raufverschieben zu implementation
 \label{sec:response-times}
 JMeter Results
 
@@ -1344,24 +1352,24 @@ JMeter Results
 scaling...
 welche art von authentication zwischen gateway als rs und tea rs, könnte auch mtls sein z.B.
 
-\section{Code complexity}
+\section{Code complexity - FEHLT}
 \label{complexity}
 
 \chapter{Conclusion and Future Work}
 \label{chap:conclusion}
 
-%Keycloak adapter deprecated in 2022 https://github.com/keycloak/keycloak/discussions/10187
+In this thesis it has been investigated how authentication and authorization can be implemented in a MSA system according to OAuth2 and OIDC specifications with Spring Boot and Keycloak. The outcome was analyzed with Firefox, Postman and Wireshark to check, where the implementation complies with the specification and where further improvement is necessary. The results of this investigation made it apparent that most basic requirements can be fulfilled with very few configuration steps in the Keycloak admin console, such as creating a realm, a client and a user and by overriding the \texttt{SecurityFilterChain}  in the source code of the resource server and the client (when implemented as part of the MSA). While some requirements were omitted by choice for convenience during the development process, like not protecting communication between services with TLS, the absence of some other required features, like missing claims and their validation was revealed only upon further analysis of the generated requests and responses between the services. While it was possible to gather information about how to implement some of them, this was not the case for the wrong media type (\texttt{JWT} instead of \texttt{at+jwt}) in the \texttt{typ} header value of access tokens issued by Keycloak. As long as the media type can not be distinguished from the media type of id tokens, a check for the correct \texttt{typ} header value, which is required by RFC 9068, can not be implemented in the resource server without making it unfunctional.
 
-implementation: schwierig wegen deprecation (spring boot3, spring security, keycloak adapter) und nicht mehr aktuellen tutorials und documentations -> keycloak war am anfang noch am übergang und doc nicht up to date
+Additionally, logout functionality was implemented, which is not defined in OAuth2 and only mentioned as optional in the OIDC core specification, therefore adherence to the specific specifications \cite{!!! https://openid.net/specs/openid-connect-session-1_0.html zotero hat gestreikt} was not analyzed. This could be a possible extension of this research.
 
+Another not strictly required feature that was implemented is access control based on user roles, because having at least a minimum of differentiated access control is considered best practice for better security. Keycloak supports other, more fine-grained methods of access control, like attribute-based access control (ACAB), but the implementation, but the limitation on roles seemes sufficient as a proof of concept within the scope of this thesis. The implementation of ACAB can also be a suggestion for future work.
 
-future work:
-- best practice, not only poc, e.g. better client authentication (signed jwt...), mTLS, etc.
-- testing
+Gathering the necessary information for these further implementations was not always an easy task. One reason was the unfortunate timing of this research which started only a couple of months after the Keycloak adapters for Spring Boot had been deprecated in early 2022 \cite{DeprecationKeycloakAdapters}. These adapters had been in use for some years and most of the information and examples that were available online still referred to the usage of the Keycloak adapter, including the Keycloak documentation. A lot of trial and error experimentation was involved to find the correct configurations and it can be assumed that the presented state of implementation and configuration of the Teapot system can still be improved.
 
-oauth 2.1: "Including the client credentials in the request content using the two parameters is NOT RECOMMENDED and SHOULD be limited to clients unable to directly utilize the HTTP Basic authentication scheme (or other password-based HTTP authentication schemes)" -> ob das bei mir passiert, seh ich in wireshark. wenn ja, sind die ganzen tutorials schuld.
+It is also clear that this thesis, while paying close attention to many details in the specifications was not sufficient to cover all the requirements in detail as it would be necessary for a secure production-ready implementation, not to mention recommendations and best practice. The presented implementation and considerations therefore cover only a selection, which leaves the implementation and analysis of further details for future work. Examples are securing client communication with TLS (required by OAuth2), using a recommended client authentication method like mTLS or JWT, sender-constrained access tokens and using code challenge/PKCE in the authorization code flow.
 
-% additional security measurements according to https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics#name-access-token-leakage-at-the
+Another suggestion for future work would be a more thorough and systematic security testing of the implementation. While some tests were performed manually, like using the id token as access token, manipulating the payload of the access token or sending invalid parameters in the authorization or token request, protection against other attacks was not tested systematically. The OAuth2 specification includes a list of threats and possible attacks and information about their mitigation. 
+
 \newpage
 % --- Bibliography ------------------------------------------------------
 
