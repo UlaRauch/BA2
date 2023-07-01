@@ -676,10 +676,10 @@ In the first version, the API gateway was implemented as OAuth2 client. In order
 \chapter{Implementation}
 \label{chap:implementation}
 
-All implementations and testing were carried out on a Lenovo Thinkpad T490s with a Intel\textregistered Core\texttrademark  i78665U CPU, 1.9 GHz Base Frequency, 4,8 GHz Max Turbo Frequency and 4 Cores. The operating system was Microsoft Windows 11 Pro.
+Einleitende worte?
+
 The Teapot Services were developed with IntelliJ IDEA 2023.1.2 (Ultimate Edition). All Services including the Keycloak server were then deployed with Docker version 23.0.5 and Docker Compose version 2.17.3.
 !!! Spring, JMEter und Keycloak versionen auch hier?
-
 %!!! Was noch?
 
 
@@ -1141,10 +1141,22 @@ public class TeaSecurityConfiguration {
 }
 \end{lstlisting}
 
-\section{Load testing with JMeter - FEHLT}
+\section{Load testing with JMeter - WIP}
 \label{sec:loadtesting-jmeter}
 
-Was und wie wurde getestet... Ergebnisse unter Results
+To compare the different client positions, load testing was performed for the two variants and for a third version of the Teapot system without any access control, to relate the results.
+
+The load testing was performed with Apache JMeter and the services were deployed with docker compose on the same machine. All testing was carried out on a Lenovo Thinkpad T490s with a Intel\textregistered Core\texttrademark  i78665U CPU, 1.9 GHz Base Frequency, 4,8 GHz Max Turbo Frequency and 4 Cores. The operating system was Microsoft Windows 11 Pro.
+
+For testing purposes, only the minimal implementation without role-mapping was used. Test requests were sent to the gateway's \texttt{/hellotea/{name}} endpoint, which forwards the request to the Tea service's \texttt{/teas/hello/{name}} endpoint and routes the response back from the Tea service to the user agent. Both endpoints were protected except from the unprotected version, so that three numbers could be compared: the response time of requests over the gateway as client to the resource server and back to the client, the response time of requests over the gateway as resource serer to the second resource server and back, and the response time from the unprotected gateway to the unprotected resource server and back. For authentication in the first case, user login was first triggered via the browser so that the client would send a session cookie to the browser and store the user's access token. This session cookie was extracted and sent with each request to the client-gateway. In the second case, the gateway as resource server expects an access token, so an access token was generated with postman and sent with each request.
+
+Testing parameters were the number of threads (which simulate the number of users), \textit{ramp-up period}, which is the time JMeter takes until all the threads are started, loop count, which is the number of loops (requests) that each thread will perform and thread lifetime. The tests were performed in steps for 100 up to 600 concurrent users where 100 users were added to each round.
+
+%!!! welche parameter sinds jetzt wirklich geworden?
+
+The JMeter testscripts were prepared in the JMeter GUI and a Powershell script was created to start the tests in non-gui mode with the necessary parameters.
+
+Load testing results are presented and discussed in section \ref{sec:response-times}
 
 \section{Code Analysis - FEHLT}
 \label{code-analysis}
@@ -1153,6 +1165,9 @@ LoC
 
 \chapter{Results and Discussion} % evt. umbenennen in discussion
 \label{chap:results}
+
+...
+
 \section{Compliance with OAuth2 and OIDC specifications}
 \label{sec:conformance}
 
@@ -1366,9 +1381,9 @@ Another not strictly required feature that was implemented is access control bas
 
 Gathering the necessary information for these further implementations was not always an easy task. One reason was the unfortunate timing of this research which started only a couple of months after the Keycloak adapters for Spring Boot had been deprecated in early 2022 \cite{DeprecationKeycloakAdapters}. These adapters had been in use for some years and most of the information and examples that were available online still referred to the usage of the Keycloak adapter, including the Keycloak documentation. A lot of trial and error experimentation was involved to find the correct configurations and it can be assumed that the presented state of implementation and configuration of the Teapot system can still be improved.
 
-It is also clear that this thesis, while paying close attention to many details in the specifications was not sufficient to cover all the requirements in detail as it would be necessary for a secure production-ready implementation, not to mention recommendations and best practice. The presented implementation and considerations therefore cover only a selection, which leaves the implementation and analysis of further details for future work. Examples are securing client communication with TLS (required by OAuth2), using a recommended client authentication method like mTLS or JWT, sender-constrained access tokens and using code challenge/PKCE in the authorization code flow.
+It is also clear that this thesis, while paying close attention to many details in the specifications was not sufficient to cover all the requirements in detail as it would be necessary for a secure production-ready implementation, not to mention recommendations and best practice. The presented implementation and considerations therefore cover only a selection, which leaves the implementation and analysis of further details for future work. Examples are using a recommended client authentication method like mTLS or JWT, using sender-constrained access tokens, using code challenge/PKCE in the authorization code flow and of course client communication must be secured with TLS (required by OAuth2).
 
-Another suggestion for future work would be a more thorough and systematic security testing of the implementation. While some tests were performed manually, like using the id token as access token, manipulating the payload of the access token or sending invalid parameters in the authorization or token request, protection against other attacks was not tested systematically. The OAuth2 specification includes a list of threats and possible attacks and information about their mitigation. 
+Another suggestion for future work would be a more thorough and systematic security testing of the implementation. While some tests were performed manually, like using the id token as access token, manipulating the payload of the access token or sending invalid parameters in the authorization or token request, protection against other attacks was not tested systematically. The OAuth2 specification includes a list of threats and possible attacks and information about their mitigation.
 
 \newpage
 % --- Bibliography ------------------------------------------------------
