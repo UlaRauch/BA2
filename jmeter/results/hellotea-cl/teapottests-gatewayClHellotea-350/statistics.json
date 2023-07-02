@@ -1,0 +1,34 @@
+{
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 350,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 167.1142857142857,
+    "medianResTime" : 179.0,
+    "minResTime" : 37.0,
+    "maxResTime" : 257.0,
+    "pct1ResTime" : 221.0,
+    "pct2ResTime" : 227.45,
+    "pct3ResTime" : 248.47000000000003,
+    "throughput" : 881.6120906801007,
+    "receivedKBytesPerSec" : 344.3797229219143,
+    "sentKBytesPerSec" : 156.69277392947103
+  },
+  "gateway_cl/hellotea/tea" : {
+    "transaction" : "gateway_cl/hellotea/tea",
+    "sampleCount" : 350,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 167.1142857142857,
+    "medianResTime" : 179.0,
+    "minResTime" : 37.0,
+    "maxResTime" : 257.0,
+    "pct1ResTime" : 221.0,
+    "pct2ResTime" : 227.45,
+    "pct3ResTime" : 248.47000000000003,
+    "throughput" : 881.6120906801007,
+    "receivedKBytesPerSec" : 344.3797229219143,
+    "sentKBytesPerSec" : 156.69277392947103
+  }
+}

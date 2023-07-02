@@ -1,0 +1,701 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,success,bytes,sentBytes,grpThreads,allThreads,URL,Latency,Hostname,IdleTime,Connect
+1688300829431,31,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-4,true,400,182,58,58,http://localhost:8181/hellotea/tea,31,DESKTOP-6AC2R54,0,1
+1688300829431,31,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-3,true,400,182,58,58,http://localhost:8181/hellotea/tea,31,DESKTOP-6AC2R54,0,1
+1688300829431,36,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-5,true,400,182,65,65,http://localhost:8181/hellotea/tea,36,DESKTOP-6AC2R54,0,1
+1688300829431,37,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-1,true,400,182,65,65,http://localhost:8181/hellotea/tea,37,DESKTOP-6AC2R54,0,3
+1688300829433,35,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-13,true,400,182,65,65,http://localhost:8181/hellotea/tea,35,DESKTOP-6AC2R54,0,1
+1688300829431,37,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-2,true,400,182,65,65,http://localhost:8181/hellotea/tea,37,DESKTOP-6AC2R54,0,2
+1688300829433,43,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-14,true,400,182,67,67,http://localhost:8181/hellotea/tea,43,DESKTOP-6AC2R54,0,1
+1688300829432,53,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-12,true,400,182,76,76,http://localhost:8181/hellotea/tea,53,DESKTOP-6AC2R54,0,3
+1688300829432,59,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-11,true,400,182,78,78,http://localhost:8181/hellotea/tea,59,DESKTOP-6AC2R54,0,3
+1688300829433,58,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-15,true,400,182,78,78,http://localhost:8181/hellotea/tea,58,DESKTOP-6AC2R54,0,3
+1688300829432,59,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-6,true,400,182,78,78,http://localhost:8181/hellotea/tea,59,DESKTOP-6AC2R54,0,4
+1688300829433,58,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-16,true,400,182,77,77,http://localhost:8181/hellotea/tea,58,DESKTOP-6AC2R54,0,3
+1688300829438,71,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-19,true,400,182,105,105,http://localhost:8181/hellotea/tea,71,DESKTOP-6AC2R54,0,0
+1688300829440,69,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-21,true,400,182,105,105,http://localhost:8181/hellotea/tea,69,DESKTOP-6AC2R54,0,0
+1688300829431,78,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-9,true,400,182,103,103,http://localhost:8181/hellotea/tea,78,DESKTOP-6AC2R54,0,7
+1688300829434,75,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-29,true,400,182,102,102,http://localhost:8181/hellotea/tea,75,DESKTOP-6AC2R54,0,3
+1688300829431,79,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-8,true,400,182,102,102,http://localhost:8181/hellotea/tea,79,DESKTOP-6AC2R54,0,5
+1688300829431,88,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-7,true,400,182,115,115,http://localhost:8181/hellotea/tea,88,DESKTOP-6AC2R54,0,5
+1688300829433,86,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-10,true,400,182,115,115,http://localhost:8181/hellotea/tea,86,DESKTOP-6AC2R54,0,4
+1688300829438,88,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-20,true,400,182,129,129,http://localhost:8181/hellotea/tea,88,DESKTOP-6AC2R54,0,2
+1688300829440,86,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-48,true,400,182,129,129,http://localhost:8181/hellotea/tea,86,DESKTOP-6AC2R54,0,1
+1688300829437,90,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-28,true,400,182,128,128,http://localhost:8181/hellotea/tea,90,DESKTOP-6AC2R54,0,1
+1688300829440,101,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-23,true,400,182,148,148,http://localhost:8181/hellotea/tea,101,DESKTOP-6AC2R54,0,1
+1688300829441,101,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-24,true,400,182,148,148,http://localhost:8181/hellotea/tea,101,DESKTOP-6AC2R54,0,0
+1688300829441,102,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-25,true,400,182,150,150,http://localhost:8181/hellotea/tea,102,DESKTOP-6AC2R54,0,1
+1688300829444,125,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-31,true,400,182,180,180,http://localhost:8181/hellotea/tea,125,DESKTOP-6AC2R54,0,1
+1688300829444,126,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-17,true,400,182,179,179,http://localhost:8181/hellotea/tea,126,DESKTOP-6AC2R54,0,2
+1688300829445,125,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-32,true,400,182,179,179,http://localhost:8181/hellotea/tea,125,DESKTOP-6AC2R54,0,1
+1688300829443,127,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-26,true,400,182,179,179,http://localhost:8181/hellotea/tea,127,DESKTOP-6AC2R54,0,1
+1688300829443,142,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-27,true,400,182,195,195,http://localhost:8181/hellotea/tea,142,DESKTOP-6AC2R54,0,1
+1688300829457,128,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-53,true,400,182,195,195,http://localhost:8181/hellotea/tea,128,DESKTOP-6AC2R54,0,0
+1688300829456,129,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-192,true,400,182,196,196,http://localhost:8181/hellotea/tea,129,DESKTOP-6AC2R54,0,1
+1688300829445,141,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-30,true,400,182,193,193,http://localhost:8181/hellotea/tea,141,DESKTOP-6AC2R54,0,1
+1688300829446,140,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-33,true,400,182,193,193,http://localhost:8181/hellotea/tea,140,DESKTOP-6AC2R54,0,1
+1688300829447,142,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-101,true,400,182,193,193,http://localhost:8181/hellotea/tea,142,DESKTOP-6AC2R54,0,0
+1688300829455,134,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-49,true,400,182,193,193,http://localhost:8181/hellotea/tea,134,DESKTOP-6AC2R54,0,1
+1688300829448,141,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-39,true,400,182,193,193,http://localhost:8181/hellotea/tea,141,DESKTOP-6AC2R54,0,1
+1688300829449,140,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-40,true,400,182,193,193,http://localhost:8181/hellotea/tea,140,DESKTOP-6AC2R54,0,1
+1688300829451,138,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-43,true,400,182,189,189,http://localhost:8181/hellotea/tea,138,DESKTOP-6AC2R54,0,1
+1688300829455,134,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-169,true,400,182,189,189,http://localhost:8181/hellotea/tea,134,DESKTOP-6AC2R54,0,1
+1688300829450,139,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-135,true,400,182,187,187,http://localhost:8181/hellotea/tea,139,DESKTOP-6AC2R54,0,2
+1688300829445,160,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-35,true,400,182,204,204,http://localhost:8181/hellotea/tea,160,DESKTOP-6AC2R54,0,2
+1688300829454,151,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-45,true,400,182,204,204,http://localhost:8181/hellotea/tea,151,DESKTOP-6AC2R54,0,1
+1688300829452,153,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-148,true,400,182,202,202,http://localhost:8181/hellotea/tea,153,DESKTOP-6AC2R54,0,1
+1688300829471,134,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-66,true,400,182,202,202,http://localhost:8181/hellotea/tea,134,DESKTOP-6AC2R54,0,1
+1688300829467,138,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-67,true,400,182,202,202,http://localhost:8181/hellotea/tea,138,DESKTOP-6AC2R54,0,1
+1688300829447,158,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-100,true,400,182,202,202,http://localhost:8181/hellotea/tea,158,DESKTOP-6AC2R54,0,0
+1688300829480,131,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-78,true,400,182,213,213,http://localhost:8181/hellotea/tea,131,DESKTOP-6AC2R54,0,2
+1688300829449,162,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-131,true,400,182,213,213,http://localhost:8181/hellotea/tea,162,DESKTOP-6AC2R54,0,1
+1688300829480,131,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-75,true,400,182,213,213,http://localhost:8181/hellotea/tea,131,DESKTOP-6AC2R54,0,1
+1688300829454,157,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-46,true,400,182,213,213,http://localhost:8181/hellotea/tea,157,DESKTOP-6AC2R54,0,2
+1688300829454,157,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-161,true,400,182,213,213,http://localhost:8181/hellotea/tea,157,DESKTOP-6AC2R54,0,3
+1688300829446,166,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-85,true,400,182,213,213,http://localhost:8181/hellotea/tea,166,DESKTOP-6AC2R54,0,2
+1688300829447,165,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-38,true,400,182,213,213,http://localhost:8181/hellotea/tea,165,DESKTOP-6AC2R54,0,0
+1688300829465,147,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-63,true,400,182,213,213,http://localhost:8181/hellotea/tea,147,DESKTOP-6AC2R54,0,0
+1688300829455,157,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-52,true,400,182,213,213,http://localhost:8181/hellotea/tea,157,DESKTOP-6AC2R54,0,2
+1688300829457,155,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-54,true,400,182,213,213,http://localhost:8181/hellotea/tea,155,DESKTOP-6AC2R54,0,2
+1688300829457,155,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-55,true,400,182,213,213,http://localhost:8181/hellotea/tea,155,DESKTOP-6AC2R54,0,2
+1688300829454,158,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-22,true,400,182,213,213,http://localhost:8181/hellotea/tea,158,DESKTOP-6AC2R54,0,1
+1688300829444,169,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-18,true,400,182,213,213,http://localhost:8181/hellotea/tea,169,DESKTOP-6AC2R54,0,1
+1688300829471,142,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-70,true,400,182,213,213,http://localhost:8181/hellotea/tea,142,DESKTOP-6AC2R54,0,1
+1688300829460,153,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-58,true,400,182,213,213,http://localhost:8181/hellotea/tea,153,DESKTOP-6AC2R54,0,1
+1688300829493,130,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-36,true,400,182,207,207,http://localhost:8181/hellotea/tea,130,DESKTOP-6AC2R54,0,1
+1688300829499,124,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-491,true,400,182,207,207,http://localhost:8181/hellotea/tea,124,DESKTOP-6AC2R54,0,1
+1688300829493,154,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-434,true,400,182,244,244,http://localhost:8181/hellotea/tea,154,DESKTOP-6AC2R54,0,2
+1688300829466,181,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-61,true,400,182,244,244,http://localhost:8181/hellotea/tea,181,DESKTOP-6AC2R54,0,1
+1688300829500,147,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-508,true,400,182,244,244,http://localhost:8181/hellotea/tea,147,DESKTOP-6AC2R54,0,2
+1688300829480,167,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-76,true,400,182,241,241,http://localhost:8181/hellotea/tea,167,DESKTOP-6AC2R54,0,1
+1688300829494,153,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-93,true,400,182,241,241,http://localhost:8181/hellotea/tea,153,DESKTOP-6AC2R54,0,2
+1688300829502,145,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-105,true,400,182,240,240,http://localhost:8181/hellotea/tea,145,DESKTOP-6AC2R54,0,1
+1688300829499,148,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-104,true,400,182,240,240,http://localhost:8181/hellotea/tea,148,DESKTOP-6AC2R54,0,0
+1688300829491,157,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-403,true,400,182,239,239,http://localhost:8181/hellotea/tea,157,DESKTOP-6AC2R54,0,1
+1688300829478,170,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-77,true,400,182,239,239,http://localhost:8181/hellotea/tea,170,DESKTOP-6AC2R54,0,2
+1688300829498,150,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-34,true,400,182,239,239,http://localhost:8181/hellotea/tea,150,DESKTOP-6AC2R54,0,1
+1688300829493,155,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-447,true,400,182,239,239,http://localhost:8181/hellotea/tea,155,DESKTOP-6AC2R54,0,4
+1688300829463,185,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-59,true,400,182,239,239,http://localhost:8181/hellotea/tea,185,DESKTOP-6AC2R54,0,0
+1688300829485,164,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-82,true,400,182,235,235,http://localhost:8181/hellotea/tea,164,DESKTOP-6AC2R54,0,1
+1688300829495,154,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-95,true,400,182,236,236,http://localhost:8181/hellotea/tea,154,DESKTOP-6AC2R54,0,2
+1688300829492,158,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-91,true,400,182,235,235,http://localhost:8181/hellotea/tea,158,DESKTOP-6AC2R54,0,1
+1688300829483,167,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-81,true,400,182,235,235,http://localhost:8181/hellotea/tea,167,DESKTOP-6AC2R54,0,1
+1688300829494,157,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-445,true,400,182,233,233,http://localhost:8181/hellotea/tea,157,DESKTOP-6AC2R54,0,3
+1688300829476,175,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-73,true,400,182,233,233,http://localhost:8181/hellotea/tea,175,DESKTOP-6AC2R54,0,1
+1688300829471,180,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-69,true,400,182,233,233,http://localhost:8181/hellotea/tea,180,DESKTOP-6AC2R54,0,1
+1688300829497,154,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-97,true,400,182,233,233,http://localhost:8181/hellotea/tea,154,DESKTOP-6AC2R54,0,1
+1688300829466,185,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-64,true,400,182,232,232,http://localhost:8181/hellotea/tea,185,DESKTOP-6AC2R54,0,1
+1688300829493,158,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-89,true,400,182,231,231,http://localhost:8181/hellotea/tea,158,DESKTOP-6AC2R54,0,1
+1688300829482,170,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-357,true,400,182,231,231,http://localhost:8181/hellotea/tea,170,DESKTOP-6AC2R54,0,4
+1688300829473,179,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-298,true,400,182,229,229,http://localhost:8181/hellotea/tea,179,DESKTOP-6AC2R54,0,4
+1688300829497,155,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-96,true,400,182,228,228,http://localhost:8181/hellotea/tea,155,DESKTOP-6AC2R54,0,1
+1688300829466,186,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-65,true,400,182,227,227,http://localhost:8181/hellotea/tea,186,DESKTOP-6AC2R54,0,1
+1688300829479,174,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-74,true,400,182,225,225,http://localhost:8181/hellotea/tea,174,DESKTOP-6AC2R54,0,1
+1688300829463,190,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-60,true,400,182,225,225,http://localhost:8181/hellotea/tea,190,DESKTOP-6AC2R54,0,2
+1688300829485,168,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-84,true,400,182,224,224,http://localhost:8181/hellotea/tea,168,DESKTOP-6AC2R54,0,1
+1688300829461,192,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-56,true,400,182,223,223,http://localhost:8181/hellotea/tea,192,DESKTOP-6AC2R54,0,2
+1688300829466,187,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-268,true,400,182,222,222,http://localhost:8181/hellotea/tea,187,DESKTOP-6AC2R54,0,2
+1688300829503,150,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-108,true,400,182,220,220,http://localhost:8181/hellotea/tea,150,DESKTOP-6AC2R54,0,0
+1688300829472,182,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-71,true,400,182,219,219,http://localhost:8181/hellotea/tea,182,DESKTOP-6AC2R54,0,2
+1688300829510,159,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-117,true,400,182,242,242,http://localhost:8181/hellotea/tea,159,DESKTOP-6AC2R54,0,1
+1688300829468,201,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-68,true,400,182,242,242,http://localhost:8181/hellotea/tea,201,DESKTOP-6AC2R54,0,1
+1688300829506,164,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-119,true,400,182,242,242,http://localhost:8181/hellotea/tea,164,DESKTOP-6AC2R54,0,1
+1688300829460,210,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-57,true,400,182,242,242,http://localhost:8181/hellotea/tea,210,DESKTOP-6AC2R54,0,1
+1688300829480,191,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-79,true,400,182,239,239,http://localhost:8181/hellotea/tea,191,DESKTOP-6AC2R54,0,1
+1688300829497,174,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-99,true,400,182,239,239,http://localhost:8181/hellotea/tea,174,DESKTOP-6AC2R54,0,1
+1688300829500,171,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-37,true,400,182,237,237,http://localhost:8181/hellotea/tea,171,DESKTOP-6AC2R54,0,1
+1688300829497,175,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-103,true,400,182,237,237,http://localhost:8181/hellotea/tea,175,DESKTOP-6AC2R54,0,1
+1688300829494,178,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-92,true,400,182,236,236,http://localhost:8181/hellotea/tea,178,DESKTOP-6AC2R54,0,2
+1688300829500,173,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-102,true,400,182,236,236,http://localhost:8181/hellotea/tea,173,DESKTOP-6AC2R54,0,2
+1688300829503,183,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-111,true,400,182,258,258,http://localhost:8181/hellotea/tea,183,DESKTOP-6AC2R54,0,0
+1688300829502,184,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-107,true,400,182,260,260,http://localhost:8181/hellotea/tea,184,DESKTOP-6AC2R54,0,1
+1688300829504,182,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-109,true,400,182,260,260,http://localhost:8181/hellotea/tea,182,DESKTOP-6AC2R54,0,1
+1688300829504,187,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-537,true,400,182,261,261,http://localhost:8181/hellotea/tea,187,DESKTOP-6AC2R54,0,1
+1688300829517,175,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-129,true,400,182,262,262,http://localhost:8181/hellotea/tea,175,DESKTOP-6AC2R54,0,1
+1688300829511,182,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-118,true,400,182,262,262,http://localhost:8181/hellotea/tea,182,DESKTOP-6AC2R54,0,2
+1688300829488,205,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-389,true,400,182,262,262,http://localhost:8181/hellotea/tea,205,DESKTOP-6AC2R54,0,2
+1688300829483,210,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-83,true,400,182,262,262,http://localhost:8181/hellotea/tea,210,DESKTOP-6AC2R54,0,3
+1688300829504,190,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-115,true,400,182,262,262,http://localhost:8181/hellotea/tea,190,DESKTOP-6AC2R54,0,1
+1688300829516,178,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-640,true,400,182,262,262,http://localhost:8181/hellotea/tea,178,DESKTOP-6AC2R54,0,1
+1688300829506,188,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-110,true,400,182,262,262,http://localhost:8181/hellotea/tea,188,DESKTOP-6AC2R54,0,1
+1688300829511,183,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-121,true,400,182,262,262,http://localhost:8181/hellotea/tea,183,DESKTOP-6AC2R54,0,1
+1688300829508,186,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-567,true,400,182,262,262,http://localhost:8181/hellotea/tea,186,DESKTOP-6AC2R54,0,1
+1688300829512,182,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-123,true,400,182,262,262,http://localhost:8181/hellotea/tea,182,DESKTOP-6AC2R54,0,2
+1688300829515,180,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-126,true,400,182,262,262,http://localhost:8181/hellotea/tea,180,DESKTOP-6AC2R54,0,2
+1688300829507,188,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-114,true,400,182,262,262,http://localhost:8181/hellotea/tea,188,DESKTOP-6AC2R54,0,1
+1688300829513,182,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-124,true,400,182,262,262,http://localhost:8181/hellotea/tea,182,DESKTOP-6AC2R54,0,2
+1688300829515,180,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-125,true,400,182,262,262,http://localhost:8181/hellotea/tea,180,DESKTOP-6AC2R54,0,3
+1688300829511,184,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-120,true,400,182,262,262,http://localhost:8181/hellotea/tea,184,DESKTOP-6AC2R54,0,1
+1688300829508,187,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-549,true,400,182,262,262,http://localhost:8181/hellotea/tea,187,DESKTOP-6AC2R54,0,1
+1688300829517,178,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-132,true,400,182,262,262,http://localhost:8181/hellotea/tea,178,DESKTOP-6AC2R54,0,1
+1688300829511,202,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-603,true,400,182,253,253,http://localhost:8181/hellotea/tea,202,DESKTOP-6AC2R54,0,3
+1688300829522,191,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-134,true,400,182,253,253,http://localhost:8181/hellotea/tea,191,DESKTOP-6AC2R54,0,1
+1688300829520,193,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-41,true,400,182,253,253,http://localhost:8181/hellotea/tea,193,DESKTOP-6AC2R54,0,1
+1688300829523,190,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-137,true,400,182,253,253,http://localhost:8181/hellotea/tea,190,DESKTOP-6AC2R54,0,1
+1688300829522,192,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-695,true,400,182,253,253,http://localhost:8181/hellotea/tea,192,DESKTOP-6AC2R54,0,0
+1688300829520,194,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-641,true,400,182,254,254,http://localhost:8181/hellotea/tea,194,DESKTOP-6AC2R54,0,1
+1688300829523,191,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-142,true,400,182,254,254,http://localhost:8181/hellotea/tea,191,DESKTOP-6AC2R54,0,1
+1688300829518,196,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-136,true,400,182,254,254,http://localhost:8181/hellotea/tea,196,DESKTOP-6AC2R54,0,1
+1688300829516,199,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-128,true,400,182,254,254,http://localhost:8181/hellotea/tea,199,DESKTOP-6AC2R54,0,1
+1688300829521,194,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-130,true,400,182,254,254,http://localhost:8181/hellotea/tea,194,DESKTOP-6AC2R54,0,1
+1688300829524,202,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-145,true,400,182,254,254,http://localhost:8181/hellotea/tea,202,DESKTOP-6AC2R54,0,1
+1688300829522,208,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-700,true,400,182,257,257,http://localhost:8181/hellotea/tea,208,DESKTOP-6AC2R54,0,1
+1688300829524,207,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-146,true,400,182,258,258,http://localhost:8181/hellotea/tea,207,DESKTOP-6AC2R54,0,1
+1688300829523,208,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-141,true,400,182,258,258,http://localhost:8181/hellotea/tea,208,DESKTOP-6AC2R54,0,1
+1688300829524,208,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-144,true,400,182,258,258,http://localhost:8181/hellotea/tea,208,DESKTOP-6AC2R54,0,1
+1688300829521,211,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-42,true,400,182,258,258,http://localhost:8181/hellotea/tea,211,DESKTOP-6AC2R54,0,1
+1688300829518,214,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-139,true,400,182,258,258,http://localhost:8181/hellotea/tea,214,DESKTOP-6AC2R54,0,1
+1688300829525,216,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-44,true,400,182,267,267,http://localhost:8181/hellotea/tea,216,DESKTOP-6AC2R54,0,1
+1688300829676,71,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-349,true,400,182,269,269,http://localhost:8181/hellotea/tea,71,DESKTOP-6AC2R54,0,7
+1688300829676,71,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-350,true,400,182,269,269,http://localhost:8181/hellotea/tea,71,DESKTOP-6AC2R54,0,8
+1688300829677,71,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-361,true,400,182,270,270,http://localhost:8181/hellotea/tea,71,DESKTOP-6AC2R54,0,13
+1688300829525,228,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-143,true,400,182,264,264,http://localhost:8181/hellotea/tea,228,DESKTOP-6AC2R54,0,1
+1688300829525,229,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-147,true,400,182,264,264,http://localhost:8181/hellotea/tea,229,DESKTOP-6AC2R54,0,1
+1688300829676,81,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-353,true,400,182,262,262,http://localhost:8181/hellotea/tea,81,DESKTOP-6AC2R54,0,20
+1688300829677,80,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-358,true,400,182,262,262,http://localhost:8181/hellotea/tea,80,DESKTOP-6AC2R54,0,14
+1688300829527,238,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-149,true,400,182,269,269,http://localhost:8181/hellotea/tea,238,DESKTOP-6AC2R54,0,1
+1688300829528,238,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-150,true,400,182,269,269,http://localhost:8181/hellotea/tea,238,DESKTOP-6AC2R54,0,2
+1688300829679,91,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-354,true,400,182,271,271,http://localhost:8181/hellotea/tea,91,DESKTOP-6AC2R54,0,21
+1688300829528,246,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-151,true,400,182,273,273,http://localhost:8181/hellotea/tea,246,DESKTOP-6AC2R54,0,2
+1688300829679,102,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-362,true,400,182,283,283,http://localhost:8181/hellotea/tea,102,DESKTOP-6AC2R54,0,22
+1688300829529,255,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-153,true,400,182,289,289,http://localhost:8181/hellotea/tea,255,DESKTOP-6AC2R54,0,3
+1688300829528,257,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-152,true,400,182,289,289,http://localhost:8181/hellotea/tea,257,DESKTOP-6AC2R54,0,3
+1688300829680,113,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-369,true,400,182,293,293,http://localhost:8181/hellotea/tea,113,DESKTOP-6AC2R54,0,24
+1688300829529,266,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-154,true,400,182,294,294,http://localhost:8181/hellotea/tea,266,DESKTOP-6AC2R54,0,4
+1688300829701,98,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-374,true,400,182,302,302,http://localhost:8181/hellotea/tea,98,DESKTOP-6AC2R54,0,2
+1688300829531,280,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-159,true,400,182,310,310,http://localhost:8181/hellotea/tea,280,DESKTOP-6AC2R54,0,2
+1688300829680,201,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-80,true,400,182,396,396,http://localhost:8181/hellotea/tea,201,DESKTOP-6AC2R54,0,23
+1688300829531,384,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-155,true,400,182,411,411,http://localhost:8181/hellotea/tea,384,DESKTOP-6AC2R54,0,3
+1688300829696,307,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-375,true,400,182,536,536,http://localhost:8181/hellotea/tea,307,DESKTOP-6AC2R54,0,8
+1688300829530,510,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-157,true,400,182,534,534,http://localhost:8181/hellotea/tea,510,DESKTOP-6AC2R54,0,4
+1688300829876,212,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-557,false,2631,0,533,533,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,212
+1688300829948,142,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-624,false,2631,0,532,532,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,142
+1688300829961,129,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-659,false,2631,0,532,532,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,129
+1688300829961,129,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-656,false,2631,0,531,531,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,129
+1688300829951,140,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-647,false,2631,0,531,531,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,140
+1688300829946,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-615,false,2631,0,529,529,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829927,163,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-598,false,2631,0,526,526,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,163
+1688300829689,410,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-372,true,400,182,525,525,http://localhost:8181/hellotea/tea,410,DESKTOP-6AC2R54,0,15
+1688300829947,144,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-620,false,2631,0,524,524,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,144
+1688300829962,129,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-650,false,2631,0,523,523,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,129
+1688300829951,140,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-648,false,2631,0,523,523,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,140
+1688300829952,139,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-655,false,2631,0,523,523,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,139
+1688300829949,142,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-635,false,2631,0,523,523,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,142
+1688300829951,140,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-643,false,2631,0,522,522,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,140
+1688300829952,139,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-637,false,2631,0,519,519,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,139
+1688300829951,140,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-127,false,2631,0,518,518,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,140
+1688300829948,143,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-628,false,2631,0,516,516,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,143
+1688300829949,142,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-636,false,2631,0,516,516,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,142
+1688300829951,140,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-639,false,2631,0,514,514,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,140
+1688300829962,129,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-645,false,2631,0,514,514,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,129
+1688300829946,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-633,false,2631,0,514,514,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829945,146,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-618,false,2631,0,513,513,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,146
+1688300829947,144,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-619,false,2631,0,513,513,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,144
+1688300829948,143,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-627,false,2631,0,511,511,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,143
+1688300829947,144,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-616,false,2631,0,508,508,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,144
+1688300829947,144,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-623,false,2631,0,507,507,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,144
+1688300829946,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-625,false,2631,0,507,507,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829942,149,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-611,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,149
+1688300829942,149,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-612,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,149
+1688300829942,149,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-614,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,149
+1688300829926,165,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-595,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,165
+1688300829927,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-599,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829920,171,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-591,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,171
+1688300829918,173,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-584,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,173
+1688300829945,146,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-621,false,2631,0,505,505,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,146
+1688300829946,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-629,false,2631,0,504,504,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829942,149,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-613,false,2631,0,503,503,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,149
+1688300829927,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-600,false,2631,0,502,502,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829916,175,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-579,false,2631,0,502,502,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,175
+1688300829927,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-596,false,2631,0,501,501,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829920,171,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-588,false,2631,0,501,501,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,171
+1688300829944,147,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-617,false,2631,0,500,500,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,147
+1688300829941,150,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-610,false,2631,0,499,499,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,150
+1688300829916,175,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-575,false,2631,0,495,495,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,175
+1688300829916,175,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-576,false,2631,0,494,494,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,175
+1688300829946,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-626,false,2631,0,494,494,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829917,175,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-583,false,2631,0,493,493,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,174
+1688300829938,154,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-609,false,2631,0,491,491,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,154
+1688300829928,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-601,false,2631,0,491,491,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829887,205,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-556,false,2631,0,491,491,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,205
+1688300829892,200,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-568,false,2631,0,490,490,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,200
+1688300829928,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-122,false,2631,0,487,487,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829933,159,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-606,false,2631,0,484,484,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,159
+1688300829883,209,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-564,false,2631,0,483,483,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,209
+1688300829915,177,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-571,false,2631,0,483,483,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,177
+1688300829928,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-602,false,2631,0,481,481,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829880,212,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-552,false,2631,0,480,480,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,212
+1688300829934,158,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-608,false,2631,0,479,479,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,158
+1688300829926,166,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-597,false,2631,0,477,477,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,166
+1688300829934,158,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-604,false,2631,0,477,477,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,158
+1688300829928,164,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-605,false,2631,0,475,475,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,164
+1688300829979,113,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-696,false,2631,0,474,474,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,113
+1688300829881,211,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-560,false,2631,0,472,472,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,211
+1688300829962,130,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-646,false,2631,0,471,471,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,130
+1688300829985,107,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-699,false,2631,0,468,468,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,107
+1688300829934,158,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-607,false,2631,0,468,468,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,158
+1688300829997,95,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-421,false,2631,0,466,466,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,95
+1688300829992,100,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-323,false,2631,0,465,465,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,100
+1688300829969,123,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-671,false,2631,0,465,465,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,123
+1688300829993,99,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-324,false,2631,0,463,463,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,99
+1688300829994,98,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-314,false,2631,0,462,462,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,98
+1688300829978,114,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-691,false,2631,0,461,461,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,114
+1688300829983,109,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-681,false,2631,0,460,460,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,109
+1688300829978,114,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-684,false,2631,0,459,459,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,114
+1688300829977,115,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-679,false,2631,0,458,458,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,115
+1688300829952,140,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-652,false,2631,0,457,457,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,140
+1688300829916,176,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-580,false,2631,0,456,456,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,176
+1688300829962,130,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-140,false,2631,0,455,455,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,130
+1688300829920,172,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-587,false,2631,0,455,455,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,172
+1688300829969,123,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-676,false,2631,0,455,455,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,123
+1688300829951,141,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-651,false,2631,0,452,452,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,141
+1688300829997,95,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-477,false,2631,0,452,452,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,95
+1688300829968,124,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-667,false,2631,0,452,452,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,124
+1688300829968,125,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-664,false,2631,0,449,449,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,124
+1688300829985,107,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-693,false,2631,0,448,448,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,107
+1688300829968,125,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-668,false,2631,0,447,447,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,125
+1688300829978,114,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-687,false,2631,0,446,446,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,114
+1688300829920,172,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-592,false,2631,0,446,446,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,172
+1688300829977,116,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-680,false,2631,0,446,446,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,116
+1688300829992,100,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-315,false,2631,0,443,443,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,100
+1688300829968,124,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-666,false,2631,0,442,442,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,124
+1688300829945,148,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-622,false,2631,0,442,442,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,148
+1688300829966,127,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-657,false,2631,0,442,442,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,126
+1688300829978,115,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-688,false,2631,0,439,439,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,115
+1688300829979,114,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-692,false,2631,0,439,439,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,114
+1688300829969,124,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-672,false,2631,0,437,437,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,124
+1688300829967,126,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-663,false,2631,0,437,437,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,126
+1688300829951,142,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-644,false,2631,0,435,435,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,142
+1688300829963,130,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-654,false,2631,0,435,435,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,130
+1688300829967,126,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-662,false,2631,0,433,433,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,126
+1688300829966,127,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-653,false,2631,0,432,432,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,127
+1688300829961,132,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-660,false,2631,0,432,432,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,132
+1688300829978,115,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-683,false,2631,0,432,432,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,115
+1688300829969,124,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-675,false,2631,0,429,429,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,124
+1688300829967,126,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-665,false,2631,0,429,429,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,126
+1688300829966,127,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-658,false,2631,0,427,427,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,127
+1688300829948,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-632,false,2631,0,427,427,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829984,109,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-686,false,2631,0,427,427,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,109
+1688300829948,145,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-631,false,2631,0,427,427,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,145
+1688300829985,108,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-138,false,2631,0,427,427,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,108
+1688300829962,131,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-642,false,2631,0,427,427,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,130
+1688300829985,108,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-690,false,2631,0,424,424,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,108
+1688300829969,124,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-677,false,2631,0,422,422,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,123
+1688300829988,105,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-694,false,2631,0,422,422,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,105
+1688300829983,110,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-682,false,2631,0,421,421,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,110
+1688300829984,109,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-685,false,2631,0,420,420,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,109
+1688300829979,114,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-133,false,2631,0,419,419,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,114
+1688300829946,147,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-630,false,2631,0,419,419,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,147
+1688300829907,186,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-569,false,2631,0,419,419,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,185
+1688300829920,173,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-593,false,2631,0,417,417,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,173
+1688300829909,184,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-574,false,2631,0,417,417,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,184
+1688300829909,184,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-578,false,2631,0,413,413,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,184
+1688300829912,181,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-582,false,2631,0,412,412,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,181
+1688300829889,204,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-113,false,2631,0,411,411,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,204
+1688300829886,207,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-565,false,2631,0,409,409,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,207
+1688300829914,179,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-589,false,2631,0,407,407,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,179
+1688300829963,131,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-649,false,2631,0,407,407,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,131
+1688300829947,147,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-634,false,2631,0,407,407,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,146
+1688300829908,186,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-573,false,2631,0,407,407,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,185
+1688300829876,218,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-562,false,2631,0,404,404,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,218
+1688300829951,143,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-638,false,2631,0,402,402,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,143
+1688300829977,117,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-678,false,2631,0,401,401,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,117
+1688300829989,105,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-697,false,2631,0,401,401,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,105
+1688300829969,125,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-674,false,2631,0,401,401,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,125
+1688300829990,104,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-698,false,2631,0,401,401,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,104
+1688300829969,125,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-673,false,2631,0,397,397,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,125
+1688300829985,109,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-689,false,2631,0,397,397,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,109
+1688300829969,125,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-670,false,2631,0,395,395,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,125
+1688300829967,127,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-661,false,2631,0,395,395,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,127
+1688300829968,126,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-669,false,2631,0,395,395,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,126
+1688300829921,173,gateway_cl/hellotea/tea,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,"Non HTTP response message: Connect to localhost:8181 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect",gateway_cl/hellotea 1-594,false,2631,0,393,393,http://localhost:8181/hellotea/tea,0,DESKTOP-6AC2R54,0,173
+1688300829530,593,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-156,true,400,182,391,391,http://localhost:8181/hellotea/tea,593,DESKTOP-6AC2R54,0,5
+1688300829685,453,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-364,true,400,182,390,390,http://localhost:8181/hellotea/tea,453,DESKTOP-6AC2R54,0,22
+1688300829685,453,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-363,true,400,182,390,390,http://localhost:8181/hellotea/tea,453,DESKTOP-6AC2R54,0,22
+1688300829685,453,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-359,true,400,182,390,390,http://localhost:8181/hellotea/tea,453,DESKTOP-6AC2R54,0,24
+1688300829685,455,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-367,true,400,182,387,387,http://localhost:8181/hellotea/tea,455,DESKTOP-6AC2R54,0,20
+1688300829692,448,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-373,true,400,182,386,386,http://localhost:8181/hellotea/tea,448,DESKTOP-6AC2R54,0,17
+1688300829535,609,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-160,true,400,182,385,385,http://localhost:8181/hellotea/tea,609,DESKTOP-6AC2R54,0,1
+1688300829680,472,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-365,true,400,182,384,384,http://localhost:8181/hellotea/tea,472,DESKTOP-6AC2R54,0,25
+1688300829536,623,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-47,true,400,182,383,383,http://localhost:8181/hellotea/tea,623,DESKTOP-6AC2R54,0,1
+1688300829683,486,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-366,true,400,182,382,382,http://localhost:8181/hellotea/tea,486,DESKTOP-6AC2R54,0,28
+1688300829685,486,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-360,true,400,182,381,381,http://localhost:8181/hellotea/tea,486,DESKTOP-6AC2R54,0,21
+1688300829680,492,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-355,true,400,182,380,380,http://localhost:8181/hellotea/tea,492,DESKTOP-6AC2R54,0,29
+1688300829701,472,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-376,true,400,182,379,379,http://localhost:8181/hellotea/tea,472,DESKTOP-6AC2R54,0,7
+1688300829684,499,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-370,true,400,182,378,378,http://localhost:8181/hellotea/tea,499,DESKTOP-6AC2R54,0,28
+1688300829712,472,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-383,true,400,182,378,378,http://localhost:8181/hellotea/tea,472,DESKTOP-6AC2R54,0,16
+1688300829711,473,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-381,true,400,182,378,378,http://localhost:8181/hellotea/tea,473,DESKTOP-6AC2R54,0,13
+1688300829725,459,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-392,true,400,182,378,378,http://localhost:8181/hellotea/tea,459,DESKTOP-6AC2R54,0,27
+1688300829551,634,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-191,true,400,182,374,374,http://localhost:8181/hellotea/tea,634,DESKTOP-6AC2R54,0,2
+1688300829542,643,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-175,true,400,182,373,373,http://localhost:8181/hellotea/tea,643,DESKTOP-6AC2R54,0,1
+1688300829579,610,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-214,true,400,182,372,372,http://localhost:8181/hellotea/tea,610,DESKTOP-6AC2R54,0,1
+1688300829684,506,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-356,true,400,182,371,371,http://localhost:8181/hellotea/tea,506,DESKTOP-6AC2R54,0,26
+1688300829540,650,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-171,true,400,182,371,371,http://localhost:8181/hellotea/tea,650,DESKTOP-6AC2R54,0,2
+1688300829721,472,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-388,true,400,182,369,369,http://localhost:8181/hellotea/tea,472,DESKTOP-6AC2R54,0,27
+1688300829636,557,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-293,true,400,182,368,368,http://localhost:8181/hellotea/tea,557,DESKTOP-6AC2R54,0,2
+1688300829540,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-172,true,400,182,368,368,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,2
+1688300829645,553,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-305,true,400,182,366,366,http://localhost:8181/hellotea/tea,553,DESKTOP-6AC2R54,0,1
+1688300829550,648,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-185,true,400,182,366,366,http://localhost:8181/hellotea/tea,648,DESKTOP-6AC2R54,0,1
+1688300829686,514,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-371,true,400,182,364,364,http://localhost:8181/hellotea/tea,514,DESKTOP-6AC2R54,0,22
+1688300829702,498,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-377,true,400,182,364,364,http://localhost:8181/hellotea/tea,498,DESKTOP-6AC2R54,0,21
+1688300829712,488,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-387,true,400,182,362,362,http://localhost:8181/hellotea/tea,488,DESKTOP-6AC2R54,0,16
+1688300829686,515,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-368,true,400,182,361,361,http://localhost:8181/hellotea/tea,515,DESKTOP-6AC2R54,0,20
+1688300829591,610,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-232,true,400,182,360,360,http://localhost:8181/hellotea/tea,610,DESKTOP-6AC2R54,0,1
+1688300829711,491,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-380,true,400,182,359,359,http://localhost:8181/hellotea/tea,491,DESKTOP-6AC2R54,0,13
+1688300829551,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-190,true,400,182,358,358,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,4
+1688300829539,665,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-162,true,400,182,358,358,http://localhost:8181/hellotea/tea,665,DESKTOP-6AC2R54,0,4
+1688300829544,672,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-183,true,400,182,356,356,http://localhost:8181/hellotea/tea,672,DESKTOP-6AC2R54,0,1
+1688300829648,568,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-310,true,400,182,356,356,http://localhost:8181/hellotea/tea,568,DESKTOP-6AC2R54,0,1
+1688300829721,496,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-386,true,400,182,354,354,http://localhost:8181/hellotea/tea,496,DESKTOP-6AC2R54,0,18
+1688300829710,507,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-379,true,400,182,354,354,http://localhost:8181/hellotea/tea,507,DESKTOP-6AC2R54,0,12
+1688300829711,506,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-382,true,400,182,354,354,http://localhost:8181/hellotea/tea,506,DESKTOP-6AC2R54,0,12
+1688300829706,512,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-378,true,400,182,351,351,http://localhost:8181/hellotea/tea,512,DESKTOP-6AC2R54,0,13
+1688300829591,628,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-234,true,400,182,350,350,http://localhost:8181/hellotea/tea,628,DESKTOP-6AC2R54,0,1
+1688300829547,672,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-173,true,400,182,350,350,http://localhost:8181/hellotea/tea,672,DESKTOP-6AC2R54,0,2
+1688300829610,609,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-259,true,400,182,349,349,http://localhost:8181/hellotea/tea,609,DESKTOP-6AC2R54,0,2
+1688300829539,680,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-167,true,400,182,347,347,http://localhost:8181/hellotea/tea,680,DESKTOP-6AC2R54,0,1
+1688300829542,678,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-179,true,400,182,347,347,http://localhost:8181/hellotea/tea,678,DESKTOP-6AC2R54,0,2
+1688300829584,636,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-225,true,400,182,346,346,http://localhost:8181/hellotea/tea,636,DESKTOP-6AC2R54,0,1
+1688300829569,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-197,true,400,182,344,344,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,2
+1688300829590,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-228,true,400,182,344,344,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,1
+1688300829614,612,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-260,true,400,182,342,342,http://localhost:8181/hellotea/tea,612,DESKTOP-6AC2R54,0,1
+1688300829584,642,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-220,true,400,182,342,342,http://localhost:8181/hellotea/tea,642,DESKTOP-6AC2R54,0,1
+1688300829552,674,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-195,true,400,182,342,342,http://localhost:8181/hellotea/tea,674,DESKTOP-6AC2R54,0,4
+1688300829660,567,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-327,true,400,182,342,342,http://localhost:8181/hellotea/tea,567,DESKTOP-6AC2R54,0,1
+1688300829553,674,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-200,true,400,182,342,342,http://localhost:8181/hellotea/tea,674,DESKTOP-6AC2R54,0,5
+1688300829577,650,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-210,true,400,182,340,340,http://localhost:8181/hellotea/tea,650,DESKTOP-6AC2R54,0,1
+1688300829548,679,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-177,true,400,182,336,336,http://localhost:8181/hellotea/tea,679,DESKTOP-6AC2R54,0,1
+1688300829583,649,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-221,true,400,182,335,335,http://localhost:8181/hellotea/tea,649,DESKTOP-6AC2R54,0,1
+1688300829530,703,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-158,true,400,182,335,335,http://localhost:8181/hellotea/tea,703,DESKTOP-6AC2R54,0,7
+1688300829586,647,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-223,true,400,182,334,334,http://localhost:8181/hellotea/tea,647,DESKTOP-6AC2R54,0,1
+1688300829579,654,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-217,true,400,182,332,332,http://localhost:8181/hellotea/tea,654,DESKTOP-6AC2R54,0,1
+1688300829626,607,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-269,true,400,182,332,332,http://localhost:8181/hellotea/tea,607,DESKTOP-6AC2R54,0,0
+1688300829566,671,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-193,true,400,182,330,330,http://localhost:8181/hellotea/tea,671,DESKTOP-6AC2R54,0,1
+1688300829674,563,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-351,true,400,182,330,330,http://localhost:8181/hellotea/tea,563,DESKTOP-6AC2R54,0,1
+1688300829545,692,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-166,true,400,182,330,330,http://localhost:8181/hellotea/tea,692,DESKTOP-6AC2R54,0,2
+1688300829594,644,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-240,true,400,182,327,327,http://localhost:8181/hellotea/tea,644,DESKTOP-6AC2R54,0,2
+1688300829539,699,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-168,true,400,182,327,327,http://localhost:8181/hellotea/tea,699,DESKTOP-6AC2R54,0,2
+1688300829549,690,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-182,true,400,182,325,325,http://localhost:8181/hellotea/tea,690,DESKTOP-6AC2R54,0,0
+1688300829572,667,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-201,true,400,182,325,325,http://localhost:8181/hellotea/tea,667,DESKTOP-6AC2R54,0,2
+1688300829563,676,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-211,true,400,182,325,325,http://localhost:8181/hellotea/tea,676,DESKTOP-6AC2R54,0,1
+1688300829551,688,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-188,true,400,182,324,324,http://localhost:8181/hellotea/tea,688,DESKTOP-6AC2R54,0,8
+1688300829591,648,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-230,true,400,182,321,321,http://localhost:8181/hellotea/tea,648,DESKTOP-6AC2R54,0,12
+1688300829538,701,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-163,true,400,182,321,321,http://localhost:8181/hellotea/tea,701,DESKTOP-6AC2R54,0,3
+1688300829639,600,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-300,true,400,182,321,321,http://localhost:8181/hellotea/tea,600,DESKTOP-6AC2R54,0,3
+1688300829643,596,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-72,true,400,182,321,321,http://localhost:8181/hellotea/tea,596,DESKTOP-6AC2R54,0,1
+1688300829560,680,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-204,true,400,182,318,318,http://localhost:8181/hellotea/tea,680,DESKTOP-6AC2R54,0,1
+1688300829610,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-255,true,400,182,316,316,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,1
+1688300829593,648,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-237,true,400,182,315,315,http://localhost:8181/hellotea/tea,648,DESKTOP-6AC2R54,0,9
+1688300829656,589,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-318,true,400,182,314,314,http://localhost:8181/hellotea/tea,589,DESKTOP-6AC2R54,0,3
+1688300829546,699,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-170,true,400,182,314,314,http://localhost:8181/hellotea/tea,699,DESKTOP-6AC2R54,0,1
+1688300829550,695,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-186,true,400,182,314,314,http://localhost:8181/hellotea/tea,695,DESKTOP-6AC2R54,0,2
+1688300829577,668,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-216,true,400,182,314,314,http://localhost:8181/hellotea/tea,668,DESKTOP-6AC2R54,0,0
+1688300829548,697,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-178,true,400,182,314,314,http://localhost:8181/hellotea/tea,697,DESKTOP-6AC2R54,0,1
+1688300829550,696,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-187,true,400,182,309,309,http://localhost:8181/hellotea/tea,696,DESKTOP-6AC2R54,0,1
+1688300829661,585,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-325,true,400,182,309,309,http://localhost:8181/hellotea/tea,585,DESKTOP-6AC2R54,0,1
+1688300829610,636,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-263,true,400,182,309,309,http://localhost:8181/hellotea/tea,636,DESKTOP-6AC2R54,0,3
+1688300829603,643,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-242,true,400,182,309,309,http://localhost:8181/hellotea/tea,643,DESKTOP-6AC2R54,0,1
+1688300829572,674,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-205,true,400,182,309,309,http://localhost:8181/hellotea/tea,674,DESKTOP-6AC2R54,0,1
+1688300829608,638,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-251,true,400,182,308,308,http://localhost:8181/hellotea/tea,638,DESKTOP-6AC2R54,0,1
+1688300829646,600,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-307,true,400,182,308,308,http://localhost:8181/hellotea/tea,600,DESKTOP-6AC2R54,0,1
+1688300829565,687,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-212,true,400,182,302,302,http://localhost:8181/hellotea/tea,687,DESKTOP-6AC2R54,0,1
+1688300829662,590,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-329,true,400,182,302,302,http://localhost:8181/hellotea/tea,590,DESKTOP-6AC2R54,0,1
+1688300829538,714,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-164,true,400,182,302,302,http://localhost:8181/hellotea/tea,714,DESKTOP-6AC2R54,0,1
+1688300829548,704,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-181,true,400,182,302,302,http://localhost:8181/hellotea/tea,704,DESKTOP-6AC2R54,0,1
+1688300829575,677,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-206,true,400,182,300,300,http://localhost:8181/hellotea/tea,677,DESKTOP-6AC2R54,0,4
+1688300829610,643,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-257,true,400,182,297,297,http://localhost:8181/hellotea/tea,643,DESKTOP-6AC2R54,0,3
+1688300829592,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-233,true,400,182,296,296,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,12
+1688300829608,646,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-252,true,400,182,296,296,http://localhost:8181/hellotea/tea,646,DESKTOP-6AC2R54,0,0
+1688300829551,703,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-50,true,400,182,296,296,http://localhost:8181/hellotea/tea,703,DESKTOP-6AC2R54,0,2
+1688300829552,702,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-196,true,400,182,296,296,http://localhost:8181/hellotea/tea,702,DESKTOP-6AC2R54,0,6
+1688300829623,631,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-275,true,400,182,295,295,http://localhost:8181/hellotea/tea,631,DESKTOP-6AC2R54,0,2
+1688300829550,704,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-189,true,400,182,291,291,http://localhost:8181/hellotea/tea,704,DESKTOP-6AC2R54,0,4
+1688300829622,633,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-272,true,400,182,290,290,http://localhost:8181/hellotea/tea,633,DESKTOP-6AC2R54,0,1
+1688300829642,613,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-297,true,400,182,290,290,http://localhost:8181/hellotea/tea,613,DESKTOP-6AC2R54,0,3
+1688300829594,661,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-243,true,400,182,290,290,http://localhost:8181/hellotea/tea,661,DESKTOP-6AC2R54,0,1
+1688300829568,687,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-194,true,400,182,290,290,http://localhost:8181/hellotea/tea,687,DESKTOP-6AC2R54,0,2
+1688300829572,683,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-198,true,400,182,288,288,http://localhost:8181/hellotea/tea,683,DESKTOP-6AC2R54,0,1
+1688300829576,679,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-213,true,400,182,288,288,http://localhost:8181/hellotea/tea,679,DESKTOP-6AC2R54,0,1
+1688300829625,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-266,true,400,182,287,287,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,2
+1688300829647,608,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-309,true,400,182,285,285,http://localhost:8181/hellotea/tea,608,DESKTOP-6AC2R54,0,1
+1688300829607,649,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-250,true,400,182,282,282,http://localhost:8181/hellotea/tea,649,DESKTOP-6AC2R54,0,2
+1688300829639,618,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-303,true,400,182,281,281,http://localhost:8181/hellotea/tea,618,DESKTOP-6AC2R54,0,1
+1688300829611,646,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-264,true,400,182,281,281,http://localhost:8181/hellotea/tea,646,DESKTOP-6AC2R54,0,2
+1688300829655,602,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-317,true,400,182,279,279,http://localhost:8181/hellotea/tea,602,DESKTOP-6AC2R54,0,1
+1688300829628,629,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-279,true,400,182,279,279,http://localhost:8181/hellotea/tea,629,DESKTOP-6AC2R54,0,1
+1688300829661,596,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-321,true,400,182,279,279,http://localhost:8181/hellotea/tea,596,DESKTOP-6AC2R54,0,2
+1688300829584,673,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-222,true,400,182,278,278,http://localhost:8181/hellotea/tea,673,DESKTOP-6AC2R54,0,1
+1688300829628,629,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-281,true,400,182,277,277,http://localhost:8181/hellotea/tea,629,DESKTOP-6AC2R54,0,1
+1688300829649,608,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-316,true,400,182,275,275,http://localhost:8181/hellotea/tea,608,DESKTOP-6AC2R54,0,1
+1688300829575,682,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-215,true,400,182,275,275,http://localhost:8181/hellotea/tea,682,DESKTOP-6AC2R54,0,1
+1688300829629,629,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-283,true,400,182,273,273,http://localhost:8181/hellotea/tea,629,DESKTOP-6AC2R54,0,1
+1688300829545,721,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-184,true,400,182,271,271,http://localhost:8181/hellotea/tea,721,DESKTOP-6AC2R54,0,1
+1688300829617,649,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-258,true,400,182,270,270,http://localhost:8181/hellotea/tea,649,DESKTOP-6AC2R54,0,3
+1688300829674,594,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-345,true,400,182,269,269,http://localhost:8181/hellotea/tea,594,DESKTOP-6AC2R54,0,1
+1688300829582,686,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-219,true,400,182,269,269,http://localhost:8181/hellotea/tea,686,DESKTOP-6AC2R54,0,1
+1688300829592,676,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-236,true,400,182,269,269,http://localhost:8181/hellotea/tea,676,DESKTOP-6AC2R54,0,2
+1688300829602,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-241,true,400,182,269,269,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,1
+1688300829615,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-267,true,400,182,269,269,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,6
+1688300829586,688,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-224,true,400,182,264,264,http://localhost:8181/hellotea/tea,688,DESKTOP-6AC2R54,0,1
+1688300829628,646,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-280,true,400,182,264,264,http://localhost:8181/hellotea/tea,646,DESKTOP-6AC2R54,0,1
+1688300829661,613,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-328,true,400,182,263,263,http://localhost:8181/hellotea/tea,613,DESKTOP-6AC2R54,0,1
+1688300829651,624,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-319,true,400,182,261,261,http://localhost:8181/hellotea/tea,624,DESKTOP-6AC2R54,0,1
+1688300829546,728,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-165,true,400,182,261,261,http://localhost:8181/hellotea/tea,728,DESKTOP-6AC2R54,0,1
+1688300829572,703,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-202,true,400,182,261,261,http://localhost:8181/hellotea/tea,703,DESKTOP-6AC2R54,0,2
+1688300829664,612,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-336,true,400,182,258,258,http://localhost:8181/hellotea/tea,612,DESKTOP-6AC2R54,0,3
+1688300829652,624,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-320,true,400,182,258,258,http://localhost:8181/hellotea/tea,624,DESKTOP-6AC2R54,0,1
+1688300829615,661,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-62,true,400,182,258,258,http://localhost:8181/hellotea/tea,661,DESKTOP-6AC2R54,0,5
+1688300829591,685,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-229,true,400,182,257,257,http://localhost:8181/hellotea/tea,685,DESKTOP-6AC2R54,0,1
+1688300829667,610,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-340,true,400,182,254,254,http://localhost:8181/hellotea/tea,610,DESKTOP-6AC2R54,0,2
+1688300829674,603,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-352,true,400,182,253,253,http://localhost:8181/hellotea/tea,603,DESKTOP-6AC2R54,0,1
+1688300829648,629,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-311,true,400,182,253,253,http://localhost:8181/hellotea/tea,629,DESKTOP-6AC2R54,0,1
+1688300829610,667,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-254,true,400,182,252,252,http://localhost:8181/hellotea/tea,667,DESKTOP-6AC2R54,0,1
+1688300829623,655,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-265,true,400,182,250,250,http://localhost:8181/hellotea/tea,655,DESKTOP-6AC2R54,0,1
+1688300829622,659,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-271,true,400,182,249,249,http://localhost:8181/hellotea/tea,659,DESKTOP-6AC2R54,0,1
+1688300829642,639,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-302,true,400,182,248,248,http://localhost:8181/hellotea/tea,639,DESKTOP-6AC2R54,0,4
+1688300829666,615,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-337,true,400,182,248,248,http://localhost:8181/hellotea/tea,615,DESKTOP-6AC2R54,0,5
+1688300829630,652,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-285,true,400,182,246,246,http://localhost:8181/hellotea/tea,652,DESKTOP-6AC2R54,0,5
+1688300829638,644,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-295,true,400,182,246,246,http://localhost:8181/hellotea/tea,644,DESKTOP-6AC2R54,0,3
+1688300829610,672,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-256,true,400,182,245,245,http://localhost:8181/hellotea/tea,672,DESKTOP-6AC2R54,0,2
+1688300829631,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-286,true,400,182,245,245,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,2
+1688300829664,619,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-332,true,400,182,242,242,http://localhost:8181/hellotea/tea,619,DESKTOP-6AC2R54,0,1
+1688300829607,676,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-246,true,400,182,242,242,http://localhost:8181/hellotea/tea,676,DESKTOP-6AC2R54,0,1
+1688300829664,619,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-333,true,400,182,242,242,http://localhost:8181/hellotea/tea,619,DESKTOP-6AC2R54,0,2
+1688300829609,678,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-253,true,400,182,239,239,http://localhost:8181/hellotea/tea,678,DESKTOP-6AC2R54,0,1
+1688300829604,683,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-247,true,400,182,239,239,http://localhost:8181/hellotea/tea,683,DESKTOP-6AC2R54,0,1
+1688300829634,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-292,true,400,182,239,239,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,3
+1688300829627,660,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-277,true,400,182,239,239,http://localhost:8181/hellotea/tea,660,DESKTOP-6AC2R54,0,1
+1688300829672,616,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-347,true,400,182,235,235,http://localhost:8181/hellotea/tea,616,DESKTOP-6AC2R54,0,1
+1688300829664,624,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-335,true,400,182,235,235,http://localhost:8181/hellotea/tea,624,DESKTOP-6AC2R54,0,2
+1688300829674,614,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-346,true,400,182,233,233,http://localhost:8181/hellotea/tea,614,DESKTOP-6AC2R54,0,1
+1688300829587,702,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-227,true,400,182,233,233,http://localhost:8181/hellotea/tea,702,DESKTOP-6AC2R54,0,1
+1688300829552,737,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-199,true,400,182,232,232,http://localhost:8181/hellotea/tea,737,DESKTOP-6AC2R54,0,7
+1688300829581,708,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-218,true,400,182,230,230,http://localhost:8181/hellotea/tea,708,DESKTOP-6AC2R54,0,1
+1688300829638,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-296,true,400,182,230,230,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,3
+1688300829629,660,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-284,true,400,182,230,230,http://localhost:8181/hellotea/tea,660,DESKTOP-6AC2R54,0,2
+1688300829606,683,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-245,true,400,182,230,230,http://localhost:8181/hellotea/tea,683,DESKTOP-6AC2R54,0,2
+1688300829546,744,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-51,true,400,182,226,226,http://localhost:8181/hellotea/tea,744,DESKTOP-6AC2R54,0,1
+1688300829642,648,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-301,true,400,182,226,226,http://localhost:8181/hellotea/tea,648,DESKTOP-6AC2R54,0,2
+1688300829542,748,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-180,true,400,182,224,224,http://localhost:8181/hellotea/tea,748,DESKTOP-6AC2R54,0,3
+1688300829562,728,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-208,true,400,182,223,223,http://localhost:8181/hellotea/tea,728,DESKTOP-6AC2R54,0,0
+1688300829663,627,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-326,true,400,182,223,223,http://localhost:8181/hellotea/tea,627,DESKTOP-6AC2R54,0,1
+1688300829607,683,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-248,true,400,182,223,223,http://localhost:8181/hellotea/tea,683,DESKTOP-6AC2R54,0,0
+1688300829663,628,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-330,true,400,182,223,223,http://localhost:8181/hellotea/tea,628,DESKTOP-6AC2R54,0,1
+1688300829629,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-282,true,400,182,219,219,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,1
+1688300829654,637,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-313,true,400,182,219,219,http://localhost:8181/hellotea/tea,637,DESKTOP-6AC2R54,0,3
+1688300829673,618,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-348,true,400,182,218,218,http://localhost:8181/hellotea/tea,618,DESKTOP-6AC2R54,0,1
+1688300829600,691,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-238,true,400,182,218,218,http://localhost:8181/hellotea/tea,691,DESKTOP-6AC2R54,0,3
+1688300829622,670,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-261,true,400,182,215,215,http://localhost:8181/hellotea/tea,670,DESKTOP-6AC2R54,0,3
+1688300829634,658,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-291,true,400,182,215,215,http://localhost:8181/hellotea/tea,658,DESKTOP-6AC2R54,0,1
+1688300829635,659,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-289,true,400,182,213,213,http://localhost:8181/hellotea/tea,659,DESKTOP-6AC2R54,0,1
+1688300829594,700,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-244,true,400,182,213,213,http://localhost:8181/hellotea/tea,700,DESKTOP-6AC2R54,0,1
+1688300829625,670,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-276,true,400,182,213,213,http://localhost:8181/hellotea/tea,670,DESKTOP-6AC2R54,0,1
+1688300829664,631,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-334,true,400,182,210,210,http://localhost:8181/hellotea/tea,631,DESKTOP-6AC2R54,0,1
+1688300829667,628,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-342,true,400,182,210,210,http://localhost:8181/hellotea/tea,628,DESKTOP-6AC2R54,0,3
+1688300829626,670,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-270,true,400,182,208,208,http://localhost:8181/hellotea/tea,670,DESKTOP-6AC2R54,0,1
+1688300829634,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-290,true,400,182,208,208,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,1
+1688300829643,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-304,true,400,182,206,206,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,2
+1688300829627,669,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-273,true,400,182,206,206,http://localhost:8181/hellotea/tea,669,DESKTOP-6AC2R54,0,0
+1688300829628,669,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-278,true,400,182,204,204,http://localhost:8181/hellotea/tea,669,DESKTOP-6AC2R54,0,2
+1688300829542,756,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-176,true,400,182,203,203,http://localhost:8181/hellotea/tea,756,DESKTOP-6AC2R54,0,2
+1688300829584,714,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-226,true,400,182,203,203,http://localhost:8181/hellotea/tea,714,DESKTOP-6AC2R54,0,1
+1688300829638,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-294,true,400,182,201,201,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,5
+1688300829670,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-344,true,400,182,201,201,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,1
+1688300829667,633,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-341,true,400,182,200,200,http://localhost:8181/hellotea/tea,633,DESKTOP-6AC2R54,0,3
+1688300829666,635,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-339,true,400,182,198,198,http://localhost:8181/hellotea/tea,635,DESKTOP-6AC2R54,0,3
+1688300829668,633,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-343,true,400,182,197,197,http://localhost:8181/hellotea/tea,633,DESKTOP-6AC2R54,0,1
+1688300829561,740,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-207,true,400,182,197,197,http://localhost:8181/hellotea/tea,740,DESKTOP-6AC2R54,0,1
+1688300829593,708,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-239,true,400,182,197,197,http://localhost:8181/hellotea/tea,708,DESKTOP-6AC2R54,0,3
+1688300829547,754,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-174,true,400,182,194,194,http://localhost:8181/hellotea/tea,754,DESKTOP-6AC2R54,0,1
+1688300829590,712,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-231,true,400,182,193,193,http://localhost:8181/hellotea/tea,712,DESKTOP-6AC2R54,0,1
+1688300829661,641,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-322,true,400,182,193,193,http://localhost:8181/hellotea/tea,641,DESKTOP-6AC2R54,0,1
+1688300829627,675,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-274,true,400,182,193,193,http://localhost:8181/hellotea/tea,675,DESKTOP-6AC2R54,0,1
+1688300829645,657,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-306,true,400,182,193,193,http://localhost:8181/hellotea/tea,657,DESKTOP-6AC2R54,0,2
+1688300829649,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-312,true,400,182,193,193,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,1
+1688300829593,709,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-235,true,400,182,191,191,http://localhost:8181/hellotea/tea,709,DESKTOP-6AC2R54,0,1
+1688300829646,656,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-308,true,400,182,187,187,http://localhost:8181/hellotea/tea,656,DESKTOP-6AC2R54,0,1
+1688300829607,696,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-249,true,400,182,187,187,http://localhost:8181/hellotea/tea,696,DESKTOP-6AC2R54,0,0
+1688300829724,579,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-393,true,400,182,185,185,http://localhost:8181/hellotea/tea,579,DESKTOP-6AC2R54,0,28
+1688300829714,590,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-385,true,400,182,184,184,http://localhost:8181/hellotea/tea,590,DESKTOP-6AC2R54,0,26
+1688300829575,729,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-209,true,400,182,183,183,http://localhost:8181/hellotea/tea,729,DESKTOP-6AC2R54,0,0
+1688300829625,679,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-262,true,400,182,183,183,http://localhost:8181/hellotea/tea,679,DESKTOP-6AC2R54,0,1
+1688300829662,642,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-331,true,400,182,183,183,http://localhost:8181/hellotea/tea,642,DESKTOP-6AC2R54,0,0
+1688300829560,745,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-203,true,400,182,183,183,http://localhost:8181/hellotea/tea,745,DESKTOP-6AC2R54,0,1
+1688300829712,597,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-384,true,400,182,179,179,http://localhost:8181/hellotea/tea,597,DESKTOP-6AC2R54,0,20
+1688300829639,670,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-299,true,400,182,179,179,http://localhost:8181/hellotea/tea,670,DESKTOP-6AC2R54,0,2
+1688300829631,678,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-288,true,400,182,179,179,http://localhost:8181/hellotea/tea,678,DESKTOP-6AC2R54,0,1
+1688300829721,589,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-87,true,400,182,176,176,http://localhost:8181/hellotea/tea,589,DESKTOP-6AC2R54,0,30
+1688300829631,686,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-287,true,400,182,175,175,http://localhost:8181/hellotea/tea,686,DESKTOP-6AC2R54,0,3
+1688300829666,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-338,true,400,182,175,175,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,2
+1688300829725,592,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-394,true,400,182,175,175,http://localhost:8181/hellotea/tea,592,DESKTOP-6AC2R54,0,28
+1688300829740,582,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-406,true,400,182,172,172,http://localhost:8181/hellotea/tea,582,DESKTOP-6AC2R54,0,18
+1688300829730,596,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-400,true,400,182,171,171,http://localhost:8181/hellotea/tea,596,DESKTOP-6AC2R54,0,24
+1688300829733,594,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-88,true,400,182,170,170,http://localhost:8181/hellotea/tea,594,DESKTOP-6AC2R54,0,25
+1688300829745,583,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-411,true,400,182,169,169,http://localhost:8181/hellotea/tea,583,DESKTOP-6AC2R54,0,11
+1688300829737,593,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-402,true,400,182,168,168,http://localhost:8181/hellotea/tea,593,DESKTOP-6AC2R54,0,21
+1688300829725,605,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-391,true,400,182,168,168,http://localhost:8181/hellotea/tea,605,DESKTOP-6AC2R54,0,28
+1688300829730,606,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-399,true,400,182,166,166,http://localhost:8181/hellotea/tea,606,DESKTOP-6AC2R54,0,25
+1688300829736,600,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-404,true,400,182,166,166,http://localhost:8181/hellotea/tea,600,DESKTOP-6AC2R54,0,22
+1688300829780,556,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-441,true,400,182,166,166,http://localhost:8181/hellotea/tea,556,DESKTOP-6AC2R54,0,114
+1688300829748,588,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-413,true,400,182,166,166,http://localhost:8181/hellotea/tea,588,DESKTOP-6AC2R54,0,11
+1688300829724,612,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-390,true,400,182,166,166,http://localhost:8181/hellotea/tea,612,DESKTOP-6AC2R54,0,30
+1688300829731,612,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-398,true,400,182,161,161,http://localhost:8181/hellotea/tea,612,DESKTOP-6AC2R54,0,28
+1688300829771,572,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-427,true,400,182,161,161,http://localhost:8181/hellotea/tea,572,DESKTOP-6AC2R54,0,91
+1688300829780,566,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-439,true,400,182,159,159,http://localhost:8181/hellotea/tea,566,DESKTOP-6AC2R54,0,121
+1688300829761,588,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-426,true,400,182,158,158,http://localhost:8181/hellotea/tea,588,DESKTOP-6AC2R54,0,21
+1688300829739,612,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-407,true,400,182,157,157,http://localhost:8181/hellotea/tea,612,DESKTOP-6AC2R54,0,18
+1688300829741,610,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-409,true,400,182,156,156,http://localhost:8181/hellotea/tea,610,DESKTOP-6AC2R54,0,18
+1688300829812,541,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-471,true,400,182,155,155,http://localhost:8181/hellotea/tea,541,DESKTOP-6AC2R54,0,92
+1688300829762,593,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-416,true,400,182,154,154,http://localhost:8181/hellotea/tea,593,DESKTOP-6AC2R54,0,50
+1688300829765,593,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-419,true,400,182,153,153,http://localhost:8181/hellotea/tea,593,DESKTOP-6AC2R54,0,47
+1688300829728,631,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-396,true,400,182,152,152,http://localhost:8181/hellotea/tea,631,DESKTOP-6AC2R54,0,24
+1688300829757,603,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-418,true,400,182,151,151,http://localhost:8181/hellotea/tea,603,DESKTOP-6AC2R54,0,17
+1688300829760,602,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-425,true,400,182,150,150,http://localhost:8181/hellotea/tea,602,DESKTOP-6AC2R54,0,34
+1688300829741,621,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-410,true,400,182,150,150,http://localhost:8181/hellotea/tea,621,DESKTOP-6AC2R54,0,17
+1688300829761,601,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-429,true,400,182,150,150,http://localhost:8181/hellotea/tea,601,DESKTOP-6AC2R54,0,65
+1688300829763,602,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-430,true,400,182,147,147,http://localhost:8181/hellotea/tea,602,DESKTOP-6AC2R54,0,71
+1688300829767,598,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-423,true,400,182,147,147,http://localhost:8181/hellotea/tea,598,DESKTOP-6AC2R54,0,90
+1688300829760,606,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-422,true,400,182,145,145,http://localhost:8181/hellotea/tea,606,DESKTOP-6AC2R54,0,16
+1688300829766,602,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-433,true,400,182,144,144,http://localhost:8181/hellotea/tea,602,DESKTOP-6AC2R54,0,48
+1688300829773,595,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-428,true,400,182,143,143,http://localhost:8181/hellotea/tea,595,DESKTOP-6AC2R54,0,106
+1688300829736,632,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-401,true,400,182,143,143,http://localhost:8181/hellotea/tea,632,DESKTOP-6AC2R54,0,23
+1688300829753,626,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-414,true,400,182,141,141,http://localhost:8181/hellotea/tea,626,DESKTOP-6AC2R54,0,7
+1688300829813,566,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-475,true,400,182,141,141,http://localhost:8181/hellotea/tea,566,DESKTOP-6AC2R54,0,95
+1688300829762,618,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-412,true,400,182,139,139,http://localhost:8181/hellotea/tea,618,DESKTOP-6AC2R54,0,38
+1688300829763,617,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-420,true,400,182,139,139,http://localhost:8181/hellotea/tea,617,DESKTOP-6AC2R54,0,37
+1688300829792,590,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-456,true,400,182,137,137,http://localhost:8181/hellotea/tea,590,DESKTOP-6AC2R54,0,103
+1688300829798,587,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-459,true,400,182,136,136,http://localhost:8181/hellotea/tea,587,DESKTOP-6AC2R54,0,97
+1688300829791,595,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-452,true,400,182,135,135,http://localhost:8181/hellotea/tea,595,DESKTOP-6AC2R54,0,105
+1688300829770,617,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-424,true,400,182,134,134,http://localhost:8181/hellotea/tea,617,DESKTOP-6AC2R54,0,96
+1688300829762,626,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-415,true,400,182,133,133,http://localhost:8181/hellotea/tea,626,DESKTOP-6AC2R54,0,44
+1688300829726,664,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-397,true,400,182,132,132,http://localhost:8181/hellotea/tea,664,DESKTOP-6AC2R54,0,28
+1688300829774,617,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-431,true,400,182,131,131,http://localhost:8181/hellotea/tea,617,DESKTOP-6AC2R54,0,91
+1688300829775,616,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-86,true,400,182,131,131,http://localhost:8181/hellotea/tea,616,DESKTOP-6AC2R54,0,111
+1688300829778,615,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-437,true,400,182,129,129,http://localhost:8181/hellotea/tea,615,DESKTOP-6AC2R54,0,112
+1688300829781,615,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-90,true,400,182,128,128,http://localhost:8181/hellotea/tea,615,DESKTOP-6AC2R54,0,113
+1688300829791,607,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-451,true,400,182,127,127,http://localhost:8181/hellotea/tea,607,DESKTOP-6AC2R54,0,106
+1688300829781,617,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-442,true,400,182,127,127,http://localhost:8181/hellotea/tea,617,DESKTOP-6AC2R54,0,109
+1688300829739,660,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-405,true,400,182,125,125,http://localhost:8181/hellotea/tea,660,DESKTOP-6AC2R54,0,20
+1688300829816,592,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-483,true,400,182,124,124,http://localhost:8181/hellotea/tea,592,DESKTOP-6AC2R54,0,112
+1688300829779,636,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-440,true,400,182,123,123,http://localhost:8181/hellotea/tea,636,DESKTOP-6AC2R54,0,118
+1688300829780,638,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-438,true,400,182,122,122,http://localhost:8181/hellotea/tea,638,DESKTOP-6AC2R54,0,120
+1688300829781,639,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-443,true,400,182,121,121,http://localhost:8181/hellotea/tea,639,DESKTOP-6AC2R54,0,119
+1688300829777,643,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-435,true,400,182,121,121,http://localhost:8181/hellotea/tea,643,DESKTOP-6AC2R54,0,123
+1688300829811,609,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-469,true,400,182,119,119,http://localhost:8181/hellotea/tea,609,DESKTOP-6AC2R54,0,129
+1688300829820,601,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-486,true,400,182,118,118,http://localhost:8181/hellotea/tea,601,DESKTOP-6AC2R54,0,162
+1688300829793,629,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-446,true,400,182,117,117,http://localhost:8181/hellotea/tea,629,DESKTOP-6AC2R54,0,108
+1688300829816,606,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-481,true,400,182,116,116,http://localhost:8181/hellotea/tea,606,DESKTOP-6AC2R54,0,83
+1688300829756,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-417,true,400,182,116,116,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,7
+1688300829793,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-449,true,400,182,114,114,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,106
+1688300829806,619,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-461,true,400,182,113,113,http://localhost:8181/hellotea/tea,619,DESKTOP-6AC2R54,0,97
+1688300829803,623,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-458,true,400,182,112,112,http://localhost:8181/hellotea/tea,623,DESKTOP-6AC2R54,0,99
+1688300829796,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-454,true,400,182,111,111,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,105
+1688300829807,619,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-465,true,400,182,111,111,http://localhost:8181/hellotea/tea,619,DESKTOP-6AC2R54,0,96
+1688300829784,647,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-94,true,400,182,109,109,http://localhost:8181/hellotea/tea,647,DESKTOP-6AC2R54,0,118
+1688300829803,635,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-462,true,400,182,108,108,http://localhost:8181/hellotea/tea,635,DESKTOP-6AC2R54,0,101
+1688300829811,627,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-470,true,400,182,108,108,http://localhost:8181/hellotea/tea,627,DESKTOP-6AC2R54,0,92
+1688300829796,642,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-453,true,400,182,108,108,http://localhost:8181/hellotea/tea,642,DESKTOP-6AC2R54,0,110
+1688300829800,639,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-457,true,400,182,105,105,http://localhost:8181/hellotea/tea,639,DESKTOP-6AC2R54,0,109
+1688300829799,640,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-464,true,400,182,105,105,http://localhost:8181/hellotea/tea,640,DESKTOP-6AC2R54,0,108
+1688300829726,719,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-395,true,400,182,103,103,http://localhost:8181/hellotea/tea,719,DESKTOP-6AC2R54,0,27
+1688300829792,653,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-455,true,400,182,103,103,http://localhost:8181/hellotea/tea,653,DESKTOP-6AC2R54,0,105
+1688300829812,633,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-472,true,400,182,103,103,http://localhost:8181/hellotea/tea,633,DESKTOP-6AC2R54,0,93
+1688300829798,647,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-460,true,400,182,100,100,http://localhost:8181/hellotea/tea,647,DESKTOP-6AC2R54,0,112
+1688300829837,609,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-511,true,400,182,99,99,http://localhost:8181/hellotea/tea,609,DESKTOP-6AC2R54,0,168
+1688300829816,631,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-482,true,400,182,98,98,http://localhost:8181/hellotea/tea,631,DESKTOP-6AC2R54,0,102
+1688300829781,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-444,true,400,182,98,98,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,123
+1688300829812,635,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-474,true,400,182,97,97,http://localhost:8181/hellotea/tea,635,DESKTOP-6AC2R54,0,105
+1688300829816,632,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-480,true,400,182,95,95,http://localhost:8181/hellotea/tea,632,DESKTOP-6AC2R54,0,89
+1688300829742,706,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-408,true,400,182,94,94,http://localhost:8181/hellotea/tea,706,DESKTOP-6AC2R54,0,14
+1688300829808,648,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-466,true,400,182,93,93,http://localhost:8181/hellotea/tea,648,DESKTOP-6AC2R54,0,98
+1688300829816,640,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-478,true,400,182,93,93,http://localhost:8181/hellotea/tea,640,DESKTOP-6AC2R54,0,96
+1688300829799,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-467,true,400,182,91,91,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,108
+1688300829799,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-468,true,400,182,90,90,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,110
+1688300829813,649,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-476,true,400,182,89,89,http://localhost:8181/hellotea/tea,649,DESKTOP-6AC2R54,0,94
+1688300829774,691,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-432,true,400,182,88,88,http://localhost:8181/hellotea/tea,691,DESKTOP-6AC2R54,0,131
+1688300829785,688,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-448,true,400,182,87,87,http://localhost:8181/hellotea/tea,688,DESKTOP-6AC2R54,0,122
+1688300829777,696,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-436,true,400,182,87,87,http://localhost:8181/hellotea/tea,696,DESKTOP-6AC2R54,0,121
+1688300829822,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-98,true,400,182,87,87,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,121
+1688300829816,658,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-479,true,400,182,85,85,http://localhost:8181/hellotea/tea,658,DESKTOP-6AC2R54,0,115
+1688300829829,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-497,true,400,182,83,83,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,171
+1688300829817,672,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-484,true,400,182,82,82,http://localhost:8181/hellotea/tea,672,DESKTOP-6AC2R54,0,134
+1688300829821,668,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-488,true,400,182,82,82,http://localhost:8181/hellotea/tea,668,DESKTOP-6AC2R54,0,173
+1688300829828,661,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-498,true,400,182,82,82,http://localhost:8181/hellotea/tea,661,DESKTOP-6AC2R54,0,178
+1688300829821,669,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-492,true,400,182,79,79,http://localhost:8181/hellotea/tea,669,DESKTOP-6AC2R54,0,140
+1688300829812,682,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-473,true,400,182,78,78,http://localhost:8181/hellotea/tea,682,DESKTOP-6AC2R54,0,178
+1688300829829,669,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-494,true,400,182,77,77,http://localhost:8181/hellotea/tea,669,DESKTOP-6AC2R54,0,174
+1688300829822,676,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-490,true,400,182,77,77,http://localhost:8181/hellotea/tea,676,DESKTOP-6AC2R54,0,166
+1688300829821,677,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-487,true,400,182,77,77,http://localhost:8181/hellotea/tea,677,DESKTOP-6AC2R54,0,123
+1688300829840,662,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-516,true,400,182,74,74,http://localhost:8181/hellotea/tea,662,DESKTOP-6AC2R54,0,168
+1688300829822,682,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-496,true,400,182,73,73,http://localhost:8181/hellotea/tea,682,DESKTOP-6AC2R54,0,143
+1688300829840,665,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-520,true,400,182,72,72,http://localhost:8181/hellotea/tea,665,DESKTOP-6AC2R54,0,168
+1688300829798,708,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-463,true,400,182,71,71,http://localhost:8181/hellotea/tea,708,DESKTOP-6AC2R54,0,108
+1688300829837,669,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-106,true,400,182,70,70,http://localhost:8181/hellotea/tea,669,DESKTOP-6AC2R54,0,169
+1688300829830,677,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-504,true,400,182,69,69,http://localhost:8181/hellotea/tea,677,DESKTOP-6AC2R54,0,177
+1688300829844,664,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-517,true,400,182,69,69,http://localhost:8181/hellotea/tea,664,DESKTOP-6AC2R54,0,163
+1688300829821,687,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-495,true,400,182,67,67,http://localhost:8181/hellotea/tea,687,DESKTOP-6AC2R54,0,123
+1688300829829,683,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-500,true,400,182,66,66,http://localhost:8181/hellotea/tea,683,DESKTOP-6AC2R54,0,169
+1688300829830,688,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-502,true,400,182,65,65,http://localhost:8181/hellotea/tea,688,DESKTOP-6AC2R54,0,174
+1688300829841,677,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-528,true,400,182,65,65,http://localhost:8181/hellotea/tea,677,DESKTOP-6AC2R54,0,175
+1688300829841,677,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-527,true,400,182,65,65,http://localhost:8181/hellotea/tea,677,DESKTOP-6AC2R54,0,169
+1688300829837,683,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-505,true,400,182,62,62,http://localhost:8181/hellotea/tea,683,DESKTOP-6AC2R54,0,167
+1688300829874,648,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-554,true,400,182,61,61,http://localhost:8181/hellotea/tea,648,DESKTOP-6AC2R54,0,159
+1688300829863,660,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-533,true,400,182,61,61,http://localhost:8181/hellotea/tea,660,DESKTOP-6AC2R54,0,156
+1688300829915,608,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-572,true,400,182,59,59,http://localhost:8181/hellotea/tea,608,DESKTOP-6AC2R54,0,115
+1688300829853,670,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-530,true,400,182,59,59,http://localhost:8181/hellotea/tea,670,DESKTOP-6AC2R54,0,170
+1688300829839,688,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-509,true,400,182,57,57,http://localhost:8181/hellotea/tea,688,DESKTOP-6AC2R54,0,174
+1688300829869,659,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-553,true,400,182,56,56,http://localhost:8181/hellotea/tea,659,DESKTOP-6AC2R54,0,150
+1688300829850,678,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-525,true,400,182,56,56,http://localhost:8181/hellotea/tea,678,DESKTOP-6AC2R54,0,166
+1688300829822,711,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-489,true,400,182,54,54,http://localhost:8181/hellotea/tea,711,DESKTOP-6AC2R54,0,180
+1688300829867,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-544,true,400,182,54,54,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,158
+1688300829841,693,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-531,true,400,182,52,52,http://localhost:8181/hellotea/tea,693,DESKTOP-6AC2R54,0,168
+1688300829868,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-546,true,400,182,52,52,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,150
+1688300829876,658,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-551,true,400,182,52,52,http://localhost:8181/hellotea/tea,658,DESKTOP-6AC2R54,0,159
+1688300829863,671,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-112,true,400,182,52,52,http://localhost:8181/hellotea/tea,671,DESKTOP-6AC2R54,0,156
+1688300829843,691,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-514,true,400,182,52,52,http://localhost:8181/hellotea/tea,691,DESKTOP-6AC2R54,0,169
+1688300829883,651,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-559,true,400,182,52,52,http://localhost:8181/hellotea/tea,651,DESKTOP-6AC2R54,0,147
+1688300829837,699,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-506,true,400,182,46,46,http://localhost:8181/hellotea/tea,699,DESKTOP-6AC2R54,0,174
+1688300829840,696,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-519,true,400,182,46,46,http://localhost:8181/hellotea/tea,696,DESKTOP-6AC2R54,0,168
+1688300829837,700,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-507,true,400,182,44,44,http://localhost:8181/hellotea/tea,700,DESKTOP-6AC2R54,0,166
+1688300829864,673,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-539,true,400,182,44,44,http://localhost:8181/hellotea/tea,673,DESKTOP-6AC2R54,0,156
+1688300829844,694,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-521,true,400,182,42,42,http://localhost:8181/hellotea/tea,694,DESKTOP-6AC2R54,0,172
+1688300829796,743,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-450,true,400,182,41,41,http://localhost:8181/hellotea/tea,743,DESKTOP-6AC2R54,0,105
+1688300829829,715,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-501,true,400,182,40,40,http://localhost:8181/hellotea/tea,715,DESKTOP-6AC2R54,0,172
+1688300829863,681,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-541,true,400,182,40,40,http://localhost:8181/hellotea/tea,681,DESKTOP-6AC2R54,0,159
+1688300829828,717,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-499,true,400,182,38,38,http://localhost:8181/hellotea/tea,717,DESKTOP-6AC2R54,0,170
+1688300829864,681,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-535,true,400,182,37,37,http://localhost:8181/hellotea/tea,681,DESKTOP-6AC2R54,0,161
+1688300829915,630,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-590,true,400,182,37,37,http://localhost:8181/hellotea/tea,630,DESKTOP-6AC2R54,0,119
+1688300829880,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-555,true,400,182,35,35,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,152
+1688300829852,700,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-529,true,400,182,34,34,http://localhost:8181/hellotea/tea,700,DESKTOP-6AC2R54,0,165
+1688300829841,712,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-532,true,400,182,33,33,http://localhost:8181/hellotea/tea,712,DESKTOP-6AC2R54,0,174
+1688300829896,657,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-566,true,400,182,33,33,http://localhost:8181/hellotea/tea,657,DESKTOP-6AC2R54,0,137
+1688300829869,684,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-550,true,400,182,33,33,http://localhost:8181/hellotea/tea,684,DESKTOP-6AC2R54,0,162
+1688300829874,679,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-116,true,400,182,31,31,http://localhost:8181/hellotea/tea,679,DESKTOP-6AC2R54,0,160
+1688300829913,641,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-586,true,400,182,29,29,http://localhost:8181/hellotea/tea,641,DESKTOP-6AC2R54,0,116
+1688300829840,715,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-515,true,400,182,29,29,http://localhost:8181/hellotea/tea,715,DESKTOP-6AC2R54,0,170
+1688300829863,692,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-538,true,400,182,28,28,http://localhost:8181/hellotea/tea,692,DESKTOP-6AC2R54,0,159
+1688300829822,734,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-493,true,400,182,26,26,http://localhost:8181/hellotea/tea,734,DESKTOP-6AC2R54,0,179
+1688300829912,646,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-585,true,400,182,25,25,http://localhost:8181/hellotea/tea,646,DESKTOP-6AC2R54,0,116
+1688300829876,682,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-561,true,400,182,24,24,http://localhost:8181/hellotea/tea,682,DESKTOP-6AC2R54,0,150
+1688300829851,710,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-526,true,400,182,23,23,http://localhost:8181/hellotea/tea,710,DESKTOP-6AC2R54,0,164
+1688300829912,649,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-581,true,400,182,23,23,http://localhost:8181/hellotea/tea,649,DESKTOP-6AC2R54,0,121
+1688300829830,731,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-503,true,400,182,23,23,http://localhost:8181/hellotea/tea,731,DESKTOP-6AC2R54,0,175
+1688300829882,679,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-563,true,400,182,23,23,http://localhost:8181/hellotea/tea,679,DESKTOP-6AC2R54,0,148
+1688300829844,717,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-518,true,400,182,21,21,http://localhost:8181/hellotea/tea,717,DESKTOP-6AC2R54,0,170
+1688300829841,721,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-524,true,400,182,18,18,http://localhost:8181/hellotea/tea,721,DESKTOP-6AC2R54,0,168
+1688300829840,722,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-523,true,400,182,18,18,http://localhost:8181/hellotea/tea,722,DESKTOP-6AC2R54,0,173
+1688300829820,742,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-485,true,400,182,18,18,http://localhost:8181/hellotea/tea,742,DESKTOP-6AC2R54,0,158
+1688300829876,686,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-558,true,400,182,15,15,http://localhost:8181/hellotea/tea,686,DESKTOP-6AC2R54,0,159
+1688300829867,696,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-543,true,400,182,14,14,http://localhost:8181/hellotea/tea,696,DESKTOP-6AC2R54,0,156
+1688300829864,700,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-545,true,400,182,13,13,http://localhost:8181/hellotea/tea,700,DESKTOP-6AC2R54,0,155
+1688300829861,703,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-534,true,400,182,12,12,http://localhost:8181/hellotea/tea,703,DESKTOP-6AC2R54,0,163
+1688300829907,657,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-570,true,400,182,12,12,http://localhost:8181/hellotea/tea,657,DESKTOP-6AC2R54,0,124
+1688300829843,721,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-510,true,400,182,12,12,http://localhost:8181/hellotea/tea,721,DESKTOP-6AC2R54,0,168
+1688300829843,724,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-513,true,400,182,9,9,http://localhost:8181/hellotea/tea,723,DESKTOP-6AC2R54,0,169
+1688300829868,701,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-548,true,400,182,8,8,http://localhost:8181/hellotea/tea,701,DESKTOP-6AC2R54,0,157
+1688300829864,706,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-542,true,400,182,7,7,http://localhost:8181/hellotea/tea,706,DESKTOP-6AC2R54,0,158
+1688300829837,734,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-512,true,400,182,6,6,http://localhost:8181/hellotea/tea,734,DESKTOP-6AC2R54,0,173
+1688300829909,666,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-577,true,400,182,5,5,http://localhost:8181/hellotea/tea,666,DESKTOP-6AC2R54,0,120
+1688300829866,709,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-536,true,400,182,5,5,http://localhost:8181/hellotea/tea,709,DESKTOP-6AC2R54,0,156
+1688300829866,709,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-540,true,400,182,3,3,http://localhost:8181/hellotea/tea,709,DESKTOP-6AC2R54,0,155
+1688300829850,725,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-522,true,400,182,3,3,http://localhost:8181/hellotea/tea,725,DESKTOP-6AC2R54,0,164
+1688300829868,708,gateway_cl/hellotea/tea,200,OK,gateway_cl/hellotea 1-547,true,400,182,1,1,http://localhost:8181/hellotea/tea,708,DESKTOP-6AC2R54,0,157

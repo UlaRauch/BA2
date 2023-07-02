@@ -1,0 +1,34 @@
+{
+  "gateway_rs/hellotea" : {
+    "transaction" : "gateway_rs/hellotea",
+    "sampleCount" : 250,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 163.13600000000005,
+    "medianResTime" : 168.0,
+    "minResTime" : 20.0,
+    "maxResTime" : 237.0,
+    "pct1ResTime" : 206.0,
+    "pct2ResTime" : 218.45,
+    "pct3ResTime" : 227.0,
+    "throughput" : 830.5647840531561,
+    "receivedKBytesPerSec" : 240.08513289036546,
+    "sentKBytesPerSec" : 1236.9250934385382
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 250,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 163.13600000000005,
+    "medianResTime" : 168.0,
+    "minResTime" : 20.0,
+    "maxResTime" : 237.0,
+    "pct1ResTime" : 206.0,
+    "pct2ResTime" : 218.45,
+    "pct3ResTime" : 227.0,
+    "throughput" : 830.5647840531561,
+    "receivedKBytesPerSec" : 240.08513289036546,
+    "sentKBytesPerSec" : 1236.9250934385382
+  }
+}
