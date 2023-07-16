@@ -265,6 +265,7 @@ Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (O
 \begin{table*}[htbp]
 		\begin{tabular}{ll}
 			!!!ALT! NICHT gebrauchte raushaun und manche noch konsequenter benutzen, z.b. AS und MA
+			ANSI & American National Standards Institute \\
 			AS & Authorization Server \\
 			BCP & Best Current Practice \\
 			CRUD & Create Read Update Delete \\
@@ -274,11 +275,12 @@ Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (O
 			JWT & JSON Web Token \\
 			MA & Monolithic Architecture \\			
 			MSA & Microservice Architecture \\
+			NIST & National Institute of Standards and Technology \\
 			mTLS & mutual Transport Layer Security \\
 			OIDC & OpenID Connect \\
 			RFC & Request for Comments \\
 			OP & OIDC Provider \\
-			POC & Proof of Concept \\
+			PoC & Proof of Concept \\
 			PoLP & Principle of least privilege \\
 			RSA & Rivest-Shamir-Adelman \\
 			%SAML & Secturity Asertion Markup Language \\
@@ -314,7 +316,7 @@ Diese Arbeit untersucht unterschiedliche Implementierungen von OpenID Connect (O
 
 In recent years, microservice architectures (MSA) have become increasingly popular. Netflix, Spotify, Amazon and other well-known corporations have moved to MSA \cite{saboorContainerizedMicroservicesOrchestration2022} and many others have followed their lead \cite{MicroservicesUseOrganizations} or are planning to do so in the near future \cite{MicroservicesEnterprise2021}. However, besides the well-known advantages such as high flexibility for development, redeployment and scaling, a small code base in the single services and low dependency between them, the same features also bring disadvantages that can not be ignored, like the increased attack surface that follows logically from the large number of endpoints which is necessary for the services to communicate between each other \cite{dragoniMicroservicesYesterdayToday2017}.
 
-The financial damage caused to companies by data breaches averaged US\$4.35 million in 2022 \cite{CostDataBreach2023}. The personal damage that can result for individuals is hardly measurable. Unsurprisingly, not only but also in the context of MSA, topics such as authentication and authorization are therefore high on the list of security issues \cite{OWASPTop10}. In many cases, the damage can at least be limited by not only introducing a general access control but also, for example, distinguishing between different roles so that even a user or system that is legitimate in principle cannot access areas that do not fall within their scope. One such approach, which is easy to implement, is role-based access control (RBAC) \cite{computersecuritydivisionRoleBasedAccess2016}.
+The financial damage caused to companies by data breaches averaged US\$4.35 million in 2022 \cite{CostDataBreach2023}. The personal damage that can result for individuals is hardly measurable. Unsurprisingly, not only but also in the context of MSA, topics such as authentication and authorization are therefore high on the list of security issues \cite{OWASPTop10}. In many cases, the damage can at least be limited by not only introducing a general access control but also, for example, distinguishing between different roles so that even a user or system that is legitimate in the organization cannot access areas that do not fall within their scope. One such approach, which is easy to implement, is role-based access control (RBAC) \cite{computersecuritydivisionRoleBasedAccess2016}.
 
 %In den vergangenen Jahren sind Microservice-Architekturen (MSA) zunehmend populärer geworden. Netflix, Spotify, Google, Amazon und andere bekannte Konzerne haben auf MSA umgestellt und viele andere sind ihrem Beispiel gefolgt !!! QUELLE!. Neben den bekannten Vorteilen wie Scalability, überschaubare Codebasis der einzelnen Services, geringe Abhängigkeit zwischen den Services und unabhängige Entwicklung, bringt dieser Architekturtyp allerdings auch Nachteile mit sich, u.a. im Bereich der Sicherheit. Der finanzielle Schaden, der für Companies durch Data breaches entsteht, lag 2022 bei durchschnittlich US\$4.35 millionen \cite{CostDataBreach2023}. Der persönliche Schaden, der für Individuen daraus entstehen kann, ist kaum messbar. Wenig überraschend stehen nicht nur aber auch im Kontext von MSA Themen wie Authentifizierung und Authorisierung ganz oben auf der Liste der Sicherheitsthemen \cite{OWASPTop10}. In vielen Fällen kann der Schaden zumindest eingegrenzt werden, indem nicht nur eine allgemeine Zugriffsbeschränkung eingeführt wird, sondern beispielsweise zwischen verschiedenen Rollen unterschieden wird, so dass auch ein prinzipiell legitimer User oder System keinen Zugriff auf Bereiche hat, die nicht in deren Bereich fallen. Ein solcher Zugang, der leicht zu implementieren ist, nennt sich role-based access control (RBAC) \cite{computersecuritydivisionRoleBasedAccess2016}.
 
@@ -328,11 +330,11 @@ Spring Boot is a open source framework for Java that builds on the Spring Framew
 
 Keycloak is an identity and access management (IAM) platform which supports OIDC and RBAC. Like Spring Boot, Keycloak is free to use and open source. During the last years, the Keycloak Adapter for Spring Boot made it easy to integrate Keycloak with Spring Boot applications. However, this adapter is now deprecated and not supported anymore by Spring Boot 3 and more knowledge of Spring Security is required for the same tasks \cite{DeprecationKeycloakAdapters}, \cite{sandeepaUsingKeycloakSpring2023}. It does not help that the Keycloak documentation is not yet entirely up-to-date at this point and still mentions the use of the adapter. The same goes for most of the tutorials that can be found on the web.
 
-From these initial conditions, the first research question arises as to how authorization and authentication according to OAuth2 and OIDC can be implemented in a MSA with Spring Boot 3 and Keycloak as the authorization server (AZ) and OIDC provider (OP) without the use of the deprecated adapter. For this purpose, the \textit{Teapot}, a small MSA prototype with the functionality of a virtual tea kitchen, has been developed as a proof of concept (PoC), with user authentication and role-based authorization. The resulting Spring Boot applications and the configuration of the Keycloak server have been analyzed in detail for compliance with the OAuth2 and OIDC specifications with the help of the Wireshark network protocol analyzer\footnote{https://www.wireshark.org/}, the Postman API platform\footnote{https://www.postman.com/} and \texttt{jwt.io/} for decoding access and id tokens.
+From these initial conditions, the first research question arises as to how authorization and authentication according to OAuth2 and OIDC can be implemented in a MSA with Spring Boot 3 and Keycloak as the authorization server (AZ) and OIDC provider (OP) without the use of the deprecated adapter. For this purpose, the \textit{Teapot}, a small MSA prototype with the functionality of a virtual tea kitchen, has been developed as a proof of concept (PoC), with user authentication and authorization based on roles. The resulting Spring Boot applications and the configuration of the Keycloak server have been analyzed in detail for compliance with the OAuth2 and OIDC specifications with the help of the Wireshark network protocol analyzer\footnote{https://www.wireshark.org/}, the Postman API platform\footnote{https://www.postman.com/} and \texttt{jwt.io/} for decoding access tokens and ID tokens. Developing a fully-fledged RBAC model was considered out of scope, but instead a PoC for the definition of roles at the Keycloak server and their evaluation and resulting access decisions at the microservice level was implemented and tested with Postman.
 
-OAuth2 defines among others the role of the resource owner, the resource server and the client. In a traditional client-server architecture, there is no question about the interpretation of these roles. The client is usually interpreted as equal to the browser-based or native frontend application, but in a system like MSA, where more components than only one client and one server are involved, the client in the sense of the OAuth2 role does not necessarily need to be the component closest to the resource owner, which can be another system or a human user, who wants the client to access a resource on their behalf. Instead, the client can also exist within the backend. This comes with several advantages. First of all, the OAuth access tokens are never sent to the browser and the client can be considered as confidential because it is able to hold it's own secret client credentials to authenticate with the AS \cite{pareckiOAuthBrowserBasedApps2023}. In this thesis, the term \textit{client} refers always to the OAuth2 role. The Teapot prototype was implemented in this manner, with both the resource server and the client in the backend, leaving a frontend application out of scope. However, since the gateway can be a possible bottle-neck in a distributed system, it is important to consider the perfomance implications of a gateway that performs the tasks of a client as opposed to those of a resource server. Therefore, this thesis also comprises a performance comparison between these two patterns. For this purpose, the Teapot system was recreated in two simplified versions that differ only in this detail at the gateway level from each other and load testing was conducted with Apache JMeter\footnote{https://jmeter.apache.org/}.
+OAuth2 defines among others the role of the resource owner, the resource server and the client. In a traditional client-server architecture, there is no question about the interpretation of these roles. The client is usually interpreted as equal to the browser-based or native frontend application, but in a system like MSA, where more components than only one client and one server are involved, the client in the sense of the OAuth2 role does not necessarily need to be the component closest to the resource owner, which can be another system or a human user, who wants the client to access a resource on their behalf. Instead, the client can also exist within the backend. This comes with several advantages. First of all, the OAuth access tokens are never sent to the browser and the client can be considered as confidential because it is able to hold it's own secret client credentials to authenticate with the AS \cite{pareckiOAuthBrowserBasedApps2023}. In this thesis, the term \textit{client} refers always to the OAuth2 role. The Teapot prototype was implemented in this manner, with both the resource server and the client in the backend, leaving a frontend application out of scope. However, since the gateway can be a possible bottle-neck in a distributed system, it is important to consider the perfomance implications of a gateway that performs the tasks of a client as opposed to those of a resource server. The second research question for this thesis is therefore, what these performance implications are.  To answer this question, this thesis also comprises a performance comparison between the two patterns. For this purpose, the Teapot system was recreated in two simplified versions that differ only in this detail at the gateway level from each other, and a third version without any implemented access control. To compare the response times of the three versions, load testing was conducted with Apache JMeter\footnote{https://jmeter.apache.org/}.
 
-This thesis is structured as follows: the next chapter after this introduction (\ref{chap:relwork}) describes other publications which are relevant for this research. Chapter \ref{chap:background} gives an introduction into background and terminology and describes the most important features of MSA, Authentication and Authorization, RBAC, OAuth2 and OIDC. The implementation of the Teapot MSA prototype and the setup for load testing with JMeter is described in chapter \ref{chap:implementation}. Chapter \ref{chap:results} presents the analysis of the resulting implementation and it's compliance with the OAuth2/OIDC specifications, as well as the comparison between load testing results of the different gateway roles and conclusions are drawn in chapter \ref{chap:conclusion}.
+This thesis is structured as follows: the next chapter after this introduction (\ref{chap:relwork}) describes other publications which are relevant for this research. Chapter \ref{chap:background} gives an introduction into background and terminology and describes the most important features of MSA, Authentication and Authorization, RBAC, OAuth2 and OIDC. The implementation of the Teapot MSA prototype and the setup for load testing with JMeter is described in chapter \ref{chap:implementation}, including a short introduction into Spring (Boot) and Keycloak. Chapter \ref{chap:results} presents the analysis of the resulting implementation and it's compliance with the OAuth2/OIDC specifications, as well as the comparison between load testing results of the different gateway roles and conclusions are drawn in chapter \ref{chap:conclusion}.
 
 %Forschungsfrage 1: OAuth2/OIDC in MSA mit Spring Boot und Keycloak - speziell interessant ohne den Keycloak adapter
 %Dabei ergibt sich Forschungsfrage zwei: Client muss nicht unbedingt das Frontend sein, kann auch in Gateway implementiert werden. Zu welchen Performanceunterschieden führt das?
@@ -363,12 +365,13 @@ Some research papers have been published about securing MSA with OAuth2 and Spri
 
 Chatterjee \& Prinz \cite{chatterjeeApplyingSpringSecurity2022} have developed an electronic health coaching (eCoach) prototype system, secured with Spring Security and Keycloak. In their extensive case study they also mention the use of the KeycloakWebSecurityConfigurerAdapter which was could not be used in the implementation presented in this thesis because of it's deprecation with Spring Boot 3 (see chaper/section ??? \ref{chap:intro}). Similar to this thesis, they have also used Wireshark for network traffic analysis and Postman for manual testing of API endpoints. They have also used Apache JMeter, but with the aim to test scalability of their implementation and not for comparison of different implementations.
 
-Florén \cite{florenImplementationAnalysisAuthentication2021} has written a Master's thesis about the comparison between different MSA design patterns for authentication and authorization flows, an authorization flow inspired by OAuth2 with JSON Web Tokens (JWT). His work is focused on performance, which has also been tested with Jmeter. It is not clear to what extend the implementation follows the OAuth2 specifications! He found that with increased security (more security checks within the system) come longer response times, but only for high amounts of users. The services themselves were created with Spring Boot, while Express.js was used for the gateways. All compared patterns have in common that authentication and authorization is never implemented in the services themselves, but are always handled by a varying number of gateways, which are the only ones comunicating with the AZ. This thesis on the other hand follows a different approach, following the conclusion of ... !!! Quelle einfügen, that security requirements demand a certain negotiation of the definition of loosely coupled services.  % auch discovery service wäre dann nicht möglich...
+Florén \cite{florenImplementationAnalysisAuthentication2021} has written a Master's thesis about the comparison between different MSA design patterns for authentication and authorization flows, an authorization flow inspired by OAuth2 with JSON Web Tokens (JWT). His work is focused on performance, which has also been tested with Jmeter. It is not clear to what extend the implementation follows the OAuth2 specifications. He found that with increased security (more security checks within the system) come longer response times, but only for high amounts of users. The services themselves were created with Spring Boot, while Express.js was used for the gateways. All compared patterns have in common that authentication and authorization is never implemented in the services themselves, but are always handled by a varying number of gateways, which are the only ones comunicating with the AZ. The present thesis on the other hand follows a different approach, following the statements of Nehme et al. \cite{nehmeSecuringMicroservices2019}, Yarygina \& Bagge \cite{yaryginaOvercomingSecurityChallenges2018} and others, that no service should blindy trust another and that the performance overlay introduced by basic security features at microservice-level is negligible in comparison to the benefits \cite{yaryginaOvercomingSecurityChallenges2018}.  % auch discovery service wäre dann nicht möglich...
 %Außerdem kein striktes OAuth2?
 
-While the more common approach in MSA seems to be that the gateway validates access tokens sent by a client outside of the MSA, thus acting as a resource server, there seems to be little or no academic research about the implications of the MSA gateway in the role of the OAuth2 client instead of the frontend application. However, a similar approach has been described recently as a possible pattern for browser-based or native applications in combination with OAuth2/OIDC by Parecki \& Waite \cite{pareckiOAuthBrowserBasedApps2023}. In this Best Current Practice (BCP) Internet-Draft, they use the term \textit{Backend For Frontend (BFF) Proxy} for a server which serves JavaScript code to the browser and is also able to act as a confidential client.  Although the document does not focus specifically on MSA and therefore does not assume that a gateway already exists in the architecture, from this point of view however, the idea to implement OAuth2 client functionality in the MSA gateway does not seem too far-stretched and has also been suggested by developers in blog posts \cite{BackendFrontendAuthentication}, \cite{AuthenticationPatternsBest}. This is what was implemented for the present research. In contrast to the model described by Parecki \& Waite, no frontend-application is served by the gateway, because the frontend is considered out of scope for this thesis and it is left open on purpose wheather there is an external frontend or wheather it can be loaded by the browser via the gateway itself. This is also the reason why the term BFF is not used in this thesis. According to Newman \cite{SamNewmanBackends}, authentication or authorization functionality alone is not sufficient to consider the gateway a BFF.
+While the more common approach in MSA seems to be that the gateway validates access tokens sent by a client outside of the MSA, thus acting as a resource server, there seems to be little or no academic research about the implications of the MSA gateway in the role of the OAuth2 client instead of the frontend application. However, a similar approach has been described recently as a possible pattern for browser-based or native applications in combination with OAuth2/OIDC by Parecki \& Waite \cite{pareckiOAuthBrowserBasedApps2023}. In this Best Current Practice (BCP) Internet-Draft, they use the term \textit{Backend For Frontend (BFF) Proxy} for a server which serves JavaScript code to the browser and is also able to act as a confidential client.  Although the document does not focus specifically on MSA and therefore does not assume that a gateway already exists in the architecture, from this point of view however, the idea to implement OAuth2 client functionality in the MSA gateway does not seem too far-stretched and has also been suggested by developers in blog posts \cite{BackendFrontendAuthentication}, \cite{AuthenticationPatternsBest}. This is what was implemented for the present research. In contrast to the model described by Parecki \& Waite, the gateway in the present research does not serve frontend-JavaScript code, because the frontend is considered out of scope for this thesis and it is left open on purpose wheather there is an external frontend or wheather it can be loaded by the browser via the gateway itself.
 
-%RBAC: Triartono et al...
+%RBAC: triartonoImplementationRoleBasedAccess2019 implementieren RBAC Oauth2 in MSA -> related work? keine prio!
+%Pasomsup & Limpiyakorn nicht 
 
 %Referenzierung im paper? sonst noch was allgemeines zu abgrenzung und gemeinsamkeiten
 
@@ -384,7 +387,7 @@ While the more common approach in MSA seems to be that the gateway validates acc
 \label{chap:background}
 
 \section{Microservice Architecture (MSA)}
-\label{sec:msa-mon}
+\label{sec:msa}
 
 The first definition for microservices came from Lewis and Fowler in a blog post from 2014 \cite{lewisMicroservices2014}. They describe MSA in comparison to the traditional monolithic server architecture: while a monolith combines all necessary functionality in one piece of software, a MSA is a composition of loosely coupled, separate applications, each with their own domain-logic, running their own process. Figure \ref{fig:msa} illustrates this difference between MSA and monolithic architecture (MA). 
 
@@ -395,21 +398,21 @@ The first definition for microservices came from Lewis and Fowler in a blog post
 	\label{fig:msa}
 \end{figure}
 
-Inside a monolithic server the components communicate within the same process, via method invocation or function call. Microservices on the other hand communicate with each other via a simple protocol, often HTTP with RESTful API endpoints, or leightweight messaging such as RabbitMQ \cite{lewisMicroservices2014}. Of course also monoliths have endpoints and can use RESTful communication, but those endpoints will only be exposed to the outside of the monolith and are not used for internal communication. This difference is important as it has implications for MSA security, as will be explained in section \ref{sub:auth-msa}.
+Inside a monolithic server the components communicate within the same process, via method invocation or function call. Microservices on the other hand communicate with each other via a simple protocol, often HTTP with RESTful API endpoints, or leightweight messaging such as RabbitMQ. While there exist more complex structures for the communication between processes, the \textit{smart endpoints and dumb pipes} approach was chosen by the microservice community because it supports best the principle of loosely-coupled services \cite{lewisMicroservices2014}. Of course also monoliths have endpoints and can use RESTful communication, but those endpoints will only be exposed to the outside of the monolith and are not used for internal communication. This difference is important as it has implications for MSA security, as will be explained in section \ref{sub:auth-msa}.
 
 What makes the characteristic of microservices being only loosely coupled so important are the advantages that it brings under certain circumstances. These advantages are, according to Dragoni et al.  \cite{dragoniMicroservicesYesterdayToday2017}:
 \begin{itemize}
 \item Small code base: the separation into loosely coupled components makes for a small code base within each service, which makes it easier to build and to debug with a shorter down-time
 \item Independent maintentaince and redeployment of single services
-\item flexible scaling: smaller parts of the system can be duplicated where and when they are needed
+\item flexible scaling: smaller parts of the system can be duplicated where and when they are needed, while a monolith can only be duplicated as a whole
 \item Flexible development: services can be built using different languages and frameworks, following the circumstances posed by the domain or by the teams capabilities and preferences, as long as it does not affect the communication between them
 \end{itemize}
 
 MSA is also very suitable for containerization and the upcoming of technologies like Docker and Kubernetes has further contributed to the deployment flexibility of microservices \cite{pahlContainerizationPaaSCloud2015}.
 
-However, MSA is not the best solution in each and every situation. MSA can be a good idea for companies who want to benefit from the scaling flexibility and potentially minimized cost associated to scaling offered by MSA, minimize down-time when availability of all or certain parts of the product is especially crucial for their bussiness, improve development speed by adding more developers, or integrate new technology into their system \cite{newmanMonolithMicroservices}. However, there are trade-offs between those factors and other circumstances which make MSA not the ideal choice, for example when the domain is unclear or likely to change, when the software product will be installed and maintained by the customer itself and not by the development team or for a small startup that is still experimenting in a new field, before it finds a successful approach \cite{newmanMonolithMicroservices}.
+However, MSA is not the best solution in each and every situation. MSA can be a good idea for companies who want to benefit from the scaling flexibility and potentially minimized cost associated to scaling offered by MSA, minimize down-time when availability of all or certain parts of the product is especially crucial for their bussiness, improve development speed by adding more developers, or integrate new technology into their system \cite{newmanMonolithMicroservices}. However, there are trade-offs between those factors and other circumstances which make MSA not the ideal choice, for example when the domain is unclear or likely to change, when the software product will be installed and maintained by the customer itself and not by the development team or for a small startup that is still experimenting in a new field, before it finds a successful approach \cite{newmanMonolithMicroservices}. One reason to be cautios when adopting a MSA approach is that MSA poses specific security challenges. These will be addressed in section \ref{sub:auth-msa}.
 
-One reason to be cautios when adopting a MSA approach is that MSA poses specific security challenges. These will be addressed in section \ref{sub:auth-msa}.
+Different architectural patterns of varying complexity have been proposed and studied for MSA \cite{akbulutPerformanceAnalysisMicroservice2019}. One very common pattern is the API Gateway, which usually lives at the edge of the MSA and functions as entry point for requests coming from a browser, a mobile application or any other kind of frontend \cite{bazeniucInformationSecurityMicroservices2021}, so that the single backend services are not required to be reachable from the outside.
 
 \section{Authentication and Authorization}
 \label{sec:authx}
@@ -418,13 +421,13 @@ Authentication and Authorization are related concepts and often they only appear
 
 \subsection{Authentication}
 \label{sub:authentication}
-Authentication deals with the question of identity. Often it is crucial to know the identity of a user in order to decide if the user is allowed to access a specific resource. If this is the case it might also be important to know later, that this person has accessed the resource, for example if someone has misused their right to access the resource for another than the allowed purpose, like stolen or manipulated data. The process of authentication involves the information who someone is, for example during a login process this can be a user id, and also the prove that this information is correct. This prove can be in the form of something only this person knows, like a secret password, or something only this person has, like a code that can be sent to this persons phone number, or some unique attribute of this person, like biometric data \cite[pp. ~59ff]{siriwardenaAdvancedAPISecurity2020}. A combination of those is multifactor authentication and increases the level of security. Not only human persons need authentication, but also systems can posess a kind of id that identifies them and a prove in the form of a secret code, a token or a certificate. In any case, there must be a database that can be consulted to verify that this prove is valid, otherwise it would be of no value, but it is not necessary for the system that controls access to a resource to possess the database itself, it can delegate the whole business of user authentication to a different entity that functions as an identity provider (IP).
+Authentication deals with the question of identity. It is often crucial to know the identity of a user or system that sends a request in order to decide if they are allowed to access a specific resource. If this is the case it might also be important to know later, who has accessed the resource, for example if someone has misused their right to access the resource for another than the allowed purpose, like stolen or manipulated data. The process of authentication involves the information who someone is, for example during a login process this can be a user id, and also the prove that this information is correct. This prove can be in the form of something only this person knows, like a secret password, or something only this person has, like a code that can be sent to this persons phone number, or some unique attribute of this person, like biometric data \cite[pp. ~59ff]{siriwardenaAdvancedAPISecurity2020}. A combination of those is multifactor authentication and increases the level of security. Not only human persons need authentication, but also systems can posess a kind of id that identifies them and a prove in the form of a secret code, a token or a certificate. In any case, there must be a database that can be consulted to verify that this prove is valid, otherwise it would be of no value, but it is not necessary for the system that controls access to a resource to possess the database itself, it can delegate the whole business of user authentication to a different entity that functions as an identity provider (IP).
 
 \subsection{Authorization}
 \label{sub:authorization}
-Authorization on the other hand is about permissions. Naturally, in order to decide if someone should be authorized to access a resource, this will often require knowing who this person is. But in theory this is not necessarily the case by definition. A person might earn the right to access a resource regardless of who they are, or they might be authorized because of certain attributes, as it is the case for example with many public toilets that are open only for certain genders. It doesn't matter at all what a person's name is or when they were born, but they are allowed to access the toilet resource only if they appear to have the correct gender attribute. But in other more complex systems, especially where security is a priority, authentication is crucial in the combination with authorization. Roles or attributes of persons or other systems are determined based on their identity and in a second step it can be verified if the role or attribute authorizes them to access the resource. A person with the intention to access a resource might be able to prove that they are who they say they are, but they might still not be authorized to access the resource. This too requires the consulting of data to know who is allowed to do what.
+Authorization on the other hand is about permissions. Naturally, in order to decide if a user or system should be authorized to access a resource, this will often require information about their identity. But in theory this is not necessarily the case by definition. A person might earn the right to access a resource regardless of who they are, or they might be authorized because of certain attributes, as it is the case for example with many public toilets that are open only for certain genders. It doesn't matter at all what a person's name is or when they were born, but they are allowed to access the toilet resource only if they appear to have the correct gender attribute. But in other more complex systems, especially where security is a priority, authentication is crucial in the combination with authorization. Roles or attributes of persons or other systems are determined based on their identity and in a second step it can be verified if the role or attribute authorizes them to access the resource. A person or system with the intention to access a resource might be able to prove that they are who they say they are, but they might still not be authorized to access the resource. This too requires the consulting of data to know who is allowed to do what.
 
-\subsection{The role of authentication and authorization in MSA}
+\subsection{The authentication and authorization in the context of MSA}
 \label{sub:auth-msa}
 
 With the characteristics of MSA, authentication and authorization play an even more important role than ever, although Service oriented Architecture (SOA) and distributed systems already point in the same direction \cite{dragoniMicroservicesYesterdayToday2017}. The Open Web Application Security Project (OWASP) lists again broken authentication and broken authorization on top of the Top 10 API Security Risks for 2023 \cite{OWASPTop10}. The main security challenges related to MSA were identified by Dragoni et al. to be a large surface attack area, network complexity, trust and heterogeneity \cite{dragoniMicroservicesYesterdayToday2017}. While heterogeneity and especially trust might not always be present to the same degree in all MSA systems, the large surface attack area due to the increased number of endpoints and network complexity are inherent features in any MSA system compared to a monolithic architecture. 
@@ -434,14 +437,8 @@ From the external perspective the experience might not be different when communi
 Authors have pointed out the necessity (and also the increasing adoption in the industry) of a zero trust policy for MSA, which means that each microservice considers all other microservices or actors as potentially hostile and therefore no service should trust any incoming request without verifying it's integrity, regardless of who the sender might be \cite{luSurveyMicroservicesTrust2023}, \cite{shmelevaHowMicroservicesAre}. This approach is important for the mitigation of the confused deputy attack, where a corrupted microservice interacts with other microservices who have no idea that it acts on the attackers behalf \cite{nehmeFineGrainedAccessControl2019}.
 
 \subsection{Role-Based Access Control (RBAC)}
-
-RBAC was introduced by Ferraiolo and Kuhn in 1992 \cite{ferraioloRoleBasedAccessControls1992}. It is an approach to managing access to resources by differentiating between kinds of users. Users are assigned a role that gives them the minimum authorization necessary for them to fulfill their tasks within an organization. For example, not all users need the same access rights as an administrator or manager. RBAC therefore follows the principle of least privilege (PoLP).
-
-SESSION etc...
-
-
-%triartonoImplementationRoleBasedAccess2019 implementieren RBAC Oauth2 in MSA -> related work? keine prio!
-%Pasomsup & Limpiyakorn nicht 
+\label{sub:rbca}
+In the event that an intruder manages to steal an access token, or if a member of the organization tries to perform operations that they are not entitled to, the possibile damage can be significantly reduced by defining roles with different privileges. RBAC was introduced by Ferraiolo and Kuhn from the National Institute of Standards and Technology (NIST) in 1992 \cite{ferraioloRoleBasedAccessControls1992} and has later been adopted as a standard by the American National Standards Institute (ANSI) in 2004 and republished several times, last in 2012 \cite{kelechavaRoleBasedAccess2018}. It is an approach to managing access to resources and operations on them by distinguishing different kinds of users. Subjects within an organization usually have different functions and qualifications. In RBAC, access permissions are based on these functions. The key elements are subjects, roles and transactions and they can be assigned to each other in a many-to-many relationship. Each subject has an active role, but may be authorized to assume other roles as well. Roles determine the transactions that a subject is authorized to perform. Transactions are operations that the subject is allowed to perform, consisting in a type of operation and objects. Subjects are only allowed to perform a transaction if the are assigned a role that is authorized for these transaction. Users are assigned a role that gives them the minimum authorization necessary for them to fulfill their tasks within an organization. For example, not all users need the same access rights as an administrator or manager. RBAC therefore follows the principle of least privilege (PoLP) \cite{ferraioloRoleBasedAccessControls1992}.
 
 \section{OAuth 2 and OpenID Connect}
 \label{sec:oauth-oidc}
@@ -449,11 +446,12 @@ SESSION etc...
 To begin with, OAuth 2 (OAuth2) is a framework or open protocol for authorization only. OAuth2 is considered the inofficial standard for securing the access to APIs \cite[p. ~81]{siriwardenaAdvancedAPISecurity2020}, \cite{barbettiniOAuthOpenIDConnect2018}. It does not deal with authentication, but authorization only. It has been described in Request for Comments (RFC) 6749 \cite{hardtOAuthAuthorizationFramework2012} and RFC 6750 \cite{jonesOAuthAuthorizationFramework2012}, followed by a long tail of further specifications \cite{dennissOAuthDeviceAuthorization2019}, \cite{jonesOAuthTokenExchange2020}, \cite{campbellResourceIndicatorsOAuth2020}, \cite{sakimuraOAuthAuthorizationFramework2021}, Security Considerations \cite{lodderstedtOAuthThreatModel2013}, \cite{sakimuraProofKeyCode2015} and a series of Security Best Current Practice Internet drafts \cite{2023}\footnote{This is not a comprehensive list.}. The original specifications from 2012 have been updated by RFC 8252, "OAuth 2.0 for Native Apps" \cite{dennissOAuthNativeApps2017} and by "OAuth 2.0 for Browser-Based Apps" \cite{pareckiOAuthBrowserBasedApps}. Since this is not even a comprehensive list, it is understandable that the new specification for OAuth 2.1 \cite{hardtOAuthAuthorizationFramework2023}, which has been published just recently, has been long awaited by some. It replaces RFC 6749 and 6750.
 
 Because OAuth2 to is not intended to be used for authentication, OpenID connect (OIDC)\cite{sakimuraOpenIDConnectCore2014}  was created as a seperate layer for this purpose, in addition to OAuth2 in 2014. Therefore it should be clear that these two are not alternative concepts to choose from, but when securing services, both should be used.
-% mehr details dazu in section xy?
+
+As already mentioned in chapter \ref{chap:intro}, OAuth2 requires an AZ that issues access tokens, OIDC requires an OP that handles user login. The Keycloak server acts as both and is therefore relevant for the functioning of OAuth2 and OIDC. A description of the Keycloak server and it's configuration is given in section \ref{sub:keycloak}.
 
 \subsection{OAuth2}
 \label{sub:oauth2}
-The motivation for the creation of OAuth2 was to enable a client application to access a resource on a server on behalf of the owner of that resource without the need to pass on the resource owners credentials to this client for authentication \cite{hardtOAuthAuthorizationFramework2023}. Third-party access to resources is a very common practice, the standard example is an application that needs access to a user's facebook timeline \cite[p. ~81]{siriwardenaAdvancedAPISecurity2020}, but it may as well be a different resource like pictures or a person's calendar. Sharing a password with a third-party application is undesireable for several reasons \cite{hardtOAuthAuthorizationFramework2023}: Passwords are inherently weak, especially in combination with human users, who tend to reuse passwords on different unrelated systems and servers would have to implement support for password authentication. Third-party applications would store these passwords, typically in clear-text. By authenticating with the server as the user, the third party application would have access to all of the user's data with the same permissions as the user themselve. The only way to revoke access for such an application would be to change the password, which would naturally exclude all other third-party applications as well.
+The motivation for the creation of OAuth2 was to enable a client application to access a resource on a server on behalf of the owner of that resource without the need to pass on the resource owners credentials to this client for authentication \cite{hardtOAuthAuthorizationFramework2023}. Third-party access to resources is a very common practice, the standard example is an application that needs access to a user's facebook timeline \cite[p. ~81]{siriwardenaAdvancedAPISecurity2020}, but it may as well be a different resource like pictures or a person's calendar. Sharing a password with a third-party application is undesireable for several reasons \cite{hardtOAuthAuthorizationFramework2023}: Passwords are inherently weak, especially in combination with human users, who tend to reuse passwords on different unrelated systems and servers would have to implement support for password authentication. Third-party applications would store these passwords, possibly in clear-text. By authenticating with the server as the user, the third party application would have access to all of the user's data with the same permissions as the user themselve. The only way to revoke access for such an application would be to change the password, which would naturally exclude all other third-party applications as well.
 
 OAuth2 separates the role of the \textit{client} (the third-party application) from the \textit{resource owner} (the end user who allows access to a resource to the client), so that the client is not required anymore to pretend to be the user by using the user's credentials when communicating with the \textit{resource server} (the server holding the resource). Instead of a password the client sends an \textit{access token} with every request to the resource server. This access token has a limited lifespan and other attributes that allow to control the extend to which the client can access the resources on that server. This access token is issued to the client by an \textit{authorization server} after the user has given consent for the client to access the resource. Following the principle of separation of concerns, the authorization server is also the only one dealing with authentication of the user \texttt{hardtOAuthAuthorizationFramework2023}.
 
@@ -467,8 +465,8 @@ The explicit consent of the resource owner for the client to access the resource
 \label{fig:auth-code-grant}
 \end{figure}
 
-\subsection{The Access Token}
-\label{sec:accesstoken}
+\subsubsection{The Access Token}
+\label{subsub:accesstoken}
 
 The OAuth2 specification does not define the nature of the access token. Although it can be any arbitrary string that has no further encoded information (this would be a reference token), it is considered best practice to use self-contained tokens like JSON Web Tokens (JWT), because the resource server itself can validate them and determine if the authorization is sufficient for the request, without having to build up a connection to the authorization server each time or maintaining a token database \cite{hardtOAuthAuthorizationFramework2023}. Specifically, in the context of distributed systems like MSA, the use of JWT as access tokens is advisable. One reason is that they can be validated locally and not every single request to the system has to be validated first with the authorization server, which could result in performance loss \cite{yang_research_2020}. The drawback of local token validation is that if a token has been revoked, the validating service doesn't know this and will give the client with the token access until it expires \cite{jacksonMicroserviceAuthenticationAuthorization2019}.  The use of JWTs as access tokens for OAuth2 is specified in RFC 9086 \cite{bertocciJSONWebToken2021}.
 
@@ -504,7 +502,7 @@ When validating the access token, the resource server checks the signature, life
 \subsection{OpenID Connect (OIDC)}
 \label{sub:oidc}
 
-When it comes to authentication of end-users, OIDC \cite{sakimuraOpenIDConnectCore2014} gives the answers that were left out bei OAuth2. The content of an OAuth2 access token is of no interest for the client. When the client needs information about a user's identity, it can request an additional \textit{ID token} by adding \texttt{openid} to the \texttt{scope} parameter in the authorization request, which thus becomes a authentication request. Also the \texttt{redirect\_uri} parameter is now required. Among other optional parameters there is the \texttt{nonce} parameter to mention. It is a string value, used to protect against replay attacks, that should be unguessable and it represents session state between the client session and the ID token. The ID token will then be issued by the authorization server which is now called OIDC provider (OP), together with the access token and delivered as a part of the token response \cite{sakimuraOpenIDConnectCore2014}.
+When it comes to authentication of end-users, OIDC \cite{sakimuraOpenIDConnectCore2014} gives the answers that were left out bei OAuth2. The content of an OAuth2 access token is of no interest for the client. When the client needs information about a resource owner's identity, it can request an additional \textit{ID token} by adding \texttt{openid} to the \texttt{scope} parameter in the authorization request, which thus becomes a authentication request. Also the \texttt{redirect\_uri} parameter is now required. Among other optional parameters there is the \texttt{nonce} parameter to mention. It is a string value, used to protect against replay attacks, that should be unguessable and it represents session state between the client session and the ID token. The ID token will then be issued by the authorization server which is now called OIDC provider (OP), together with the access token and delivered as a part of the token response \cite{sakimuraOpenIDConnectCore2014}.
 The ID token itself is a signed JWT which contains the \texttt{iss, sub, aud, exp} and \texttt{iat} claims as a requirement. When using the authorization code flow, also the \texttt{at\_hash} claim is required. It contians a the  base64 encoded left most half of the corresponding access token's hash. The \texttt{nonce} claim is reqired if it was present in the authentication request, with the same value, which will be verified by the client. Other optional claims are \texttt{amr} (authentication method references), \texttt{acr} (authentication context class reference) and \texttt{azp} (authorized party), containing the client id of the authorized client. The ID token itself does not contain personal user information. Instead there is a separate OAuth2 protected \texttt{/userinfo} endpoint where the client can request additional metadata about the user with the access token \cite{sakimuraOpenIDConnectCore2014}.
 
 !!! Verweise auf Listings oder Screenshots, die später eingefügt werden als beispiel
@@ -588,20 +586,20 @@ The ID token itself is a signed JWT which contains the \texttt{iss, sub, aud, ex
 
 %trennung zwischen access token und id token essentiell -> inhalt vom access token geht den client wenig an, dafür kann mit infos aus id token eine session gemacht werden \cite{ideskog_oauth_nodate} (bis eine bessere quelle kommt, spec lesen!)
 
-\section{The positioning of the OAuth2 client in a MSA system - CHECKEN}
-\label{sec:msa-oauth}
-!!! nocheinmal anschaun. wo soll der abschnitt hin und was ist die intention? Titel?
+\section{The positioning of the OAuth2 client in a MSA system}
+\label{sec:client-position}
+%!!! nocheinmal anschaun. wo soll der abschnitt hin und was ist die intention? Titel?
 %API gateway wurde evt. schon in MSA einführung erklärt
-When bringing the two concepts of MSA and Oauth2 together, some decisions have to be made about the role of each service, which also depend on the overall architecture of the microservice system. Many different architectural patterns for MSA have been proposed and studied \cite{akbulutPerformanceAnalysisMicroservice2019}. One very common pattern is the API Gateway, which functions as entry point for requests coming from a browser, a mobile application or any other kind of frontend \cite{bazeniucInformationSecurityMicroservices2021}, so that the single backend services are not required anymore to be reachable from the outside. A very similar pattern is Backends for Frontends (BFF), where as many different gateway services are implemented as there are different frontend applications \cite{SamNewmanBackends}. The distinction between the two patterns seems to be fluent to a certain degree. Sometimes it is called a BFF when an API Gateway assumes the functionalities of an OAuth2 client \cite{SpringaddonsSamplesTutorials}, \cite{SamNewmanBackends}, however this does not seem to meet the full definition of a BFF.
+When bringing the two concepts of MSA and Oauth2 together, some decisions have to be made about the role of each service, which also depend on the overall architecture of the microservice system. The most simple implementation would probably be to implement a gateway as OAuth2 resource server, but not the backend services, assuming that the gateway will deal with any unauthorized request. For this scenario there are other ways to secure the communication between services, like mutual Transport Layer Security (mTLS), supposedly the most popular option (see \cite[pp. ~137ff]{siriwardenaMicroservicesSecurityAction2020}. This means that the service holding a requested resource might not necessarily be a resource server in the sense of OAuth2. The Gateway will decide if the user should access a resource and it will forward the request only if the requesting entity can prove to have the necessary authorization (access token). However this comes with drawbacks, for example it does not meet the requirement of defense in depth, where access control happens on several layers and access control in one single point can become hard to manage with a more complex access policy and many roles involved \cite{barabanovAuthenticationAuthorizationMicroservicebased2020a}. For better security it is also possible to implement several resource servers in a series, which either renew the access token or hand down the original access token to the next downstream service after validation \cite[pp.~161ff]{siriwardenaMicroservicesSecurityAction2020}. A simplified version of this concept has been implemented and tested for this thesis (see chapter \ref{chap:implementation}). In both cases however, the job position of a (registered) OAuth2 client is still vacant. There should be an application that is able to determine if the requesting entity has already been authenticated, refer them to the OP for authentication and obtain the access token on their behalf. if the gateway at the edge of the MSA is a resource server, this means that any possible frontend has to implement OIDC client functionality. This comes with additional security challenges. Browser-based applications and native applications are so-called public clients, which means that they are not able to hold secret credentials. With the OAuth2 security BCP \cite{lodderstedtOAuthSecurityBest2023}, the authorization code grant with PKCE are now required for these types of clients, but even this does not mitigate all the risks that come with a public client, for example access tokens and refresh tokens are still sent to the user agent with browser-based apps \cite{bertocciTokenMediatingSession2021}.
 
-The most simple implementation would probably be to implement only the gateway as OAuth2 resource server, but not the backend services, assuming that the gateway will deal with any unauthorized request. For this scenario there are other ways to secure the communication between services, like mutual Transport Layer Security (mTLS), supposedly the most popular option (see \cite[pp. ~137ff]{siriwardenaMicroservicesSecurityAction2020}. This means that the service holding a requested resource might not necessarily be a resource server in the sense of OAuth2. The Gateway will decide if the user should access a resource and it will forward the request only if the user can prove to have the necessary authorization (access token). However this comes with drawbacks, for example it does not meet the requirement of defense in depth, where access control happens on several layers and access control in one single point can become hard to manage with a more complex access policy and many roles involved \cite{barabanovAuthenticationAuthorizationMicroservicebased2020a}. For better security it is also possible to implement several resource servers in a series, which either renew the access token or hand down the original access token to the next downstream service after validation \cite[pp.~161ff]{siriwardenaMicroservicesSecurityAction2020}. This is similar to the chain of responsibility pattern \cite{akbulutPerformanceAnalysisMicroservice2019}. A simplified version of this concept has been implemented and tested for this thesis (see chapter \ref{chap:implementation}). In both cases however, the job position of a (registered) OAuth2 client is still vacant. There should be a service or application that is able to determine if the user has already authenticated, refer to the OP for authentication and obtain the access token on the user's behalf. This means that any possible frontend has to implement OIDC client functionality.
+A different version is the BFF Proxy, which has already been mentioned in chapter \ref{chap:relwork}. It implements the gateway directly with the functionality of the OAuth2 client, so that the frontend application never has to see an access or refresh token. A BFF Proxy also serves the frontend JavaScript code to the browser. The gateway stores access and refresh tokens and keeps a cookie session with the browser-based app. The advantage is that attackers can not steal tokens from the frontend. However, the risk remains, that attackers may send authenticated requests to the gateway impersonating a legitimate user. Therefore additional protection of the session cookies is necessary \cite{pareckiOAuthBrowserBasedApps2023}.
 
-Another version, which can sometimes be found in OAuth2/OIDC MSA tutorials, relieves the frontend of this burden and implements the gateway directly with the functionality of an OAuth2 client. This variant was also implemented for this thesis and is described in detail in section \ref{chap:implementation}. The services beyond are resource servers, so that the communication between the API gateway and the next downstream service is secured via access tokens, while the gateway keeps a session for the communication with the frontend to know if the requesting user is authenticated.
+For the present research, a similar approach has been choosen by implementing the gateway with client functionality, but leaving the frontend application out of scope, which could be served by the gateway, like in the BFF Proxy, but also in a seperate webserver or in a native application.  This is also the reason why the term BFF is not used in this thesis. According to Newman \cite{SamNewmanBackends}, authentication or authorization functionality alone is not sufficient to consider the gateway a BFF. The implementation is described in detail in section \ref{chap:implementation}. The services beyond are resource servers, so that the communication between the API gateway and the next downstream service is secured via access tokens.
 
-Naturally, both variants, with the API gateway or the frontend application as the OAuth2 client bring advantages and disadvantages in different aspects, like system performance, code complextiy and further security considerations. In chapter \ref{chap:implementation}, not only the implementation of a prototype is described, but also the setup for a performance test in order to compare response times of both variants. The results of these tests are presented and discussed in chapter \ref{chap:results}.
+%Naturally, both variants, with the API gateway or the frontend application as the OAuth2 client bring advantages and disadvantages in different aspects, like system performance, code complextiy and further security considerations. In chapter \ref{chap:implementation}, not only the implementation of a prototype is described, but also the setup for a performance test in order to compare response times of both variants. The results of these tests are presented and discussed in chapter \ref{chap:results}.
 
-\section{Methodology - WEGLASSEN WEIL IMPLEMENTATION?}
-\label{sec:methodology}
+%\section{Methodology - WEGLASSEN WEIL IMPLEMENTATION?}
+%\label{sec:methodology}
 %!!! Darf ich das so schreiben?
 %The first research question, how OAuth2 authorization and authentication with OIDC are implemented in MSA using Spring Boot and the Spring Security Framework with a Keycloak server, was answered mainly by collecting and combining information from online tutorials and use them to implement a prototype as a proof of concept. The implementation is described in detail in chapter \ref{chap:implementation}. It should be noted that the aim was not to follow or develop a best practice model. For example in production TLS would be required on all connections, but was left out because the focus lies on authentication and authorization of users with OAuth2 and OIDC. Also mTLS was considered to be beyond the scope of this thesis and therefore left out. Correct authentication and authorization of end users was tested and examined using Postman\footnote{https://www.postman.com/} and Wireshark\footnote{https://www.wireshark.org/}.
 
@@ -610,21 +608,26 @@ Naturally, both variants, with the API gateway or the frontend application as th
 %Für Forschungsfrage 1: Follow Spring Boot Documentation and Tutorials -> implement the Teapot and test Authentication and Authorization functionality with Browser, Postman and Wireshark.
 %Für Forschungsfrage 2: Implement a reduced version of the Teapot system in three different ways and perform load tests with jmeter. Compare response times.
 
+
+%A very similar pattern is Backends for Frontends (BFF), where as many different gateway services are implemented as there are different frontend applications \cite{SamNewmanBackends}. The distinction between the two patterns seems to be fluent to a certain degree. Sometimes it is called a BFF when an API Gateway assumes the functionalities of an OAuth2 client \cite{SpringaddonsSamplesTutorials}, \cite{SamNewmanBackends}, however this does not seem to meet the full definition of a BFF.
+
+
 \chapter{Implementation of the Teapot MSA application}
 \label{chap:implementation}
 
-!!! Einleitende worte?
+%kurz beschreiben was Teapot Projekt ist und wie oauth2 und oidc eingesetzt werden -> Bezug zu Forschungsfragen (was wurde untersucht?). 
+The \textit{Teapot} is a virtual tea kitchen with the purpose to serve as an experimental prototype for the implementation of OAuth2/OIDC with Spring Boot and Keycloak for the first research question presented in chapter \ref{chap:intro}. It represents the backend system to a possible frontend application which could consume the gateway's endpoints, but the frontend itself was left out because it is outside the scope of this thesis. Without a frontend application it was a logical choice to assign the gateway the role of the client which obtains access tokens on behalf of the user. The gateway therefore is not a third-party application in the organizational sense, but belongs to the same organizational entity (the Teapot) as the resource. The services behind the gateway are resource servers because they hold the resource that is requested via the gateway. The following sections explain the implementation in detail and chapter \ref{chap:results} presents an analysis of this implementation and it's compliance with the specifications for Oauth2 and OIDC.
 
-%!!! Was noch?
+In a later stage of this research, roles were created at the Keycloak server and assigned to registered users. Among different possible solutions, the choice was made to implement the check for user roles at the resource server level. This solution is intended to serve as a minimalistic PoC for the consideration of different roles during the access decision process by extracting the role from a user's access token.
 
+In order to compare the perfomance impact of the client position at the gateway or outside the MSA at frontend-level for the second research question presented in chapter \ref{chap:intro}, the Teapot system was rebuilt in a more minimalistic way, reducing unnecessary overhead that would only blur the result. Three versions were built from this minimalist Teapot system: One with the gateway as client, as in the first version mentioned above, one with the gateway as a (second) resource server, assuming that a hypothetical front end would be the client, and one without security implementations, to have a reference to compare the performance overhead.
 
 %!!! hier nur abgelegt:
 %	With the basic implementation of the prototype system (see section 4 Impl (reihenfolge tauschen?), 4 different versions were created: one with the Gateway as the OAuth2 client and with the Tea Service as a Resource Server, one where the Gateway and the Tea Service are both Resource Servers and one where only the Gateway is a Resource Server and the Tea Service remains unprotected. The initial intention was to implement MTLS between the Gateway and the Resource Server as recommended in [Siriwardena - Microservices Security in Action - Seite???]. This last version was later abandoned in favour of the focus on the difference of the client position in the system. Testing a difference between OAuth2 and MTLS lies outside the scope of this thesis.
 
 \section{The Teapot - High level design}
 \label{sec:high-level}
-!!!
-The project that was built for this thesis is a virtual tea kitchen, called "The Teapot". In the Teapot system the user can view a list of available types of tea and request a "cup" of the chosen tea. The MSA consists of the API Gateway, the Tea Service with a MongoDB database, which offers endpoints for creating or updating a type of tea, requesting the list of all available types, deleting tea and "making tea", where the user gets back a message containing the requested type of tea or just hot water, if the requested tea is not available. There is also a separate Milk Service and a Eureka Discovery Service where the Gateway and the other Services are registered. The gateway offers endpoints to the outside world and stands between the other services and the users. It routes requests requests to the Tea and Milk Service respectively, so that the user or any frontend doesn't have to communicate directly to the services beyond the gateway. A keycloak server is deployed for security, serving as OP and AS. The high-level architecture of the teapot is depicted in figure \ref{fig:original-teapot-architecture}
+In the Teapot system the user can view a list of available types of tea and request a "cup" of the chosen tea. The MSA consists of the API Gateway, the Tea service with a MongoDB database, which offers endpoints for creating or updating a type of tea, requesting the list of all available types, deleting tea and "making tea", where the user gets back a message containing the requested type of tea or just hot water, if the requested tea is not available. There is also a separate Milk Service and a Eureka Discovery Service where the Gateway and the other services are registered. The gateway offers endpoints to the outside world and stands between the other services and the end user. It routes requests to the Tea and Milk Service respectively, so that the user or any front end doesn't have to communicate directly to the services beyond the gateway. A Keycloak server is deployed for user authentication and issuing of access tokens, serving as OP and AS. The high-level architecture of the teapot is depicted in figure \ref{fig:original-teapot-architecture}
 
 \begin{figure}[htbp]
 	\centering
@@ -633,18 +636,7 @@ The project that was built for this thesis is a virtual tea kitchen, called "The
 	\label{fig:original-teapot-architecture}
 \end{figure}
 
-However, since there is a lot of functionality present that is not necessary for this research, the whole system was rebuilt in a even simpler version for the second part of the load testing in the second part of the investigation. It was reduced to the gateway and one additional service for the gateway to communicate with, and of course the keycloak server. The Gateway and the Tea Service offer "hello"-endpoints that were used in the beginning for debugging. These endpoints were used for load testing, as will be described in more detail in section \ref{sec:loadtesting-jmeter}. They return a simple string message and do not require the database. This means that the gateway has two relevant endpoints: \texttt{/helloauth}, which the gateway itself responds to immediately, and  \texttt{/hellotea/name}, which is routed from the gateway to the Tea Service. \texttt{name} can be any string and will be returned in the responding message.
-The remaining, stripped-down system is represented by figure \ref{fig:teapot-architecture}.
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=\textwidth]{images/teapot-high-level}
-	\caption{High level diagram of the implemented services and their relation to each other}
-	\label{fig:teapot-architecture}
-\end{figure}
-
-In total, there are three versions of the reduced system: the first version where the Gateway acts as the OAuth2 client and the Tea Service serves as the resource server, the second version where both the Gateway and the Tea Service function as resource servers, and a third version with no security implementation at all. The second version would require the inclusion of a frontend application to incorporate OAuth2 client functionality.
-
-With this implementation, the first request to a protected resource, when the gateway has not obtained an access token yet, can be depicted as in figure \ref{fig:oauth2-flow-seqd}
+In this implementation, the gateway is a OAuth2 client and the Tea service and the Milk service are resource servers. The first request to a protected resource, when the gateway has not obtained an access token yet, can be depicted as in figure \ref{fig:oauth2-flow-seqd}. This is a simplified diagram, leaving out the discovery service and the database.
 
 \begin{figure}[htbp]
 	\centering
@@ -653,21 +645,15 @@ With this implementation, the first request to a protected resource, when the ga
 	\label{fig:oauth2-flow-seqd}
 \end{figure}
 
-The detailed authorization code grant flow is shown and explained in sections \ref{sub:oauth2} and \ref{sec:conformance}, therefore a simplified version is depicted in this diagram.
+Any subsequent request, as long as the access token is valid, is much simpler. The gateway already has an access token and all it has to do is check the session cookie and if the user is already authenticated, append the access token to the request as authorization header and forward it to the Tea Service.
 
-Any subsequent request, as long as the access token is valid, is much simpler. The gateway already has an access token and all it has to do is append this access token to the routed request as authorization header and forward it to the Tea Service. This scenario is also used for load testing, as will be explained in sections \ref{sec:loadtesting-jmeter} and \ref{sec:response-times}.
-
-The second version does not implement a client at all. It is simply two resource servers in series. The gateway recieves an access token with the request, possibly from a frontend client, validates it and forwards it to the Tea Service, which again validates the access token 
-In both versions, the Tea service, or the Tea service and the gateway respectively, must obtain the JSON Web Key Set (JWKS) from the Keycloak Server, so that they will be able to validate signature of the access token. This happens at the first request.
-% detaillierte abbildungen sind hier evt. redundant... später weitermachen!
-
-The third version is again a copy of the other two but the Keycloak Server is not needed in this case and the services do not care about authorization at all.
+The resource server must obtain the JSON Web Key Set (JWKS) from the Keycloak Server, so that it will be able to validate the signature of the access token. This happens at the first request.
 
 \section{Setup with Spring Boot and Keycloak}
 \label{sec:setup-spring-boot}
 
 \subsection{Spring and Spring Boot}
-
+\label{sub:spring}
 All Services in this project were developed using Spring Boot\footnote{https://spring.io/projects/spring-boot} Version 3.0. 
 Spring Boot is created on top of the Spring framework, a widely used open source application framework for Java. Spring provides dependency injection and different modules, like Spring Security, Spring Test or Spring ORM (object-relational mapping), among others \cite{IntroductionSpringFramework}. Spring Boot was created in order to simplify the development of Spring-based applications by offering autoconfiguration and starter dependencies that bundle selections of libraries in one Maven or Gradle dependency \cite[pp.~4f]{wallsSpringBootAction2016}. This helps to reduce the need for the developer to write boilerplate code manually, which means that one big advantage when using Spring boot is the quick project setup. However, these configurations can be overridden or customized when needed, like it is the case for security configurations \cite[p.~50]{wallsSpringBootAction2016}, either programmatilally with Java or in many cases by adding configurations to the \texttt{applications.properties} or the \texttt{applications.yml} file \cite{CoreFeatures}. For the Teapot project the \texttt{yml} variant was used whenever possible because this way configurations are easier to write and read, and therefore they are less error-prone.
 
@@ -710,7 +696,7 @@ All endpoints of the Keycloak server for a realm are accessible under \texttt{<h
 \subsection{The Spring Cloud Gateway as OAuth2 Client}
 \label{sub:gateway-cl}
 %Umbenennen in The Gateway?
-The Gateway's job in a MSA is to route requests to services beyond. There is a special Spring Boot starter dependency, \linebreak\texttt{spring-cloud-starter-gateway}, that was used for the implementation of the Teapot project. Maven dependencies are injected in the \linebreak\texttt{pom.xml} file in the following way:
+The gateway's job in a MSA is to route requests from the edge to services inside the MSA (see also sections \ref{sec:msa} and \ref{sec:client-position}. There is a special Spring Boot starter dependency, \linebreak\texttt{spring-cloud-starter-gateway}, that was used for the implementation of the Teapot project. Maven dependencies are injected in the \linebreak\texttt{pom.xml} file in the following way:
 
 \begin{verbatim}
         	<dependency>
@@ -719,18 +705,9 @@ The Gateway's job in a MSA is to route requests to services beyond. There is a s
         </dependency>
 \end{verbatim}
 
-With the Spring Cloud Gateway implemented, a Handler Mapping checks incoming requests for matches with configured routes and if so, forwards them to the Gateway Web Handler. The request then goes through a filterchain where route-specific pre- and post-logic is applied\cite{SpringCloudGatewaya}.
+With the Spring Cloud Gateway implemented, a Handler Mapping checks incoming requests for matches with configured routes and if so, forwards them to the Gateway Web Handler. The request then goes through a filterchain where route-specific pre- and post-logic is applied. Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml} \cite{SpringCloudGatewaya}.
 
-Routes can be configured in the \texttt{application.properties} file or in the \linebreak\texttt{application.yml}. Figure \ref{fig:gateway-route-config} shows an example route configuration from the \texttt{application.yml} file in the reduced Teapot project where no discovery service is used. The \texttt{uri} value is given as an environment variable and will be injected via the docker compose.yml file (!!! see docker). With the Eureka discovery service in the first Teapot, the value would be \texttt{lb://} followed by the name that the Tea service application uses to register with the discovery service. This way the Gateway does not have any need to know the specific current address of the Tea Service or any other application it is routing a request to. The \texttt{Path} predicate defines the path for the endpoint at the gateway. So in this case, requests to \texttt{http://localhost:8181/hellotea/Ula} will be recognized as a match for \texttt{\${TEAS}/teas/hello/Ula}, the path that is set under \texttt{filters} with the \texttt{SetPath}. \texttt{Ula} is an example value for the \texttt{{name}} variable.
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics{images/gateway-route-config}
-	\caption{Example route configuration from the Gateway's application.yml file in the reduced Teapot project}
-	\label{fig:gateway-route-config}
-\end{figure}
-
-In order to configure the Gateway as OAuth2 client, we also need to include the \linebreak\texttt{spring-boot-starter-oauth2-client} dependency in the \texttt{pom.xml} file:
+In order to configure the Gateway as OAuth2 client, the \linebreak\texttt{spring-boot-starter-oauth2-client} dependency needs to be included in the \texttt{pom.xml} file:
 \begin{verbatim}
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -739,6 +716,7 @@ In order to configure the Gateway as OAuth2 client, we also need to include the 
 \end{verbatim}
 
 Here it is important to choose the correct starter dependency and to not get confused by the different oauth2-client dependencies available, as there are many with similar names. The \linebreak\texttt{spring-boot-starter-oauth2-client} dependency is intended to be used with Spring Boot \cite{GettingStartedSpring}. Then, after having created the client in Keycloak (see section \ref{sub:keycloak}), the application needs to be configured so it can connect to the authorization server and register with the client's credentials. All this is done in the \texttt{application.yml} file (see listing \ref{lst:clientconfig}.
+
 \begin{lstlisting}[frame=lines, caption=OAuth2 client configuration in the Gateway's application.yml file, captionpos=b, label=lst:clientconfig, language=Java, showstringspaces=false]
 spring:
 [...]
@@ -758,11 +736,11 @@ spring:
             redirect-uri: 'http://localhost:8080/login/oauth2/code/{registrationId}'
 \end{lstlisting}
 
-For this purpose we use the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included in the scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
-The provider section contains the provider name, in this case \texttt{keycloak-provider}. This is the name which the \texttt{registration} section refers to. The \texttt{issuer-uri} must be set correctly, otherwise the application won't be able to start successfully. This also happens when the OIDC provider is not reachable. The reason is, that the issuer-uri is used by the application to retrieve vital configuration metadata from the OIDC provider which is needed for the creation of automatic configuration. As a default, a \texttt{OpenID provider Configuration Request} is made to \texttt{"[specified issuer-uri]/.well-known/openid-configuration"}. This endpoint offers all the necessary configuration metadata, like \texttt{token\_endpoint}, \texttt{jwks\_uri}, \texttt{end\_session\_endpoint}, supported grant types and response types, supported signing and encryption algorithms etc \cite{OpenIDConnectDiscovery}.%in intro verschieben??? dann hier nur verweis
+For this purpose the \linebreak\texttt{spring.security.oauth2.client.registration} base property prefix is used, followed by the registration id that will be used by Spring Security's \texttt{OAuth2ClientProperties} class. In this project the client's registration id is \texttt{keycloak-gateway-client}. As explained in section \ref{subsec:oidc}, \texttt{oidc} must be included in the scope claim. Further, the \texttt{client-id} and the \texttt{client-secret}, as well as the \texttt{authorization-grant-type} and the \texttt{redirect-uri} are specified. The \texttt{redirect-uri} is the address that the authorization server will send to the user agent to redirect the user back to the application after authorization has been granted (see section \ref{sec:oauth2}).
+The provider section contains the provider name, in this case \texttt{keycloak-provider}. This is the name which the \texttt{registration} section refers to. The \texttt{issuer-uri} must be set correctly, otherwise the application will not be able to start successfully. This also happens when the OIDC provider is not reachable. The reason is, that the issuer-uri is used by the application to retrieve vital configuration metadata from the OIDC provider which is needed for the creation of automatic configuration. As a default, a \texttt{OpenID provider Configuration Request} is made to \texttt{"[specified issuer-uri]/.well-known/openid-configuration"}. This endpoint offers all the necessary configuration metadata, like \texttt{token\_endpoint}, \texttt{jwks\_uri}, \texttt{end\_session\_endpoint}, supported grant types and response types, supported signing and encryption algorithms etc \cite{OpenIDConnectDiscovery}.
 
 %ist das principal propagation im sinn von yarygina? könnte passen.
-The Gateway must also be able to attach access tokens to any authorized request that will be routed to a downstream resource server. Spring Security offers a \texttt{TokenRelayGatewayFilterFactory} which fetches the access token from the authenticated user and attaches an \texttt{Authorization} header to the request with the value \texttt{"Bearer" + token}. The fastest way to add the \texttt{TokenRelayGatewayFilterFactory} is certainly to add a \texttt{default-filter} to the route configuration in the \texttt{application.yml} file as shown in listing \ref{lst:tokenrelay}. This filter will then be applied to all configured routes. Alternatively, the filter can be configured for specific routes by adding \texttt{- TokenRelay=} to \texttt{filters} \cite{TokenRelayGatewayFilterFactory}.
+The Gateway must also be able to attach access tokens to any authorized request that will be routed to a downstream resource server (see section \ref{sec:oauth-oidc}). Spring Security offers a \texttt{TokenRelayGatewayFilterFactory} which retrieves the access token that is stored for the authenticated user and attaches an \texttt{Authorization} header to the request with the value \texttt{"Bearer" + token}. The fastest way to add the \texttt{TokenRelayGatewayFilterFactory} is certainly to add a \texttt{default-filter} to the route configuration in the \texttt{application.yml} file as shown in listing \ref{lst:tokenrelay}. This filter will then be applied to all configured routes. Alternatively, the filter can be configured for specific routes by adding \texttt{- TokenRelay=} to \texttt{filters} \cite{TokenRelayGatewayFilterFactory}.
 
 \begin{lstlisting}[frame=lines, caption=Route configuration with token relay default filter in the Gateway's application.yml file, captionpos=b, label = lst:tokenrelay, language=Java, showstringspaces=false]
 spring:
@@ -772,7 +750,7 @@ spring:
     gateway:
       routes:
       
-      	[...]
+      	#[...]
 
         - id: milk
           uri: ${MILK}
@@ -785,9 +763,9 @@ spring:
         - TokenRelay=
 \end{lstlisting}
 
-Security configuration for the gateway's endpoints can now be added in the way that is shown in listing \ref{lst:securitywebfilterchain}, taken from the reduced Teapot Gateway2. Because \texttt{/hellogateway} and \texttt{/hellotea/noauth} should remain open for testing purposes, this is taken care for with \texttt{permitAll()} before configuring all remaining endpoints as open for authenticated users only, with \texttt{.authorizeExchange().anyExchange().authenticated()}. With \texttt{oauth2login()} the users will be authenticated so they can have access to the protected endpoints \cite{rozaWebClientOAuth2Support2019}. 
+Security configuration for the gateway's endpoints can be added in the way that is shown in listing \ref{lst:securitywebfilterchain}. Because \texttt{/hellogateway} and \texttt{/hellotea/noauth} should remain open for testing purposes, this is taken care of with \texttt{permitAll()} before configuring all remaining endpoints as open for authenticated users only with \texttt{.authorizeExchange().anyExchange().authenticated()}. With \texttt{oauth2login()} the users will be authenticated so they can have access to the protected endpoints \cite{rozaWebClientOAuth2Support2019}. 
  
-\begin{lstlisting}[frame=lines, caption=SecurityWebFilterChain for configuration of the OAuth2 client's behaviour. Code example from the reduced Teapot Gateway2, captionpos=b, label = lst:securitywebfilterchain, language=Java, showstringspaces=false]
+\begin{lstlisting}[frame=lines, caption=SecurityWebFilterChain configuration for the OAuth2 client., captionpos=b, label = lst:securitywebfilterchain, language=Java, showstringspaces=false]
 @Configuration
 @EnableWebFluxSecurity
 public class Gateway2SecurityConfiguration {
@@ -809,6 +787,9 @@ public class Gateway2SecurityConfiguration {
                 .logoutSuccessHandler(handler);
         return http.build();
     }
+    
+    // [...]
+}
 \end{lstlisting}
 
 %folgender absatz: ServerlogoutSuccessHander für reactive, LogoutSuccessHandler für servlet... Gateway as Client ist reactive -> ServerLogoutSuccessHandler. teas rs ist servlet, gateway as rs ist auch reactive. lohnt sich teas umschreiben auf reactive noch?
@@ -853,13 +834,15 @@ public class GatewayController {
 }
 \end{lstlisting}
 
+As already mentioned in chapter \ref{chap:background}, the gateway as a client keeps a session with the front-end application. Session management works with Spring Boot out of the box by default without explicit configuration \cite{AuthenticationPersistenceSession}.  The next section also shows how a connection is configured to be stateless. 
+
 % \texttt{spring-boot-starter-web} starter dependency also has an automatically embedded TomCat webserver (for reactive web applications there is also the \texttt{spring-boot-starter-webflux} module which comes with Netty as default). - der satz passt hier so nicht, weil gateway ja webflux hat
 
 \subsection{The Resource Server}
-\label{sub:gateway-rs}
+\label{sub:resource-server}
 The OAuth2 Resource Server recieves and validates the access token and, if the token is valid, grants access to the requested resource (see section \ref{sec:oauth2}). The basic steps to configure a resource server with Spring Boot are not very different from the configuration of the OAuth2 client: implementation of the necessary dependencies in the \texttt{pom.xml} file, configuration of the \texttt{issure-uri}, or optionally the \texttt{jwk-set-uri} in \texttt{application.properties} or \texttt{application.properties} and overriding the default \texttt{SecurityFilterChain} with a customized one \cite{wagdeOAuthResourceServer2020}.
 
-The minimal dependencies needed are \texttt{spring-security-oauth2-resource-server}, which contains the resource server support, and \texttt{spring-security-oauth2-jose}, which allows the resource server to decode JWTs, and is therefore crucial for the application's ability to validate JWT access tokens \cite{OAuthResourceServer}. Both are included in the \texttt{spring-boot-starter-oauth2-resource-server} starter dependency. OAuth2 bearer token authentication is possible with JWTs or with opaque tokens (see section \ref{???}). The Teapot project works with JWT.
+The minimal dependencies needed are \texttt{spring-security-oauth2-resource-server}, which contains the resource server support, and \texttt{spring-security-oauth2-jose}, which allows the resource server to decode JWTs, and is therefore crucial for the application's ability to validate JWT access tokens \cite{OAuthResourceServer}. Both are included in the \texttt{spring-boot-starter-oauth2-resource-server} starter dependency. OAuth2 bearer token authentication is possible with JWTs or with opaque tokens. The Teapot project works with JWT as it is considered best practice (see section \ref{subsub:accesstoken}).
 
 The authorization process when a request for a protected resource comes in without an access token, goes like this \cite{OAuthResourceServerb}:
 
@@ -896,7 +879,7 @@ When a request is sent to a protected endpoint at the resource server, it uses t
 \begin{lstlisting}[style=yaml, frame=lines, caption=\texttt{issuer-uri} and \texttt{jwk-set-uri} in the Tea service's application.properties file, captionpos=b, label=lst:rs-yml, language=Java, showstringspaces=false]
 spring:
 
-[...]  
+# [...]  
 
   security:
     oauth2:
@@ -925,13 +908,15 @@ public class TeaSecurityConfiguration {
 
 For the definition of authorities that are not provided in the original access token, the customized conversion from the JWT to an \texttt{Authentication} object can be supplied at this point as \texttt{ OAuth2ResourceServerConfigurer.JwtConfigurer.jwtAuthenticationConverter(Converter)} instead of \texttt{OAuth2ResourceServerConfigurer::jwt} \cite{OAuth2ResourceServerConfigurerSpringsecuritydocsAPI}.
 
-Spring Security has CSRF protection enabled by default \cite{SpringBootReferencea}. Because the resource server relies on bearer token authentication, some authors in grey literature recommend making the session stateless  \cite{sandeepaUsingKeycloakSpring2023} and as a consequence to disable CSRF protection \cite{SpringaddonsSamplesTutorials}. This is only possible for resource servers, while clients that are consumed by browsers must always enable CSRF protection because they rely on session cookies \cite{lodderstedtOAuthSecurityBest2023}. This can be configured in the \texttt{SecurityFilterChain} bean as shown in listing \ref{lst:rs-stateless-csrf}.
+Spring Security has CSRF protection enabled by default \cite{SpringBootReferencea}. Because the resource server relies on bearer token authentication, some authors in grey literature recommend making the session stateless  \cite{sandeepaUsingKeycloakSpring2023} and as a consequence to disable CSRF protection \cite{SpringaddonsSamplesTutorials}.  This is only possible for resource servers, while clients that are consumed by browsers must always enable CSRF protection because they rely on session cookies \cite{lodderstedtOAuthSecurityBest2023}. Making the session stateless can be done in the \texttt{SecurityFilterChain} bean as shown in listing \ref{lst:rs-stateless-csrf}.
 
 %hat eigenen yaml-style, siehe ganz oben! farben sind mit kommentaren möglich. linebreak ist dort momentan absichtlich deaktiviert.
 \begin{lstlisting}[frame=lines, caption=Stateless session and disabled CSRF protection configured in the\texttt{SecurityFilterChain} bean in the Tea service (resource server), captionpos=b, label = lst:rs-stateless-csrf, language=Java, showstringspaces=false]
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        [...]
+        
+        // [...]
+
         http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf().disable();
         return http.build();
@@ -941,16 +926,16 @@ Spring Security has CSRF protection enabled by default \cite{SpringBootReference
 The actual resources that the Tea service is holding are \texttt{Tea} objects that are stored in a MongoDB database. However, the implementation of object relational mapping with spring boot lies beyond the scope of this thesis, therefore further details are omitted.
 
 %!!! Quelle! siehe wfp1 trello, notfalls weglassen, weil eh selbst ausprobiert?
-The gateway in a MSA can also be implemented as a resource server instead of being a client. In this case it is necessary that any client sending a request to the gateway is able to provide the appropriate access token because it will not take care of redirecting the user to the OP for authentication. This version has been implemented for the purpose of answering the second research question of this thesis about the positioning of the oauth2 client. The steps to configure the gateway as a client are mostly covered already in this section and in section \ref{sub:gateway-cl} and will therefore be omitted at this point.
+
 % tokenrelay hat hier gestört, nicht klar warum.
 % spring cloud gateway kann nur webflux?
 
 \subsection{Role-based access control with Keycloak and Spring Boot Resource Server}
 \label{sub:rbac-impl}
-In the event that an intruder manages to steal an access token, or if a member of the organization tries to perform operations that they are not entitled to, the possibile damage can be significantly reduced by defining roles with different privileges. In the example of the Teapot this means that someone with a basic user role is not authorized to perform any operation that is not safe, like creating or deleting tea in the database. With a user token, only safe GET requests will be authorized by the resource server. Although this does not mean that no harm can be done by accessing information without altering it, the potential damage is limited compared to a misused access token for Teapot admins, who have privileges that enable them to erase the entire content of the Tea database. Of course this example is highly simplified and in real applications, even a basic user of the system might need to perform operations on the resource that would alter it, or have access to information not intended for anyone else, but the principle remains the same.
-%RBAC ist anscheinend ein eigener standard, keine zeit, mich da einzuarbeiten. entweder nur ganz stark vereinfacht, oder so lassen.
+As an extension to the answer to the first research question, also different user roles are defined with Keycloak and checked at the resource server before responding to the request. This is a very minimalistic interpretation of RBAC (see section \ref{sub:rbca}.
+In the example of the Teapot this means that someone with a basic user role is not authorized to perform any operation on the Tea database that is not safe, like creating or deleting tea. With a user token, only safe GET requests will be authorized by the resource server. Although this does not mean that no harm can be done by accessing information without altering it, the potential damage is limited compared to a misused access token for Teapot admins, who have privileges that enable them to erase the entire content of the Tea database. Of course this example is highly simplified and in real applications, even a basic user of the system might need to perform operations on the resource that would alter it, or have access to information not intended for anyone else, but the principle remains the same.
 
-Role mapping therefore allows to apply the principle of least privilege (PoLP), which means that users only have the privileges necessary to perform what is inherent to their role, but nothing else (!!! Quelle). Figure \ref{fig:keycloak-client-roles} depicts the roles for the Teapot Gateway client, with their privileges described as defined in the Tea resource server (see listing \ref{lst:roles-secfilterchain}.
+Figure \ref{fig:keycloak-client-roles} depicts the roles for the Teapot gateway client, with their privileges described as defined in the Tea resource server (see listing \ref{lst:roles-secfilterchain}.
 
 \begin{figure}[htbp]
 	\centering
@@ -978,7 +963,7 @@ With Keycloak there is the option to define realm roles and/or client roles. Rea
 
 Keycloak includes these roles in the access token in a \texttt{realm\_access} or \texttt{resource\_access} claim respectively. The access token for a user with the \texttt{tea\_admin} realm role and the \texttt{admin} client role is shown in figure \ref{fig:keycloak-access-token-aud-roles}. The \texttt{realm\_access} contains only the \texttt{tea\_admin} role (the realm role) and \texttt{resource\_access} contains all associated roles for the \texttt{teapot-client}.
 
-As we can see, the access token does not contain \texttt{authority} claims. The \texttt{realm\_access} or \texttt{resource\_access} access claims are specific to Keycloak (!!! Quelle). Spring Security allows to check for authorities inside the \texttt{authentication} object, but it provides no means by default to check specifically for the access claims provided by a Keycloak access token. This means that these roles have no effect on the authorization process, unless an authority converter is added. A converter translates specific claims in the access token to an \texttt{authority} in order to distinguish roles in authorization. Listing \ref{fig:roles-authorities-converter} shows how the roles can be extracted from the specific claims in the access token. They are returned as a list of authorities and can be checked in the \texttt{SecurityFilterChain} by calling the \texttt{hasAuthority()} method. Spring Security also offers the \texttt{hasRole()} method, which checks for roles specifically. Roles are defined in Spring Security by the \texttt{ROLE\_} prefix !!! Quelle!. This prefix has to be added in the conversion process as well, as shown in listing \ref{fig:roles-authorities-converter}, line 20. Spring Security provides a default \texttt{JwtAuthenticationConverter} for creating a \texttt{Authentication} from a \texttt{JWT}. This converter can be replaced by any class implementing \texttt{Converter<Jwt, AbstractAuthenticationToken>} \cite{OAuthResourceServer}. Listing \ref{lst:roles-converter} shows the custom converter that is used in the Tea resource server. It returns a \texttt{JwtAuthenticationToken} which inherits from \texttt{AbstractOAuth2TokenAuthenticationToken} and contains the extracted realm roles and client roles from the access token as authorities. As it turned out, with the converter code proposed by \cite{ch4mpAnswerUseKeycloak2022} it is important that the profile scope is included in the access token, so that Keycloak will automatically also add further profile information, including the \texttt{preferred\_username} path to the token. As an alternative the try-catch block was added, so that the \texttt{Authentication} is created only with the value of the \texttt{sub} claim.
+As we can see, the access token issued by Keycloak does not contain \texttt{authority} claims, but \texttt{realm\_access} or \texttt{resource\_access}. Spring Security allows to check for authorities inside the \texttt{authentication} object, but it provides no means by default to check specifically for the access claims provided by a Keycloak access token. This means that these roles have no effect on the authorization process, unless an authority converter is added. A converter translates specific claims in the access token to an \texttt{authority} in order to distinguish roles in authorization. Listing \ref{fig:roles-authorities-converter} shows how the roles can be extracted from the specific claims in the access token. They are returned as a list of authorities and can be checked in the \texttt{SecurityFilterChain} by calling the \texttt{hasAuthority()} method. Spring Security also offers the \texttt{hasRole()} method, which checks for roles specifically. Roles are defined in Spring Security by the \texttt{ROLE\_} prefix \cite{AuthorizationArchitectureSpring}. This prefix has to be added in the conversion process as well, as shown in listing \ref{fig:roles-authorities-converter}, line 20. Spring Security provides a default \texttt{JwtAuthenticationConverter} for creating a \texttt{Authentication} from a \texttt{JWT}. This converter can be replaced by any class implementing \texttt{Converter<Jwt, AbstractAuthenticationToken>} \cite{OAuthResourceServer}. Listing \ref{lst:roles-converter} shows the custom converter that is used in the Tea resource server. It returns a \texttt{JwtAuthenticationToken} which inherits from \texttt{AbstractOAuth2TokenAuthenticationToken} and contains the extracted realm roles and client roles from the access token as authorities. As it turns out, with the converter code proposed by \cite{ch4mpAnswerUseKeycloak2022} it is important that the profile scope is included in the access token, so that Keycloak will automatically also add further profile information, including the \texttt{preferred\_username} path to the token. As an alternative the try-catch block was added in the present implementation, so that the \texttt{Authentication} is created only with the value of the \texttt{sub} claim.
 
 % !!! für claimpath in access token \cite{ch4mp...}
 %		<dependency>
@@ -988,7 +973,7 @@ As we can see, the access token does not contain \texttt{authority} claims. The 
 %        </dependency>
         
         
-\begin{lstlisting}[frame=lines, caption=Extraction of client roles and realm roles from Keycloak access token and conversion to granted authorities according to \cite{ch4mpAnswerUseKeycloak2022}. Simplified and with addition of the \texttt{ROLE\_} prefix., captionpos=b, label=lst:roles-authorities-converter, language=Java]
+\begin{lstlisting}[frame=lines, caption=Extraction of client roles and realm roles from Keycloak access token and conversion to granted authorities according to \cite{ch4mpAnswerUseKeycloak2022}. Simplified with added \texttt{ROLE\_} prefix., captionpos=b, label=lst:roles-authorities-converter, language=Java]
 @RequiredArgsConstructor
 class JwtGrantedAuthoritiesConverter implements Converter<Jwt, Collection<? extends GrantedAuthority>> {
 
@@ -1017,7 +1002,7 @@ class JwtGrantedAuthoritiesConverter implements Converter<Jwt, Collection<? exte
 }
 }\end{lstlisting}
 
-\begin{lstlisting}[frame=lines, caption=Custom converter to set the extracted granted authorities from the access token in the new \texttt{Authentication} according to \cite{ch4mpAnswerUseKeycloak2022} with added try/catch blocks, captionpos=b, label= lst:roles-converter, language=Java, showstringspaces=false]
+\begin{lstlisting}[frame=lines, caption=Custom converter to set the extracted granted authorities from the access token in the new \texttt{Authentication} according to \cite{ch4mpAnswerUseKeycloak2022} with added try/catch blocks., captionpos=b, label= lst:roles-converter, language=Java, showstringspaces=false]
 @Component
 @RequiredArgsConstructor
 class SpringAddonsJwtAuthenticationConverter implements Converter<Jwt, JwtAuthenticationToken> {
@@ -1076,16 +1061,28 @@ public class TeaSecurityConfiguration {
 \section{Load testing with JMeter}
 \label{sec:loadtesting-jmeter}
 
-To compare the different client positions, load testing was performed for the two variants and for a third version of the Teapot system without any access control, to relate the results. As mentioned before, only the reduced version of the teapot system was involved. The database still exists in the reduced system, but only the "hello"-endpoints were tested without using the database, to avoid unnecessary overhead.
+This section describes the implementation and test setup for the answer to the second research question presented in chapter \ref{chap:intro}, about the 
 
-The load testing was performed with Apache JMeter and the services were deployed with docker compose on the same machine. All testing was carried out on a Lenovo Thinkpad T490s with a Intel\textregistered Core\texttrademark  i78665U CPU, 1.9 GHz Base Frequency, 4,8 GHz Max Turbo Frequency and 4 Cores. The operating system was Microsoft Windows 11 Pro.
+Since there is a lot of functionality present in the previously presented implementation, that is not necessary for the comparison of the two client positions, the whole system was rebuilt in a even simpler version for the second part of the research. It was reduced to the gateway and one additional service for the gateway to communicate with, and of course the keycloak server. The Gateway and the Tea Service offer "hello"-endpoints that were used in the beginning for debugging. These endpoints were used for load testing, so the database was not involved.
+
+The remaining, stripped-down system is represented by figure \ref{fig:teapot-architecture}.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=\textwidth]{images/teapot-high-level}
+	\caption{High level diagram of the implemented services and their relation to each other}
+	\label{fig:teapot-architecture}
+\end{figure}
+
+As already mentioned at the beginning of this chapter, this version was built three times, with the client at the gateway as described in section \ref{sec:high-level}, with the client as resource server and a fictional client at the front-end level, and without any security implementation. For the load testing, JMeter imitated the client in the sense that it had an access token that it could send to the gateway (as resource server).
+
+For testing purposes, an endpoint at the respective gateway was used that forwards the request and the answer to and from the Tea service. When the gateway is a client, it has to ckeck the session cookie, find the stored access token and append it to the request before routing it to the Tea service. When the gateway is a resource server, it has to validate the recieved access token. In both scenarios, the Tea service is a resource server as described in section \ref{sub:resource-server}. For authentication in the first case, user login was first triggered via the browser so that the client would send a session cookie to the browser and store the user's access token. This session cookie was extracted and sent with each request to the client-gateway. In the second case, the gateway as resource server expects an access token, so this token was generated with Postman and sent with each request.
+
+The load testing was performed with Apache JMeter and the services were deployed with Docker Compose\footnote{https://docs.docker.com/compose/} on the same machine. All testing was carried out on a Lenovo Thinkpad T490s with a Intel\textregistered Core\texttrademark i78665U CPU, 1.9 GHz Base Frequency, 4,8 GHz Max Turbo Frequency and 4 Cores. The operating system was Microsoft Windows 11 Pro.
 %heap size... ?
 
-For testing purposes, only the minimal implementation without roles was used and only the gateway was involved, because the process from the moment when the authentication is done and the request is routed to the resource server is the same in all scenarios. Test requests were sent to the gateway's \texttt{/helloauth} endpoint. For authentication in the first case, user login was first triggered via the browser so that the client would send a session cookie to the browser and store the user's access token. This session cookie was extracted and sent with each request to the client-gateway. In the second case, the gateway as resource server expects an access token, so this token was generated with Postman and sent with each request.
+Testing parameters were the number of threads (which simulate the number of users), a \textit{ramp-up period} of 0, which means that all threads were started together and a \textit{loop count} of 1, so that each thread will send the request only once \cite{ApacheJMeterUser}. The tests were performed in several rounds for 100 up to 500 concurrent users where 50 users were added to each round. For higher numbers of users a part of the requests started to fail.
 
-Testing parameters were the number of threads (which simulate the number of users), a \textit{ramp-up period} of 0, which means that all threads were started together and a \textit{loop count} of 1, so that each thread will send the request only once. The tests were performed in several rounds for 100 up to 500 concurrent users where 50 users were added to each round. For higher numbers of users a part of the requests started to fail.
-
-For the comparison, the average response times were collected from the HTML dashboard generated by jmeter for each testround.
+For the comparison, the average response times were collected from the HTML dashboard generated by JMeter for each testround.
 Load testing results are presented and discussed in section \ref{sec:response-times}.
 
 %\section{Code Analysis - FEHLT}
@@ -1096,155 +1093,22 @@ Load testing results are presented and discussed in section \ref{sec:response-ti
 \chapter{Results and Discussion} % evt. umbenennen in discussion
 \label{chap:results}
 
-!!! ... mir fallt grad nix ein
-
 \section{Compliance with OAuth2 and OIDC specifications}
 \label{sec:conformance}
 
 For the implementation presented in chapter \ref{chap:implementation}, functionality and compliance to OAuth2 and OIDC specifications was tested with Postman and Wireshark.
 
-When trying to access the protected resource (the list of available Teas) via the gateway in it's client function at \texttt{http:localhost:8181/listteas} and a Firefox browser as user agent, the following requests and responses could be captured:
+The network traffic from the access the protected resource (the list of available Teas) via the gateway in it's client function at \texttt{http:localhost:8181/listteas} and a Firefox browser as user agent, was captured with Wireshark and is listed in the appendix \ref{appendix}.
 
-\begin{enumerate}
-\item
-\texttt{Source Port: 50965, Dest. Port: 8181
-\linebreak $\rightarrow$ GET http://localhost:8181/listteas}
-\linebreak Unauthenticated user wants to view a list of teas and sends request to dedicated endpoint at the gateway (client)
-\linebreak
-$\leftarrow$ \texttt{302 Found Location: /oauth2/authorization/keycloak-gateway-client}
-\linebreak Gateway refers the user to a different endpoint at the gateway
+It can be shown that the steps of the authorization code flow match with the OAuth2 specification. The authorization code is passed through via the user agent to the client who then trades it for the access token with the AZ. Authorization request, token request and token response are present and the access token is passed on from the client to the resource server as bearer token in the \texttt{Authentication} header.
 
-\item
-\texttt{Source Port: 50965, Dest. Port: 8181
-\linebreak $\rightarrow$ GET /oauth2/authorization/keycloak-gateway-client}
-\linebreak User agent sends request to the new endpoint
-\linebreak
-$\leftarrow$ \texttt{302 Found  [truncated]Location: http://host.docker.internal:10001/realms/teapot/protocol/openid-connect/auth...}
-\linebreak \texttt{Request URI Query Parameter: response\_type=code}
-\linebreak \texttt{Request URI Query Parameter: client\_id=teapot-gateway}
-\linebreak \texttt{Request URI Query Parameter: scope=openid}
-\linebreak \texttt{Request URI Query Parameter: state=FczD4rvwKxMMyYRC0joaa-oAr-GMbaG2rbuW76gE72k\%3D}
-\linebreak \texttt[Request URI Query Parameter: truncated]{redirect\_uri=http://localhost...}
-\linebreak \texttt{nonce= omitted by truncation?}
-\linebreak Gateway refers user agent to Keycloak's authorization endpoint with the authorization request
+The authorization/authentication request also contains the required parameters \texttt{response\_type}, \texttt{client\_id}, \texttt{redirect\_uri} and \texttt{scope} with \texttt{openid} as the value \cite{hardtOAuthAuthorizationFramework2023}, the last two parameters being required by OIDC \cite{sakimuraOpenIDConnectCore2014}. The \texttt{code\_challenge} parameter is missing. However, it is not required when the optional \texttt{nonce} parameter is used, which is the case here, but still recommended by the OAuth2 specification \cite{hardtOAuthAuthorizationFramework2023}. Also the recommended \texttt{state} parameter is present.
 
-\item
-\texttt{Source Port: 50966, Dest. Port: 10001
-\linebreak $\rightarrow$ [truncated]GET /realms/teapot/protocol/openid-connect/auth...}
-\linebreak \texttt{Request URI Query Parameter: response\_type=code}
-\linebreak \texttt{Request URI Query Parameter: client\_id=teapot-gateway}
-\linebreak \texttt{Request URI Query Parameter: scope=openid}
-\linebreak \texttt{Request URI Query Parameter: state=FczD4rvwKxMMyYRC0joaa-oAr-GMbaG2rbuW76gE72k\%3D}
-\linebreak \texttt{Request URI Query Parameter: redirect\_uri=http://localhost:8181/login/oauth2/code/keycloak-gateway-client}
-\linebreak \texttt{Request URI Query Parameter: nonce=BVUZ0gzd1P-FjEqiFWv8gLspnEEdaOpvvqm3hgiAriI}
-\linebreak User agent sends the client's authorization request to Keycloak's authorization endpoint (query parameters omitted)
-\linebreak
-$\leftarrow$ \texttt{200 OK  (text/html)} (Keycloak Login Form Page)
-\linebreak Keycloak responds with the login page to authenticate the user
-\linebreak ---Additional requests to load login page omitted---
+The token request is sent to Keycloak's token endpoint and contains again the \texttt{client\_id} and \texttt{grant\_type}, as required. The client authenticates during the token request with basic authentication. This is possible by definition of OAuth2\cite{hardtOAuthAuthorizationFramework2023} and it was a deliberate choice during the implementation. However, Spring Security and Keycloak both support other methods of client authentication, for example with a signed JWT \cite{AuthorizationServicesGuide}, \cite{ClientAuthenticationSupport}. The value in the authorization header is the base64-encoding of \texttt{client\_id:client\_secret}.
 
-\item
-\texttt{Source Port: 50971, Dest. Port: 10001
-\linebreak $\rightarrow$ [truncated]POST /realms/teapot/login-actions/authenticate...}
-\linebreak (request query parameters omitted)
-\linebreak \texttt{Form item: "username" = "ula"}
-\linebreak \texttt{Form item: "password" = "pass"}
-\linebreak \texttt{Form item: "credentialId" = ""}
-\linebreak User sends login data (username and password in payload)
-\linebreak
-$\leftarrow$ \texttt{302 Found  [truncated]Location: http://localhost:8181/login/oauth2/code/keycloak-gateway-client...}
-\linebreak \texttt{Set-Cookie: KEYCLOAK\_SESSION=teapot/9db57273-f45d-440f-910e-8dc764c3bcb0/4165bd59-749c-4ed3-a210-ecd4a6f928f5; Version=1; Expires=Fri, 16-Jun-2023 22:35:18 GMT; Max-Age=36000; Path=/realms/teapot/; SameSite=None; Secure}
-\linebreak (more cookies omitted)
-\linebreak
-Keycloak sends the user agent back to the gateway with the authorization code and state parameters (see below for full list of parameters)
+The token response also contains all required parameters, including the ID token, since it is an OIDC token response. The \texttt{scope} parameter contains more scope strings than the requested \texttt{oidc} scope and is therefore required as well \cite{hardtOAuthAuthorizationFramework2023}. Other parameters are specific to Keycloak and are not covered in the specifications. The access token life time was intentionally configured to be longer than recommended for testing convenience, but can be configured to any shorter period in seconds.
 
-\item
-\texttt{Source Port: 50965, Dest. Port: 8181
-\linebreak $\rightarrow$ GET [truncated]/login/oauth2/code/keycloak-gateway-client...}
-\linebreak \texttt{Request URI Query Parameter: state=FczD4rvwKxMMyYRC0joaa-oAr-GMbaG2rbuW76gE72k\%3D}
-\linebreak \texttt{Request URI Query Parameter: session\_state=4165bd59-749c-4ed3-a210-ecd4a6f928f5}
-\linebreak \texttt{Request URI Query Parameter: code=c49d4ea6-01c0-4f30-8388-48f338bdbd20.4165bd59-749c-4ed3-a210-ecd4a6f928f5.672c0413-eba3-4481-abb5-27f75a71727e}
-\linebreak
-(User agent sends the code back to the gateway)
-
-\item
-\texttt{Source Port: 50976, Dest. Port 10001
-\linebreak $\rightarrow$	POST /realms/teapot/protocol/openid-connect/token (application/x-www-form-urlencoded)}
-\linebreak \texttt{Authorization: Basic dGVhcG90LWdhdGV3YXk6U2ZBN3RCZFM5V2RrVnozRFlHcG5NOTY3UkFZTUtFU2s}
-\linebreak \texttt{Form item: "grant\_type" = "authorization\_code"}
-\linebreak \texttt{Form item: "code" = "c49d4ea6-01c0-4f30-8388-48f338bdbd20.4165bd59-749c-4ed3-a210-ecd4a6f928f5.672c0413-eba3-4481-abb5-27f75a71727e"}
-\linebreak \texttt{Form item: "redirect\_uri" = "http://localhost:8181/login/oauth2/code/keycloak-gateway-client"}
-\linebreak Gateway sends token request to Keykloaks token endpoint, with grant type, code and redirect-uri in the payload
-\linebreak
-$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
-\linebreak \texttt{"access\_token":} (value omitted)
-\linebreak \texttt{"expires\_in": "36000"}
-\linebreak \textbf{"refresh\_expires\_in": "1800"}
-\linebreak \texttt{"refresh\_token":} (value omitted)
-\linebreak \texttt{"token\_type": "Bearer"}
-\linebreak \texttt{"id\_token":} (value omitted)
-\linebreak \texttt{"not-before-policy": "0"}
-\linebreak \texttt{"session\_state": "4165bd59-749c-4ed3-a210-ecd4a6f928f5"}
-\linebreak \texttt{"scope": openid profile email}
-\linebreak Keycloak sends token response (in payload) to the gateway
-
-\item
-\texttt{Source Port: 50977, Dest. Port: 10001
-\linebreak $\rightarrow$	GET /realms/teapot/protocol/openid-connect/certs}
-\linebreak The gateway requests the JWKS from Keycloak
-\linebreak
-$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
-\linebreak Keycloak returns JWKS in payload (omitted)
-
-\item
-\texttt{Source Port: 50976, Dest. Port: 10001
-\linebreak $\rightarrow$ GET /realms/teapot/protocol/openid-connect/userinfo}
-\linebreak \texttt{ [truncated]Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHV...}
-\linebreak Gateway requests additional user information from Keykloak's userinfo endpoint with the freshly issued access token
-\linebreak
-$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
-\linebreak Keycloak returns user info (omitted)
-
-
-\item
-\texttt{Source Port: 8181, Dest. Port: 50965
-\linebreak $\leftarrow$ 302 Found Location: /listteas
-}
-\linebreak Gateway refers user to it's own \texttt{/listteas} endpoint a second time
-
-\item
-\texttt{Source Port: 50965, Dest. Port: 8181
-\linebreak $\rightarrow$ GET /listteas}
-\linebreak Browser sends new request to gateway's \texttt{/listteas} endpoint
-\linebreak
-$\leftarrow$ 
-
-\item
-\texttt{Source Port: 50978, Dest. Port: 8184
-\linebreak $\rightarrow$ GET /teas/getall}
-\linebreak \texttt{[truncated]Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHVGZ5e...}
-\linebreak Gateway forwards request for list of teas to Tea service with the access token in the \texttt{Authorization} header 
-\linebreak
-$\leftarrow$ \texttt{200 OK , JavaScript Object Notation (application/json)}
-\linebreak
-Tea service responds to gateway with list of teas in payload (omitted)
-
-\item
-\texttt{Source Port: 8181, Dest. Port: 50965 $\leftarrow$ 200 OK , JavaScript Object Notation (application/json)}
-\linebreak Gateway forwards the Tea service's response to the user agent.
-\end{enumerate}
-
-The protocol is HTTP 1.1 and host is localhost where not marked differently.
-
-We can see that the steps of the authorization code flow match with the OAuth2 specification. The authorization code is passed through via the user agent to the client who then trades it for the access token with the AZ. Authorization request, token request and token response are present and the access token is passed on from the client to the resource server as bearer token in the \texttt{Authentication} header.
-
-The authorization/authentication request also contains the required parameters \texttt{response\_type}, \texttt{client\_id}, \texttt{redirect\_uri} and \texttt{scope} with \texttt{openid} as the value, where the last two parameters are required by OIDC. The \texttt{code\_challenge} parameter is missing. It is not required when the optional \texttt{nonce} parameter is used, which is the case here, but still recommended by the OAuth2 specification. Also the recommended \texttt{state} parameter is present.
-
-The token request is sent to Keycloak's token endpoint and contains again the \texttt{client\_id} and \texttt{grant\_type} as required. The client authenticates during the token request with basic authentication. This is possibly by definition of OAuth2 and it was a choice during the implementation. However, Spring Security and Keycloak both support other methods of client authentication, for example with a signed JWT \cite{AuthorizationServicesGuide}, \cite{ClientAuthenticationSupport}. The value in the authorization header is the base64-encoding of \texttt{client\_id:client\_secret}.
-
-The token response also contains all required parameters, including the id token, since it is an OIDC token response. The \texttt{scope} parameter contains more scope strings than the requested \texttt{oidc} scope and is therefore required as well \cite{hardtOAuthAuthorizationFramework2023}. Other parameters are specific to Keycloak and are not covered in the specifications. The access token lifetime was intentionally configured to be longer than recommended for testing convenience.
-
-The access token itself turned out to show some flaws. In the Wireshark capture shown above it is truncated and can not be anaylzed, however when examining other access tokens issued by Keycloak, some faults become apparent: the media type in the \texttt{typ} header parameter is not \texttt{at+jwt} or \texttt{application/at+jwt} as required for OAuth2 JWT tokens. This special value is important for the distinction between access tokens and id tokens, to avoid that id tokens are accepted as access tokens \cite{bertocciJSONWebToken2021}. In fact, the attempt to request Tea from the Tea service with the id token instead of an access token was successful with this implementation (without role mapping). No configuration option could be found for Keycloak to change the token header, neither in the documentation nor by browsing through Keycloaks admin console. This does not mean that it is not possible, but it can be criticized that it is not as straightforward as it should be and the question remains why the required media type is not the default. As long as the access token's media type can not be changed, implementing it's validation on the resource server would not make sense. A related problem is the missing \texttt{aud} claim in the access token, which must be validated by the resource server, who must reject the request if it can not identify itself with the value \cite{bertocciJSONWebToken2021}. The \texttt{aud} claim can be set and configured in the Keycloak admin console by adding a scope mapper of the \textit{Audience} type \cite{•}. Token validation with Spring Security can be configured with the \texttt{OAuth2TokenValidator} API \cite{OAuthResourceServer}. At the Tea service, this would look like shown in listing \ref{lst:aud-validation}. An example access token which now includes the required \texttt{aud} claim is shown in figure \ref{fig:keycloak-access-token-aud-roles}. Another required parameter not included by Keycloak by default is \texttt{client\_id}. Adding it to the token with a scope mapper can be done in a similar way as for the \texttt{aud} claim, although Keycloak doesn't seem to offer a preconfigured mapper for this purpose. However, the \texttt{azp} claim does indeed contain the client id by default and seems to fulfil a similar purpose.
+The access token itself turned out to show some flaws. In the Wireshark capture it is truncated and can not be anaylzed, however when examining other access tokens issued by Keycloak, some faults become apparent: the media type in the \texttt{typ} header parameter is not \texttt{at+jwt} or \texttt{application/at+jwt} as required for OAuth2 JWT tokens. This special value is important for the distinction between access tokens and id tokens, to avoid that id tokens are accepted as access tokens \cite{bertocciJSONWebToken2021}. In fact, the attempt to request Tea from the Tea service with the id token instead of an access token was successful with this implementation (without role mapping). No configuration option could be found for Keycloak to change the token header, neither in the documentation nor by browsing through Keycloaks admin console. This does not mean that it is not possible, but it can be criticized that it is not as straightforward as it should be and the question remains why the required media type is not the default. As long as the access token's media type can not be changed, implementing it's validation on the resource server would not make sense. A related problem is the missing \texttt{aud} claim in the access token, which must be validated by the resource server, who must reject the request if it can not identify itself with the value \cite{bertocciJSONWebToken2021}. The \texttt{aud} claim can be set and configured in the Keycloak admin console by adding a scope mapper of the \textit{Audience} type. Token validation with Spring Security can be configured with the \texttt{OAuth2TokenValidator} API \cite{OAuthResourceServer}. At the Tea service, this would look like shown in listing \ref{lst:aud-validation}. An example access token which now includes the required \texttt{aud} claim is shown in figure \ref{fig:keycloak-access-token-aud-roles}. Another required parameter not included by Keycloak by default is \texttt{client\_id} \cite{hardtOAuthAuthorizationFramework2023}. Adding it to the token with a scope mapper can be done in a similar way as for the \texttt{aud} claim, although Keycloak doesn't seem to offer a preconfigured mapper for this purpose. However, the \texttt{azp} claim does indeed contain the client id by default and seems to fullfill a similar purpose.
 
 \begin{lstlisting}[frame=lines, caption=Validator for the \texttt{aud} claim for the Tea resource server according to \cite{OAuthResourceServer}., captionpos=b, label = lst:aud-validation, language=Java, showstringspaces=false]
 OAuth2TokenValidator<Jwt> audienceValidator() {
@@ -1289,9 +1153,6 @@ The id token issued by Keycloak is inconspicuous in comparison. An example id to
 
 \section{Response times} % raufverschieben zu implementation
 \label{sec:response-times}
-
-!!! tests für die ganze runde fehlen! + erklären, was beim jeweiligen szenario passiert.
-etwas andere parameter weil client nur in der gui mit 0 ramp up time testbar war
 
 Load testing of the different gateway variants showed a tendency toward higher average response times at the gateway as resource server in comparison to the gateway as client. The response times for the unprotected gateway were generally lower than the other two gateways, which can be expected because no endpoint protection mechanism is involved in the process. Figure \ref{fig:response-times-hellotea} shows the average response times for all three variants.
 
@@ -1362,5 +1223,18 @@ The second part of the investivation was a comparison of average response times 
 \newpage
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
+
+% --- Appendix A -----------------------------------------------------
+
+\backmatter
+\appendix
+\begin{appendices}
+\chapter{Appendix}
+\label{appendix}
+
+
+\clearpage
+\end{appendices}
+
 
 \end{document}

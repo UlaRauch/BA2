@@ -9,17 +9,18 @@ participant KeycloakServer
 participant TeaService
 
 User -> Gateway: GET localhost:8181/hellotea/tea
-Gateway -> KeycloakServer: requestAuthorizationCode
-KeycloakServer -> User: sendAuthorizationRequest
-User -> KeycloakServer: grantAuthorization
+Gateway --> User: redirectToAuthorizationServerWithAuthorizationRequest
+User-> KeycloakServer: sendAuthorizationRequest
+KeycloakServer --> User: sendLoginForm
+User -> KeycloakServer: authenticate+grantAuthorization
+KeycloakServer --> User: redirectToClientWithAuthorizationCode(code)
 User -> Gateway: sendAuthorizationCode(code)
 Gateway -> KeycloakServer: requestAccessToken(code)
-KeycloakServer -> Gateway: returnAccessToken
+KeycloakServer --> Gateway: returnAccessToken
 Gateway -> TeaService: GET localhost:8184/teas/hello/tea (accessToken)
-TeaService -> Gateway: 200 OK, "Hello tea"
-Gateway -> User: 200 OK, "Hello tea"
+TeaService --> Gateway: 200 OK, "Hello tea"
+Gateway --> User: 200 OK, "Hello tea"
 @enduml
-
 
 # Complete Teapot high-level architecture
 @startuml
