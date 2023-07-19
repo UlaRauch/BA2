@@ -55,6 +55,10 @@
 
 
 \usepackage{colortbl} % define colored backgrounds for tables
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
 
 \usepackage{courier} %for listings
 \usepackage{listings} % nicer code formatting
@@ -246,7 +250,7 @@ Furthermore, I assure that the (printed and electronic) copies I have submitted 
 Date: 15.01.2023 \hspace{6cm} Signature:\\
 
 % --- Acknowledgement ------------------------------------------
-\chapter*{Acknowledgement}
+\chapter*{Acknowledgement - FEHLT}
 % Leon für gute Betreuung, FH-Freund*innen, Eltern für beherbergung und Futter, Mama für Korrekturlesen (und wer noch? Michi? Liest noch wer?), Restliche Familie und alle anderen, die mich während des Studiums moralisch supportet haben und aushalten haben müssen, dass ich eine Streberin geworden bin, die kaum noch Freizeit hat, Arbeitskolleg*innen, weil sie sich geduldig mein Gejammer anhören.
 
 
@@ -1234,17 +1238,34 @@ The second part of the investivation was a comparison of average response times 
 
 % --- List of Tables -----------------------------------------------------
 
-\newpage
-\addcontentsline{toc}{chapter}{List of Tables}
-\listoftables
+%\newpage
+%\addcontentsline{toc}{chapter}{List of Tables}
+%\listoftables
 
 % --- Appendix A -----------------------------------------------------
 
 \backmatter
 \appendix
 \begin{appendices}
-\chapter{Appendix}
+\chapter{Appendix - FORMATIEREN!}
 \label{appendix}
+
+
+\begin{table}[htbp]
+    \centering
+	\begin{tabularx}{\textwidth} {|  >{\raggedright\arraybackslash}X  |   >{\raggedright\arraybackslash}X |} 
+		\hline
+		\multicolumn{2}{| >{\raggedright\arraybackslash}X  |}{1. Source Port: 50965, Dest. Port: 8181} \\
+        \hline
+        Request & Response \\
+        \hline
+        \texttt{GET http://localhost:8181/listteas} & \texttt{302 Found Location: /oauth2/authorization/ \linebreak keycloak-gateway-client} \\
+        \hline
+        Unauthenticated user wants to view a list of teas and sends request to dedicated endpoint at the gateway (client)
+        & Gateway refers the user to a different endpoint at the gateway \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \begin{enumerate}
 \item
